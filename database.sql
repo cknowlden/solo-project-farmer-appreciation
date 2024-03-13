@@ -11,6 +11,12 @@ CREATE TABLE "roles" (
     "type" VARCHAR (80) NOT NULL
 );
 
+INSERT INTO "roles" ("type")
+VALUES ('guest'),('reg_user'),('admin');
+
+INSERT INTO "user" ("username", "password", "email", "role_id")
+    VALUES ('user', 'password', 'user@gmail.com', 2) RETURNING id;
+
 CREATE TABLE "rsvp" (
 	"id" SERIAL PRIMARY KEY,
 	"first_name" VARCHAR(50) NOT NULL,
@@ -36,6 +42,7 @@ CREATE TABLE "events" (
 	"state" VARCHAR (80) NOT NULL,
 	"zip" BIGINT NOT NULL,
 	"cost" BIGINT,
+	"image" VARCHAR,
 	"details" VARCHAR (300)
 	);
 
