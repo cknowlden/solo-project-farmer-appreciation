@@ -15,30 +15,52 @@ function Nav() {
       <div>
         {/* If no user is logged in, show these links */}
         {!user.id && (
-          // If there's no user, show login/registration links
-          <Link className="navLink" to="/login">
-            Login / Register
-          </Link>
+          <>
+            {/* If there's no user, show login/registration links */}
+            <Link className="navLink" to="/login">
+              Login / Register
+            </Link>
+            <Link className="navLink" to="/">
+              Home
+            </Link>
+            <Link className="navLink" to="/events">
+              Events
+            </Link>
+            <Link className="navLink" to="/info">
+              Information
+            </Link>
+            <Link className="navLink" to="/resources">
+              Resources
+            </Link>
+          </>
         )}
 
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
-            <Link className="navLink" to="/user">
+            <Link className="navLink" to="/">
               Home
             </Link>
 
+            <Link className="navLink" to="/events">
+              Events
+            </Link>
+
+            <Link className="navLink" to="/create">
+              Create Event
+            </Link>
+
             <Link className="navLink" to="/info">
-              Info Page
+              Information
+            </Link>
+
+            <Link className="navLink" to="/resources">
+              Resources
             </Link>
 
             <LogOutButton className="navLink" />
           </>
         )}
-
-        <Link className="navLink" to="/about">
-          About
-        </Link>
       </div>
     </div>
   );
