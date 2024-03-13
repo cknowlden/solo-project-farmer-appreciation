@@ -116,7 +116,7 @@ function App() {
   return (
     <Router>
       <Nav />
-      <Route>
+      <Route exact path="/">
         <Home />
       </Route>
     </Router>
