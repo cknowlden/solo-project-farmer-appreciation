@@ -1,17 +1,18 @@
 import React from 'react';
 
 // This is one of our simplest components
-// It doesn't have local state
+// It doesn't have local state,
 // It doesn't dispatch any redux actions or display any part of redux state
-// or even care what the redux state is
+// or even care what the redux state is'
 
-function InfoPage() {
+function Home() {
   return (
     <div className="container">
-      <p>Info Page</p>
-      <p>Statistics will go here pulled from database</p>
+      <div>
+        <p>Here's a list of events in your area</p>
+      </div>
     </div>
   );
 }
 
-export default InfoPage;
+export default Home;

@@ -1,27 +1,24 @@
 import React from 'react';
-import LoginForm from '../LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
 
-function LoginPage() {
+function CreateEvent() {
   const history = useHistory();
 
   return (
     <div>
-      <LoginForm />
+      <h1>Create your Event</h1>
 
       <center>
         <button
           type="button"
           className="btn btn_asLink"
           onClick={() => {
-            history.push('/home');
+            history.push('/events');
           }}
-        >
-          Don't have an account? Register HERE
-        </button>
+        ></button>
       </center>
     </div>
   );
 }
 
-export default LoginPage;
+export default CreateEvent;

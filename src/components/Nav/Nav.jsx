@@ -18,7 +18,7 @@ function Nav() {
           <>
             {/* If there's no user, show login/registration links */}
             <Link className="navLink" to="/login">
-              Login / Register
+              Login/Register
             </Link>
             <Link className="navLink" to="/">
               Home
