@@ -17,6 +17,7 @@ function Nav() {
         {!user.id && (
           <>
             {/* If there's no user, show login/registration links */}
+            <p className="userLog">Welcome, Guest</p>
             <Link className="navLink" to="/login">
               Login
             </Link>
@@ -38,6 +39,8 @@ function Nav() {
         {/* If a user is logged in, show these links */}
         {user.id && (
           <>
+            <p className="userLog">Logged in as: {user.username}</p>
+
             <Link className="navLink" to="/">
               Home
             </Link>
