@@ -6,6 +6,24 @@ function Events() {
   const events = useSelector((store) => store.events);
   const dispatch = useDispatch();
 
+  const eventDetails = (event) => {
+    alert('whoa');
+    // const id = event.target.id;
+    // history.pushState(`details/${id}`);
+  };
+
+  const handleClick = (event) => {
+    const id = event.target.id;
+    eventDetails();
+    event.preventDefault();
+    // dispatch({
+    //   type: 'SET_DETAILS',
+    //   payload: {
+    //     id: id,
+    //   },
+    // });
+  };
+
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENTS' });
   }, []);
@@ -17,7 +35,8 @@ function Events() {
         <section className="events">
           {events.map((event) => {
             return (
-              <div key={event.id}>
+              <div onClick={handleClick} key={event.id}>
+                <img id={event.id} src={event.image} alt={event.name} />
                 <h3>{event.name}</h3>
                 <p>{event.date}</p>
                 <p>{event.location}</p>
@@ -26,13 +45,6 @@ function Events() {
                   {event.city},{event.state}
                   {event.zip}
                 </p>
-                {/* <img
-                data-testid="toDetails"
-                id={movie.id}
-                src={movie.poster}
-                alt={movie.title}
-                onClick={handleClick}
-              /> */}
               </div>
             );
           })}
