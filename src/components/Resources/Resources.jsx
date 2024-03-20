@@ -20,13 +20,6 @@ function Resources() {
               <a href={resource.link} target="_blank">
                 {resource.title}
               </a>
-              {/* <img
-              data-testid="toDetails"
-              id={movie.id}
-              src={movie.poster}
-              alt={movie.title}
-              onClick={handleClick}
-            /> */}
             </div>
           );
         })}
