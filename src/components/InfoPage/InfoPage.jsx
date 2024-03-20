@@ -11,18 +11,18 @@ function InfoPage() {
   }, []);
   return (
     <div className="container">
-      <p>A list of information goes here</p>
-      {JSON.stringify(info)}
-      {/* {resources &&
-        resources.map((resource) => {
-          return (
-            <div className="resources" key={resource.id}>
-              <a href={resource.link} target="_blank">
-                {resource.title}
-              </a>
-            </div>
-          );
-        })} */}
+      {/* <p>A list of information goes here</p> */}
+      {/* {JSON.stringify(info)} */}
+      <div>
+        {info &&
+          info.map((information) => {
+            return (
+              <div className="information" key={information.id}>
+                <p>{information.description}</p>
+              </div>
+            );
+          })}
+      </div>
     </div>
   );
 }
