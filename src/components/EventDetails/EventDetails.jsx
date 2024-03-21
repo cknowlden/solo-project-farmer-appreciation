@@ -7,7 +7,8 @@ function EventDetails() {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const event = useSelector((store) => store.events);
+  const eventDetails = useSelector((store) => store.events);
+  const event = eventDetails[0] || 'No details available';
 
   useEffect(() => {
     dispatch({ type: 'FETCH_DETAILS', payload: id });
@@ -15,7 +16,8 @@ function EventDetails() {
 
   return (
     <div className="details">
-      <h3>{JSON.stringify(event)}</h3>
+      {/* <h3>{JSON.stringify(event)}</h3> */}
+      <h3>{JSON.stringify(eventDetails)}</h3>
     </div>
   );
 }
