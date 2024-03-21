@@ -4,7 +4,8 @@ import { put, takeEvery } from 'redux-saga/effects';
 // worker Saga: will be fired on "FETCH_DETAILS" actions
 function* fetchDetails(action) {
   try {
-    const detailsResponse = yield axios.get(`/api/events/${action.payload}`);
+    const detailsResponse = yield axios.get(`/api/details/${action.payload}`);
+    console.log('details response', detailsResponse);
     yield put({ type: 'SET_DETAILS', payload: detailsResponse.data });
   } catch (error) {
     console.log('Details get request failed', error);

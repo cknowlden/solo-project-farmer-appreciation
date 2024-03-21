@@ -1,23 +1,30 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function EventDetails() {
   const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const eventDetails = useSelector((store) => store.events);
-  const event = eventDetails[0] || 'No details available';
+  const eventDetails = useSelector((store) => store.details);
+  const details = eventDetails[0] || 'No details available';
 
   useEffect(() => {
     dispatch({ type: 'FETCH_DETAILS', payload: id });
   }, []);
 
+  const goBack = () => {
+    history.push('/events');
+  };
+
   return (
     <div className="details">
-      {/* <h3>{JSON.stringify(event)}</h3> */}
-      <h3>{JSON.stringify(eventDetails)}</h3>
+      <h3>{JSON.stringify(details)}</h3>
+      <Button onClick={goBack} variant="outlined">
+        X
+      </Button>
     </div>
   );
 }

@@ -24,6 +24,6 @@ export default function* rootSaga() {
     eventsSaga(),
     infoSaga(),
     createSaga(),
-    detailsSaga,
+    detailsSaga(),
   ]);
 }

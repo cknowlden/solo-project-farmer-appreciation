@@ -5,28 +5,29 @@ import { useHistory } from 'react-router-dom';
 function Events() {
   const events = useSelector((store) => store.events);
   const dispatch = useDispatch();
-  // history = useHistory();
+  const history = useHistory();
 
-  const eventDetails = (event) => {
-    // const id = event.target.id;
-    // history.pushState(`/details/${id}`);
+  const eventDetails = () => {
+    const id = event.target.id;
+    history.push(`/details/${id}`);
   };
 
   const handleClick = (event) => {
     const id = event.target.id;
     eventDetails();
     event.preventDefault();
-    // dispatch({
-    //   type: 'SET_DETAILS',
-    //   payload: {
-    //     id: id,
-    //   },
-    // });
+    dispatch({
+      type: 'SET_DETAILS',
+      payload: {
+        id: id,
+      },
+    });
   };
 
   useEffect(() => {
     dispatch({ type: 'FETCH_EVENTS' });
   }, []);
+
   return (
     <>
       <div className="search">
@@ -43,8 +44,13 @@ function Events() {
         <section className="events">
           {events.map((event) => {
             return (
-              <div onClick={handleClick} key={event.id}>
-                <img id={event.id} src={event.image} alt={event.name} />
+              <div key={event.id}>
+                <img
+                  onClick={handleClick}
+                  id={event.id}
+                  src={event.image}
+                  alt={event.name}
+                />
                 <h3>{event.name}</h3>
                 <p>{event.date}</p>
                 <p>{event.location}</p>
