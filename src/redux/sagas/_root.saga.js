@@ -6,6 +6,7 @@ import resourcesSaga from './resources.saga';
 import eventsSaga from './events.saga';
 import infoSaga from './info.saga';
 import createSaga from './create.saga';
+import detailsSaga from './details.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -23,5 +24,6 @@ export default function* rootSaga() {
     eventsSaga(),
     infoSaga(),
     createSaga(),
+    detailsSaga,
   ]);
 }

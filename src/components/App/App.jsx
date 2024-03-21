@@ -22,6 +22,7 @@ import Resources from '../Resources/Resources';
 import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
+import EventDetails from '../EventDetails/EventDetails';
 
 import './App.css';
 
@@ -56,6 +57,10 @@ function App() {
 
           <Route exact path="/events">
             <Events />
+          </Route>
+
+          <Route exact path="/details/:id">
+            <EventDetails />
           </Route>
 
           <Route exact path="/create">

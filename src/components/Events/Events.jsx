@@ -48,11 +48,7 @@ function Events() {
                 <h3>{event.name}</h3>
                 <p>{event.date}</p>
                 <p>{event.location}</p>
-                <p>{event.street} </p>
-                <p>
-                  {event.city},{event.state}
-                  {event.zip}
-                </p>
+                <p>{event.cost}</p>
               </div>
             );
           })}
