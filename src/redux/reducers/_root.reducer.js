@@ -4,6 +4,7 @@ import user from './user.reducer';
 import resources from './resources.reducer';
 import events from './events.reducer';
 import info from './info.reducer';
+import create from './create.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
   resources, //returns links to resources
   events, //full list of all events
   info, //statistical data pulled
+  create, //creates event
 });
 
 export default rootReducer;

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
 
 function CreateEvent() {
   const history = useHistory();
@@ -32,21 +34,21 @@ function CreateEvent() {
   };
 
   const handleSubmit = (event) => {
-    nextAction();
     event.preventDefault();
     console.log('form data', formData);
-    dispatchEvent({
+    dispatch({
       type: 'CREATE_EVENT',
       payload: {
         formData,
       },
     });
+    nextAction();
   };
   return (
     <div>
       <h1>Create your Event</h1>
       <h1>Add your event here:</h1>
-      <form>
+      <form onSubmit={handleSubmit}>
         <input
           onChange={handleInputChange}
           value={formData.name}
@@ -110,10 +112,27 @@ function CreateEvent() {
           label="Image upload (optional)"
         />{' '}
         <br />
+        <TextField
+          onChange={handleInputChange}
+          value={formData.date}
+          name="date"
+          variant="outlined"
+          type="datetime-local"
+        />
+        <input
+          onChange={handleInputChange}
+          value={formData.cost}
+          name="cost"
+          type="number"
+          placeholder="Cost (required)"
+        />
         <center>
-          <button onClick={handleSubmit} type="button" className="button">
+          {/* <button onClick={handleSubmit} type="button" className="button">
             Create Event
-          </button>
+          </button> */}
+          <Button type="submit" variant="contained">
+            Create Event
+          </Button>
         </center>
       </form>
     </div>

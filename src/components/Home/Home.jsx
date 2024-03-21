@@ -7,7 +7,7 @@ function Home() {
 
   return (
     <>
-      <h1>Farmer Appreciation</h1>
+      <h1>Rural Wisconsin Events</h1>
       <p>
         You and your community deserve to live life to its fullest. We
         appreciate you and all you do.

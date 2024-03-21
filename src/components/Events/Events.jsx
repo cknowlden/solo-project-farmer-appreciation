@@ -5,11 +5,11 @@ import { useHistory } from 'react-router-dom';
 function Events() {
   const events = useSelector((store) => store.events);
   const dispatch = useDispatch();
+  // history = useHistory();
 
   const eventDetails = (event) => {
-    alert('whoa');
     // const id = event.target.id;
-    // history.pushState(`details/${id}`);
+    // history.pushState(`/details/${id}`);
   };
 
   const handleClick = (event) => {
@@ -28,9 +28,17 @@ function Events() {
     dispatch({ type: 'FETCH_EVENTS' });
   }, []);
   return (
-    <div className="container">
+    <>
+      <div className="search">
+        <h1>Find an event near you</h1>
+        <div>
+          <p>
+            Location <button>Search</button>
+          </p>
+        </div>
+      </div>
       <div>
-        <p>Here's a list of events in your area</p>
+        <h2>Upcoming Events</h2>
         {/* {JSON.stringify(events)} */}
         <section className="events">
           {events.map((event) => {
@@ -50,7 +58,7 @@ function Events() {
           })}
         </section>
       </div>
-    </div>
+    </>
   );
 }
 
