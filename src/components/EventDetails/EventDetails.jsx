@@ -20,26 +20,27 @@ function EventDetails() {
   };
 
   return (
-    <div className="details">
-      <h3>{JSON.stringify(details)}</h3>
-      <Button onClick={goBack} variant="outlined">
+    <>
+      {' '}
+      <Button className="goBackButton" onClick={goBack} variant="outlined">
         X
       </Button>
-    </div>
+      <div className="details">
+        {/* <h3>{JSON.stringify(details)}</h3> */}
+        <img id={details.id} src={details.image} alt={details.name} />
+        <h3>{details.name}</h3>
+        <p>{details.date}</p>
+        <p>{details.location}</p>
+        <p>{details.street} </p>
+        <p>
+          {details.city},{details.state} {''}
+          {details.zip}
+        </p>
+        <p> ${details.cost}</p>
+        <p>{details.details}</p>
+      </div>
+    </>
   );
 }
 
 export default EventDetails;
-{
-  /* <div onClick={handleClick} key={event.id}>
-  <img id={event.id} src={event.image} alt={event.name} />
-  <h3>{event.name}</h3>
-  <p>{event.date}</p>
-  <p>{event.location}</p>
-  <p>{event.street} </p>
-  <p>
-    {event.city},{event.state}
-    {event.zip}
-  </p>
-</div>; */
-}
