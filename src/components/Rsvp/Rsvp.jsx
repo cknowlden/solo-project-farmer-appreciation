@@ -1,14 +1,19 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
 
 function Rsvp() {
+  const { id } = useParams();
   const history = useHistory();
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'RSVP' });
+  }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'FETCH_DETAILS', payload: id });
   }, []);
 
   const goBack = () => {

@@ -19,6 +19,10 @@ function EventDetails() {
     history.push('/events');
   };
 
+  const goRsvp = () => {
+    history.push('/rsvp');
+  };
+
   return (
     <>
       {' '}
@@ -29,6 +33,7 @@ function EventDetails() {
         {/* <h3>{JSON.stringify(details)}</h3> */}
         <img id={details.id} src={details.image} alt={details.name} />
         <h3>{details.name}</h3>
+        <p>{details.details}</p>
         <p>{details.date}</p>
         <p>{details.location}</p>
         <p>{details.street} </p>
@@ -37,7 +42,9 @@ function EventDetails() {
           {details.zip}
         </p>
         <p> ${details.cost}</p>
-        <p>{details.details}</p>
+        <Button className="goRsvp" onClick={goRsvp} variant="outlined">
+          RSVP NOW!
+        </Button>
       </div>
     </>
   );
