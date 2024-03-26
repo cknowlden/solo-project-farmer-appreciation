@@ -15,6 +15,7 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute';
 
 import Home from '../Home/Home';
 import Events from '../Events/Events';
+import Rsvp from '../Rsvp/Rsvp';
 import CreateEvent from '../CreateEvent/CreateEvent';
 import UserPage from '../UserPage/UserPage';
 import InfoPage from '../InfoPage/InfoPage';
@@ -58,6 +59,10 @@ function App() {
 
           <Route exact path="/events">
             <Events />
+          </Route>
+
+          <Route exact path="/rsvp">
+            <Rsvp />
           </Route>
 
           <Route exact path="/details/:id">
