@@ -23,6 +23,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventDetails from '../EventDetails/EventDetails';
+import Admin from '../Admin/Admin';
 
 import './App.css';
 
@@ -73,6 +74,10 @@ function App() {
 
           <Route exact path="/resources">
             <Resources />
+          </Route>
+
+          <Route exact path="/admin">
+            <Admin />
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.
