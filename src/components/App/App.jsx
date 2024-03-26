@@ -61,7 +61,7 @@ function App() {
             <Events />
           </Route>
 
-          <Route exact path="/rsvp">
+          <Route exact path="/rsvp/:id">
             <Rsvp />
           </Route>
 

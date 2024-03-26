@@ -20,7 +20,8 @@ function EventDetails() {
   };
 
   const goRsvp = () => {
-    history.push('/rsvp');
+    const id = details.id;
+    history.push(`/rsvp/${id}`);
   };
 
   return (

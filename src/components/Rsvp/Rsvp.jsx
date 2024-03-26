@@ -12,9 +12,9 @@ function Rsvp() {
     dispatch({ type: 'SET_TITLE', payload: 'RSVP' });
   }, []);
 
-  useEffect(() => {
-    dispatch({ type: 'FETCH_DETAILS', payload: id });
-  }, []);
+  // useEffect(() => {
+  //   dispatch({ type: 'FETCH_DETAILS', payload: id });
+  // }, []);
 
   const goBack = () => {
     history.push('/events');
