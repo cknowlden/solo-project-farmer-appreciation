@@ -2,17 +2,18 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
+import '../App/App.css';
 
 function Home() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch({ type: 'SET_TITLE', payload: 'Home' });
+    dispatch({ type: 'SET_TITLE', payload: 'HOME' });
   }, []);
 
   return (
-    <>
+    <div className="bg">
       <h1>Rural Wisconsin Events</h1>
       <p>
         You and your community deserve to live life to its fullest. We
@@ -68,7 +69,7 @@ function Home() {
           </>
         )}
       </div>
-    </>
+    </div>
   );
 }
 

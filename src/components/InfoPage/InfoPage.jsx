@@ -9,6 +9,11 @@ function InfoPage() {
   useEffect(() => {
     dispatch({ type: 'FETCH_INFO' });
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_TITLE', payload: 'INFORMATION' });
+  }, []);
+
   return (
     <div className="container">
       {/* <p>A list of information goes here</p> */}

@@ -28,6 +28,10 @@ function Events() {
     dispatch({ type: 'FETCH_EVENTS' });
   }, []);
 
+  useEffect(() => {
+    dispatch({ type: 'SET_TITLE', payload: 'EVENTS' });
+  }, []);
+
   return (
     <>
       <div className="search">

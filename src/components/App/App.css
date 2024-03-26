@@ -4,14 +4,31 @@ body,
   height: 100%;
 }
 
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
   display: inline-block;
   max-width: 100%;
+}
+
+/* --------------------------------------------------------------------------------
+Background
+-------------------------------------------------------------------------------- */
+
+.bg {
+  min-height: 80vh;
+  background-image: url(/images/wheat.jpg);
 }
 
 /* --------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
@@ -19,6 +19,10 @@ function CreateEvent() {
     image: '',
     details: '',
   });
+
+  useEffect(() => {
+    dispatch({ type: 'SET_TITLE', payload: 'CREATE AN EVENT' });
+  }, []);
 
   const nextAction = () => {
     alert('Your event has been created!');
@@ -46,7 +50,6 @@ function CreateEvent() {
   };
   return (
     <div>
-      <h1>Create your Event</h1>
       <h1>Add your event here:</h1>
       <form onSubmit={handleSubmit}>
         <input

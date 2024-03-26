@@ -9,6 +9,11 @@ function Resources() {
   useEffect(() => {
     dispatch({ type: 'FETCH_RESOURCES' });
   }, []);
+
+  useEffect(() => {
+    dispatch({ type: 'SET_TITLE', payload: 'RESOURCES' });
+  }, []);
+
   return (
     <div className="container">
       <p>A list of resources here from database</p>
