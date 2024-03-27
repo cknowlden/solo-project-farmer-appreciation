@@ -13,7 +13,7 @@ function Home() {
   }, []);
 
   return (
-    <div className="bg">
+    <div className="wheat">
       <h1>Rural Wisconsin Events</h1>
       <p>
         You and your community deserve to live life to its fullest. We

@@ -6,7 +6,7 @@ function LoginPage() {
   const history = useHistory();
 
   return (
-    <div>
+    <div className="App">
       <LoginForm />
 
       <center>
@@ -19,6 +19,19 @@ function LoginPage() {
         >
           Don't have an account? Register HERE
         </button>
+        <p>{''}</p>
+        <p>{''}</p>
+        <div>
+          <button
+            type="button"
+            className="btn btn_asLink"
+            onClick={() => {
+              history.push('/');
+            }}
+          >
+            Continue as GUEST
+          </button>
+        </div>
       </center>
     </div>
   );

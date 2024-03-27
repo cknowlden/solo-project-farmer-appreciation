@@ -8,7 +8,7 @@ body,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: #e01616;
+  /* background-color: #e01616; */
 }
 
 body {
@@ -32,7 +32,7 @@ h1 {
 Background
 -------------------------------------------------------------------------------- */
 
-.bg {
+.wheat {
   min-height: 85vh;
   background-image: url(/images/wheat.jpg);
   background-size: 100% 100%;
