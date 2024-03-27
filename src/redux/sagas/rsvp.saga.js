@@ -1,21 +1,21 @@
-// import axios from 'axios';
-// import { put, takeLatest } from 'redux-saga/effects';
+import axios from 'axios';
+import { put, takeLatest } from 'redux-saga/effects';
 
-// // worker Saga: will be fired on "CREATE_EVENT" actions
-// function* newRsvp(action) {
-//   try {
-//     const infoResponse = yield axios.post(
-//       '/api/events/create',
-//       action.payload.formData
-//     );
-//     yield put({ type: 'SET_CREATE' });
-//   } catch (error) {
-//     console.log('Create event post request failed', error);
-//   }
-// }
+// worker Saga: will be fired on "RSVP_EVENT" actions
+function* rsvpEvent(action) {
+  try {
+    const infoResponse = yield axios.post(
+      `/api/rsvp/${action.payload.id}`,
+      action.payload.formData
+    );
+    yield put({ type: 'SET_RSVP' });
+  } catch (error) {
+    console.log('RSVP post request failed', error);
+  }
+}
 
-// function* createSaga() {
-//   yield takeLatest('CREATE_EVENT', createEvent);
-// }
+function* rsvpSaga() {
+  yield takeLatest('RSVP_EVENT', rsvpEvent);
+}
 
-// export default newRsvp;
+export default rsvpSaga;

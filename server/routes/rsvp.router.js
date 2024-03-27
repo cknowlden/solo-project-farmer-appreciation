@@ -7,7 +7,7 @@ router.post('/:id', (req, res) => {
   const sqlText = `INSERT INTO "rsvp"
   ("first_name", "last_name", "email", "phone", "event_id")
   VALUES
-    ($1, $2, $3, $4, $5, $6);
+    ($1, $2, $3, $4, $5);
     `;
   const sqlValues = [
     req.body.first_name,
