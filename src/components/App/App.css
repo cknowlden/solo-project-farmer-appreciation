@@ -8,6 +8,7 @@ body,
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #e01616;
 }
 
 body {
@@ -22,13 +23,20 @@ img {
   max-width: 100%;
 }
 
+h1 {
+  margin: 0px 0px 0px 0px;
+  padding-top: 20px;
+}
+
 /* --------------------------------------------------------------------------------
 Background
 -------------------------------------------------------------------------------- */
 
 .bg {
-  min-height: 80vh;
+  min-height: 85vh;
   background-image: url(/images/wheat.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 /* --------------------------------------------------------------------------------
