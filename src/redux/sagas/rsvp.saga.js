@@ -8,7 +8,7 @@ function* rsvpEvent(action) {
       `/api/rsvp/${action.payload.id}`,
       action.payload.formData
     );
-    yield put({ type: 'SET_RSVP' });
+    yield put({ type: 'SET_RSVP', payload: action.payload });
   } catch (error) {
     console.log('RSVP post request failed', error);
   }

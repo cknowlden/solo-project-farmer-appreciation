@@ -1,6 +1,6 @@
-const rsvpReducer = (state = [], action) => {
+const rsvpReducer = (state = null, action) => {
   switch (action.type) {
-    case 'RSVP_EVENT':
+    case 'SET_RSVP':
       return action.payload;
     default:
       return state;

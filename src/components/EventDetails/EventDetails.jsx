@@ -13,6 +13,7 @@ function EventDetails() {
   const dispatch = useDispatch();
 
   const eventDetails = useSelector((store) => store.details);
+  const user = useSelector((store) => store.user);
   const details = eventDetails[0] || 'No details available';
 
   useEffect(() => {
@@ -28,6 +29,17 @@ function EventDetails() {
     history.push(`/rsvp/${id}`);
   };
 
+  const handleDelete = (event) => {
+    const id = details.id;
+    event.preventDefault();
+    dispatch({
+      type: 'DELETE_EVENT',
+      payload: {
+        id: id,
+      },
+    });
+    goBack();
+  };
   return (
     <>
       <Button alignItems="right" onClick={goBack} variant="outlined">
@@ -51,20 +63,23 @@ function EventDetails() {
           RSVP NOW!
         </Button>
       </div>
-      <div>
-        {' '}
-        <IconButton
-          alignItems="right"
-          aria-label="delete"
-          color="primary"
-          size="large"
-        >
-          <DeleteIcon />
-        </IconButton>
-        <IconButton aria-label="edit" color="primary" size="large">
-          <EditIcon />
-        </IconButton>
-      </div>
+      {((details && user.id === details.userid) || (user.type = 'admin')) && (
+        <div>
+          {' '}
+          <IconButton
+            alignItems="right"
+            aria-label="delete"
+            color="primary"
+            size="large"
+            onClick={handleDelete}
+          >
+            <DeleteIcon />
+          </IconButton>
+          <IconButton aria-label="edit" color="primary" size="large">
+            <EditIcon />
+          </IconButton>
+        </div>
+      )}
     </>
   );
 }

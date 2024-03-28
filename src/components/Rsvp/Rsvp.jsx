@@ -15,11 +15,18 @@ function Rsvp() {
   });
 
   const eventDetails = useSelector((store) => store.details);
+  const rsvpResponse = useSelector((store) => store.rsvp);
   const details = eventDetails[0] || 'No details available';
 
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'RSVP' });
   }, []);
+
+  useEffect(() => {
+    if (rsvpResponse) {
+      alert(`Successfully RSVP for, ${details.name}`);
+    }
+  }, [rsvpResponse]);
 
   const goBack = () => {
     history.push('/events');
@@ -34,7 +41,7 @@ function Rsvp() {
   };
 
   const nextAction = () => {
-    alert('Thank you, your RSVP has been received!');
+    // alert('Thank you, your RSVP has been received!');
     history.push('/events');
   };
 
@@ -42,18 +49,18 @@ function Rsvp() {
     const id = details.id;
     event.preventDefault();
     dispatch({
-      type: 'SET_RSVP',
+      type: 'RSVP_EVENT',
       payload: {
         id: id,
         formData,
       },
     });
-    nextAction();
+    // nextAction();
   };
 
   return (
     <div className="container">
-      <Button className="goBackButton" onClick={goBack} variant="outlined">
+      <Button onClick={goBack} variant="outlined">
         X
       </Button>
       <p>RSVP for:</p>
