@@ -84,7 +84,6 @@ Button
   text-decoration: none;
 }
 
-/* This line makes the "Register" and "Login" buttons look like links */
 .btn_asLink {
   padding: 0;
   border-width: 0;

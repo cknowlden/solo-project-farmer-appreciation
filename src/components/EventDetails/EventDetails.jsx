@@ -2,6 +2,10 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import '../App/App.css';
 
 function EventDetails() {
   const { id } = useParams();
@@ -26,10 +30,10 @@ function EventDetails() {
 
   return (
     <>
-      {' '}
-      <Button className="goBackButton" onClick={goBack} variant="outlined">
+      <Button alignItems="right" onClick={goBack} variant="outlined">
         X
       </Button>
+      <br />
       <div className="details">
         {/* <h3>{JSON.stringify(details)}</h3> */}
         <img id={details.id} src={details.image} alt={details.name} />
@@ -46,6 +50,20 @@ function EventDetails() {
         <Button className="goRsvp" onClick={goRsvp} variant="outlined">
           RSVP NOW!
         </Button>
+      </div>
+      <div>
+        {' '}
+        <IconButton
+          alignItems="right"
+          aria-label="delete"
+          color="primary"
+          size="large"
+        >
+          <DeleteIcon />
+        </IconButton>
+        <IconButton aria-label="edit" color="primary" size="large">
+          <EditIcon />
+        </IconButton>
       </div>
     </>
   );

@@ -1,11 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import Button from '@mui/material/Button';
+import '../App/App.css';
 
 function Rsvp() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    email: '',
+    phone: '',
+  });
 
   const eventDetails = useSelector((store) => store.details);
   const details = eventDetails[0] || 'No details available';
@@ -18,15 +25,30 @@ function Rsvp() {
     history.push('/events');
   };
 
-  const handleClick = (event) => {
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const nextAction = () => {
+    alert('Thank you, your RSVP has been received!');
+    history.push('/events');
+  };
+
+  const handleSubmit = (event) => {
     const id = details.id;
     event.preventDefault();
     dispatch({
       type: 'SET_RSVP',
       payload: {
         id: id,
+        formData,
       },
     });
+    nextAction();
   };
 
   return (
@@ -36,10 +58,48 @@ function Rsvp() {
       </Button>
       <p>RSVP for:</p>
       <p>{details.name}</p>
-      {/* <p>{details.id}</p> */}
-      <Button className="btn" onClick={handleClick} variant="outlined">
-        RSVP
-      </Button>
+      <form onSubmit={handleSubmit}>
+        <input
+          onChange={handleInputChange}
+          value={formData.first_name}
+          name="first_name"
+          type="text"
+          placeholder="First Name (required)"
+        />{' '}
+        <br />
+        <input
+          onChange={handleInputChange}
+          value={formData.last_name}
+          name="last_name"
+          type="text"
+          placeholder="Last Name (required)"
+        />{' '}
+        <br />
+        <input
+          onChange={handleInputChange}
+          value={formData.phone}
+          name="phone"
+          type="number"
+          placeholder="Phone (123)456-7890"
+        />{' '}
+        <br />
+        <input
+          onChange={handleInputChange}
+          value={formData.email}
+          name="email"
+          type="text"
+          placeholder="Email (required)"
+        />{' '}
+        <br />
+        <center>
+          {/* <Button className="btn" onClick={handleClick} variant="outlined">
+            RSVP
+          </Button> */}
+          <Button type="submit" variant="outlined">
+            RSVP
+          </Button>
+        </center>
+      </form>
     </div>
   );
 }
