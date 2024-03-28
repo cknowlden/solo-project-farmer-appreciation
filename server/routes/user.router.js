@@ -11,7 +11,18 @@ const router = express.Router();
 // Handles Ajax request for user information if user is authenticated
 router.get('/', rejectUnauthenticated, (req, res) => {
   // Send back user object from the session (previously queried from the database)
-  res.send(req.user);
+  pool
+    .query(`SELECT * FROM "roles" WHERE "id" = $1;`, [req.user.role_id])
+    .then((response) => {
+      const role_type = response.rows[0].type;
+      res.send({
+        ...req.user,
+        role_type,
+      });
+    })
+    .catch((err) => {
+      console.log('Get user failed', err), res.sendStatus(500);
+    });
 });
 
 // Handles POST request with new user data

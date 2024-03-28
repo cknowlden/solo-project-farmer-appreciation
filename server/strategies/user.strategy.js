@@ -39,10 +39,11 @@ passport.use(
   'local',
   new LocalStrategy((username, password, done) => {
     pool
-      .query(
-        `SELECT * FROM "user" JOIN "roles" ON user.role_id = "roles".id WHERE user.username = $1;`,
-        [username]
-      )
+      .query('SELECT * FROM "user" WHERE username = $1', [username])
+      // .query(
+      //   `SELECT * FROM "user" JOIN "roles" ON "user".role_id = "roles".id WHERE "user".username = $1;`,
+      //   [username]
+      // )
       .then((result) => {
         const user = result && result.rows && result.rows[0];
         if (user && encryptLib.comparePassword(password, user.password)) {
