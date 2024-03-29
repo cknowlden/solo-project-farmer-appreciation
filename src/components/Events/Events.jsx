@@ -1,8 +1,14 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import EventCard from '../EventCard/EventCard';
-import { Grid } from '@mui/material';
+import {
+  Grid,
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  Typography,
+} from '@mui/material';
 
 function Events() {
   const events = useSelector((store) => store.events);
@@ -46,28 +52,8 @@ function Events() {
       </div>
       <div>
         <h2>Upcoming Events</h2>
-        {/* {JSON.stringify(events)} */}
 
-        {/* <section className="events">
-          {events.map((event) => {
-            return (
-              <div key={event.id}>
-                <img
-                  onClick={handleClick}
-                  id={event.id}
-                  src={event.image}
-                  alt={event.name}
-                />
-                <h3>{event.name}</h3>
-                <p>{event.date}</p>
-                <p>{event.location}</p>
-                <p>${event.cost}</p>
-              </div>
-            );
-          })}
-        </section> */}
-
-        <Grid container>
+        {/* <Grid container>
           {events.map((event) => {
             return (
               <Grid item key={event.id} xs={12} md={4} lg={3}>
@@ -81,6 +67,33 @@ function Events() {
                 <p>{event.date}</p>
                 <p>{event.location}</p>
                 <p>${event.cost}</p>
+              </Grid>
+            );
+          })}
+        </Grid> */}
+
+        <Grid paddingLeft={5} paddingRight={5} container spacing={5}>
+          {events.map((event) => {
+            return (
+              <Grid item key={event.id} xs={12} md={4} lg={3}>
+                <Card elevation={3}>
+                  <CardMedia
+                    component="img"
+                    id={event.id}
+                    image={event.image}
+                    alt={event.name}
+                    onClick={handleClick}
+                  />
+                  <CardContent>
+                    <Typography>
+                      {' '}
+                      <h3>{event.name}</h3>
+                      {event.date}
+                      <p>{event.location}</p>
+                      <p>${event.cost}</p>
+                    </Typography>
+                  </CardContent>
+                </Card>
               </Grid>
             );
           })}
