@@ -9,6 +9,7 @@ import {
   CardContent,
   Typography,
 } from '@mui/material';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 
 function Events() {
   const events = useSelector((store) => store.events);
@@ -52,31 +53,11 @@ function Events() {
       </div>
       <div>
         <h2>Upcoming Events</h2>
-
-        {/* <Grid container>
-          {events.map((event) => {
-            return (
-              <Grid item key={event.id} xs={12} md={4} lg={3}>
-                <img
-                  onClick={handleClick}
-                  id={event.id}
-                  src={event.image}
-                  alt={event.name}
-                />
-                <h3>{event.name}</h3>
-                <p>{event.date}</p>
-                <p>{event.location}</p>
-                <p>${event.cost}</p>
-              </Grid>
-            );
-          })}
-        </Grid> */}
-
         <Grid paddingLeft={5} paddingRight={5} container spacing={5}>
           {events.map((event) => {
             return (
               <Grid item key={event.id} xs={12} md={4} lg={3}>
-                <Card elevation={3}>
+                <Card elevation={9} sx={{ maxWidth: 345 }}>
                   <CardMedia
                     component="img"
                     id={event.id}
@@ -88,6 +69,7 @@ function Events() {
                     <Typography>
                       {' '}
                       <h3>{event.name}</h3>
+                      <CalendarTodayIcon />
                       {event.date}
                       <p>{event.location}</p>
                       <p>${event.cost}</p>
