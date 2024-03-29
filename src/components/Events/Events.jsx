@@ -48,11 +48,19 @@ function Events() {
     <>
       <div className="search">
         <div className="farm">
-          <h1>Find an event near you</h1>
-
-          <p>
-            Location <button>Search</button>
-          </p>
+          <Typography
+            variant="h3"
+            paddingTop={6}
+            align="center"
+            fontWeight={600}
+          >
+            Find an event near you
+          </Typography>
+          <div className="search">
+            <p>
+              Location <button>Search</button>
+            </p>
+          </div>
         </div>
       </div>
       <div>

@@ -29,7 +29,9 @@ function Home() {
           backgroundColor: 'honeydew',
         }}
       >
-        <Typography variant="h3">Rural Wisconsin Events</Typography>
+        <Typography variant="h3" fontWeight={600}>
+          Rural Wisconsin Events
+        </Typography>
 
         <p className="body">
           You and your community deserve to live life to its fullest. We

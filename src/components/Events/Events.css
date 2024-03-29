@@ -12,3 +12,9 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
 }
+
+.search {
+  background-color: rgb(245, 237, 237);
+  display: inline-block;
+  text-align: center;
+}
