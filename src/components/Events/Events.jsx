@@ -10,6 +10,9 @@ import {
   Typography,
 } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import './Events.css';
 
 function Events() {
   const events = useSelector((store) => store.events);
@@ -44,8 +47,9 @@ function Events() {
   return (
     <>
       <div className="search">
-        <h1>Find an event near you</h1>
-        <div>
+        <div className="farm">
+          <h1>Find an event near you</h1>
+
           <p>
             Location <button>Search</button>
           </p>
@@ -57,7 +61,7 @@ function Events() {
           {events.map((event) => {
             return (
               <Grid item key={event.id} xs={12} md={4} lg={3}>
-                <Card elevation={9} sx={{ maxWidth: 345 }}>
+                <Card elevation={9} sx={{ maxWidth: 345, maxHeight: 485 }}>
                   <CardMedia
                     component="img"
                     id={event.id}
@@ -68,13 +72,15 @@ function Events() {
                   <CardContent>
                     <Typography>
                       {' '}
-                      <h3>{event.name}</h3>
-                      <CalendarTodayIcon />
+                      <h3 className="event-name">{event.name}</h3>
+                      <p className="event-loc">{event.location}</p>
+                      <CalendarTodayIcon sx={{ verticalAlign: 'middle' }} />
                       {event.date}
-                      <p>{event.location}</p>
-                      <p>${event.cost}</p>
+                      <ConfirmationNumberIcon /> ${event.cost}
+                      <br />
+                      <PeopleAltOutlinedIcon /> Going
                     </Typography>
-                  </CardContent>
+                  </CardContent>{' '}
                 </Card>
               </Grid>
             );

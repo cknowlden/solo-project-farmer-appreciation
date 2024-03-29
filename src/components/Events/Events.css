@@ -1,0 +1,14 @@
+.event-name {
+  text-align: center;
+}
+
+.event-loc {
+  text-align: center;
+}
+
+.farm {
+  min-height: 25vh;
+  background-image: url(/images/farm.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
