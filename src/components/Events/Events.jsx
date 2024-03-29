@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import EventCard from '../EventCard/EventCard';
+import { Grid } from '@mui/material';
 
 function Events() {
   const events = useSelector((store) => store.events);
@@ -45,7 +47,8 @@ function Events() {
       <div>
         <h2>Upcoming Events</h2>
         {/* {JSON.stringify(events)} */}
-        <section className="events">
+
+        {/* <section className="events">
           {events.map((event) => {
             return (
               <div key={event.id}>
@@ -62,7 +65,26 @@ function Events() {
               </div>
             );
           })}
-        </section>
+        </section> */}
+
+        <Grid container>
+          {events.map((event) => {
+            return (
+              <Grid item key={event.id} xs={12} md={4} lg={3}>
+                <img
+                  onClick={handleClick}
+                  id={event.id}
+                  src={event.image}
+                  alt={event.name}
+                />
+                <h3>{event.name}</h3>
+                <p>{event.date}</p>
+                <p>{event.location}</p>
+                <p>${event.cost}</p>
+              </Grid>
+            );
+          })}
+        </Grid>
       </div>
     </>
   );

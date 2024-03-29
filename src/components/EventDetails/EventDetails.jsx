@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
+
 import '../App/App.css';
 
 function EventDetails() {
