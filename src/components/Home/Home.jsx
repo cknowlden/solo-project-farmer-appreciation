@@ -30,6 +30,7 @@ function Home() {
         }}
       >
         <Typography variant="h3">Rural Wisconsin Events</Typography>
+
         <p className="body">
           You and your community deserve to live life to its fullest. We
           appreciate you and all you do.
@@ -47,6 +48,7 @@ function Home() {
         >
           <h2> You work hard. We see you.</h2>
         </Box>
+        <img className="field-image" src="images/field.jpg"></img>
 
         <div className="link-box">
           {!user.id && (

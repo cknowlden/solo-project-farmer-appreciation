@@ -11,3 +11,9 @@
 .link-box {
   margin-top: 200px;
 }
+
+.field-image {
+  width: 500px;
+  float: right;
+  shape-outside: element(50%);
+}
