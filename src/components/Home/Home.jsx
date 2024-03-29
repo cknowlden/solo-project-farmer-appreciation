@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { useEffect } from 'react';
-import Box from '@mui/material/Box';
-import '../App/App.css';
+import { Box, Typography } from '@mui/material';
+import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import './Home.css';
 
 function Home() {
   const user = useSelector((store) => store.user);
@@ -20,36 +20,60 @@ function Home() {
           display: 'left',
           border: 1,
           borderRadius: '16px',
+          borderColor: 'honeydew',
           margin: '50px',
           padding: '80px',
           minHeight: '60vh',
+          // borderColor: 'honeydew',
+          // borderWidth: '75px',
+          backgroundColor: 'honeydew',
         }}
       >
-        <h1>Rural Wisconsin Events</h1>
-        <p>
+        <Typography variant="h3">Rural Wisconsin Events</Typography>
+        <p className="body">
           You and your community deserve to live life to its fullest. We
           appreciate you and all you do.
         </p>
+        <Box
+          sx={{
+            border: 1,
+            borderRadius: '8px',
+            borderColor: 'honeydew',
+            marginLeft: '285px',
+            backgroundColor: 'hotpink',
+            display: 'inline-block',
+            marginTop: '50px',
+          }}
+        >
+          <h2> You work hard. We see you.</h2>
+        </Box>
 
-        <h2 className="mid-container"> You work hard. We see you.</h2>
-
-        <div className="home-links">
+        <div className="link-box">
           {!user.id && (
             <>
               {/* If there's no user, show these links */}
               <p>
-                <Link className="navLink" to="/events">
-                  Find an appreciation event near you ---
+                <Link className="link" to="/events">
+                  Find an appreciation event near you{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
               <p>
-                <Link className="navLink" to="/info">
-                  Explore mental health information ---
+                <Link className="link" to="/info">
+                  Explore mental health information{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
               <p>
-                <Link className="navLink" to="/resources">
-                  Resources ---
+                <Link className="link" to="/resources">
+                  Resources{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
             </>
@@ -59,23 +83,35 @@ function Home() {
           {user.id && (
             <>
               <p>
-                <Link className="navLink" to="/events">
-                  Find an appreciation event near you ---
+                <Link className="link" to="/events">
+                  Find an appreciation event near you{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
               <p>
-                <Link className="navLink" to="/create">
-                  Create a meetup or event ---
+                <Link className="link" to="/create">
+                  Create a meetup or event{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
               <p>
-                <Link className="navLink" to="/info">
-                  Explore mental health information ---
+                <Link className="link" to="/info">
+                  Explore mental health information{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
               <p>
-                <Link className="navLink" to="/resources">
-                  Resources ---
+                <Link className="link" to="/resources">
+                  Resources{' '}
+                  <TrendingFlatIcon
+                    sx={{ verticalAlign: 'middle', color: 'black' }}
+                  />
                 </Link>
               </p>
             </>

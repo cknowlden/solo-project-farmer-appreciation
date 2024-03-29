@@ -1,0 +1,13 @@
+.body {
+  inline-size: 30%;
+  /* color: blueviolet; */
+  font-size: larger;
+}
+
+.link {
+  color: black;
+}
+
+.link-box {
+  margin-top: 200px;
+}
