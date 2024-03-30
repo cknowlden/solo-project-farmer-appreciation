@@ -31,7 +31,7 @@ function EditEvent() {
   }, []);
 
   const goBack = () => {
-    history.push('/events');
+    history.push('/details/:id');
   };
 
   const handleClick = () => {
