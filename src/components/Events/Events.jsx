@@ -107,7 +107,7 @@ function Events() {
       </div>
       <div className="card-section">
         <h2 className="title">Upcoming Events</h2>
-        <Grid paddingLeft={15} paddingRight={15} container spacing={3}>
+        <Grid paddingLeft={5} paddingRight={5} container spacing={3}>
           {events.map((event) => {
             const date = new Date(event.date);
             const formattedDate = date.toLocaleDateString('en-US', {
@@ -120,7 +120,7 @@ function Events() {
             });
             return (
               <Grid item key={event.id} xs={12} md={4} lg={3}>
-                <Card elevation={9} sx={{ maxWidth: 345, maxHeight: 485 }}>
+                <Card elevation={15} sx={{ minWidth: 290, maxHeight: 485 }}>
                   <CardMedia
                     sx={{ maxHeight: 200, minHeight: 200 }}
                     component="img"
@@ -134,7 +134,9 @@ function Events() {
                       {' '}
                       <h3 className="event-name">{event.name}</h3>
                       <p className="event-loc">{event.location}</p>
-                      <CalendarTodayIcon sx={{ verticalAlign: 'middle' }} />
+                      <CalendarTodayIcon
+                        sx={{ verticalAlign: 'middle', marginRight: '5px' }}
+                      />
                       {formattedDate}
                       <br />
                       <Box
