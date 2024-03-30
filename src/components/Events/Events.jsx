@@ -27,6 +27,11 @@ function Events() {
     history.push(`/details/${id}`);
   };
 
+  // const postgresDateTime = event.date;
+  const date = new Date();
+
+  // console.log(formattedDate);
+
   //NEEDS TO BE COMPLETED
   const handleClick = (event) => {
     const id = event.target.id;
@@ -100,10 +105,19 @@ function Events() {
           </div>
         </div>
       </div>
-      <div>
+      <div className="card-section">
         <h2 className="title">Upcoming Events</h2>
         <Grid paddingLeft={15} paddingRight={15} container spacing={3}>
           {events.map((event) => {
+            const date = new Date(event.date);
+            const formattedDate = date.toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+              hour: 'numeric',
+              minute: 'numeric',
+              hour12: true,
+            });
             return (
               <Grid item key={event.id} xs={12} md={4} lg={3}>
                 <Card elevation={9} sx={{ maxWidth: 345, maxHeight: 485 }}>
@@ -121,10 +135,20 @@ function Events() {
                       <h3 className="event-name">{event.name}</h3>
                       <p className="event-loc">{event.location}</p>
                       <CalendarTodayIcon sx={{ verticalAlign: 'middle' }} />
-                      {event.date}
-                      <ConfirmationNumberIcon /> ${event.cost}
+                      {formattedDate}
                       <br />
-                      <PeopleAltOutlinedIcon /> Going
+                      <ConfirmationNumberIcon
+                        sx={{ verticalAlign: 'middle' }}
+                      />{' '}
+                      ${event.cost}
+                      <PeopleAltOutlinedIcon
+                        sx={{
+                          verticalAlign: 'middle',
+                          display: 'inline-block',
+                          // align: 'right',
+                        }}
+                      />{' '}
+                      Going
                     </Typography>
                   </CardContent>{' '}
                 </Card>
