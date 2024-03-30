@@ -14,7 +14,21 @@
 }
 
 .search {
-  background-color: rgb(245, 237, 237);
+  background-color: rgb(190, 183, 183);
   display: inline-block;
   text-align: center;
+  min-width: 300px;
+}
+
+.input-field {
+  background-color: rgb(245, 237, 237);
+  min-width: 200px;
+  display: inline-block;
+  min-height: 25px;
+  vertical-align: middle;
+  text-align: left;
+}
+
+.title {
+  padding-left: 25px;
 }
