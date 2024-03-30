@@ -4,8 +4,8 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Button, Box, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-
 import '../App/App.css';
+import './EventDetails.css';
 
 function EventDetails() {
   const { id } = useParams();
@@ -71,7 +71,7 @@ function EventDetails() {
         </Button>
       </div>
       {((details && user.id === details.userid) || (user.type = 'admin')) && (
-        <div>
+        <div className="control-panel">
           {' '}
           <IconButton
             alignItems="right"
@@ -82,7 +82,12 @@ function EventDetails() {
           >
             <DeleteIcon />
           </IconButton>
-          <IconButton aria-label="edit" color="primary" size="large">
+          <IconButton
+            aria-label="edit"
+            color="primary"
+            size="large"
+            onClick={handleDelete}
+          >
             <EditIcon />
           </IconButton>
         </div>

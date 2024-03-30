@@ -3,6 +3,8 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Snackbar, Alert, Box } from '@mui/material';
+import './CreateEvent.css';
+import '../App/App.css';
 
 function CreateEvent() {
   const history = useHistory();
