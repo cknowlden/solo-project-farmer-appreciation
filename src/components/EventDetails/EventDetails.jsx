@@ -29,6 +29,11 @@ function EventDetails() {
     history.push(`/rsvp/${id}`);
   };
 
+  const goEdit = () => {
+    const id = details.id;
+    history.push(`/events/${id}`);
+  };
+
   const handleDelete = (event) => {
     const id = details.id;
     event.preventDefault();
@@ -40,6 +45,17 @@ function EventDetails() {
     });
     goBack();
   };
+
+  // const handleEdit = (event) => {
+  //   const id = details.id;
+  //   event.preventDefault();
+  //   dispatch({
+  //     type: 'EDIT_EVENT',
+  //     payload: {
+  //       id: id,
+  //     },
+  //   });
+  // };
   return (
     <>
       <Box
@@ -86,7 +102,7 @@ function EventDetails() {
             aria-label="edit"
             color="primary"
             size="large"
-            onClick={handleDelete}
+            onClick={goEdit}
           >
             <EditIcon />
           </IconButton>

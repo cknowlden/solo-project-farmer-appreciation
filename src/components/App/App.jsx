@@ -24,6 +24,7 @@ import LandingPage from '../LandingPage/LandingPage';
 import LoginPage from '../LoginPage/LoginPage';
 import RegisterPage from '../RegisterPage/RegisterPage';
 import EventDetails from '../EventDetails/EventDetails';
+import EditEvent from '../EditEvent/EditEvent';
 import Admin from '../Admin/Admin';
 
 import './App.css';
@@ -61,7 +62,11 @@ function App() {
             <Events />
           </Route>
 
-          <Route exact path="/rsvp/:id">
+          <Route exact path="/events/:id">
+            <EditEvent />
+          </Route>
+
+          <Route path="/rsvp/:id">
             <Rsvp />
           </Route>
 
