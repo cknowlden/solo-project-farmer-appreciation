@@ -137,18 +137,20 @@ function Events() {
                       <CalendarTodayIcon sx={{ verticalAlign: 'middle' }} />
                       {formattedDate}
                       <br />
-                      <ConfirmationNumberIcon
-                        sx={{ verticalAlign: 'middle' }}
-                      />{' '}
-                      ${event.cost}
-                      <PeopleAltOutlinedIcon
-                        sx={{
-                          verticalAlign: 'middle',
-                          display: 'inline-block',
-                          // align: 'right',
-                        }}
-                      />{' '}
-                      Going
+                      <div className="ticket-people">
+                        <ConfirmationNumberIcon
+                          sx={{ verticalAlign: 'middle' }}
+                        />{' '}
+                        ${event.cost}
+                        <PeopleAltOutlinedIcon
+                          sx={{
+                            verticalAlign: 'middle',
+                            display: 'inline-block',
+                            marginLeft: '95px',
+                          }}
+                        />{' '}
+                        Going
+                      </div>
                     </Typography>
                   </CardContent>{' '}
                 </Card>

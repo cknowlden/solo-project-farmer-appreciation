@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import Button from '@mui/material/Button';
+import { Button, Snackbar, SnackbarContent } from '@mui/material';
 import '../App/App.css';
 
 function Rsvp() {

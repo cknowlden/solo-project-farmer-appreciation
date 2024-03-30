@@ -36,3 +36,8 @@
 .card-section {
   background-color: #b6b9b6;
 }
+
+.ticket-people {
+  margin-top: auto;
+  align-content: space-between;
+}
