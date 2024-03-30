@@ -39,5 +39,6 @@
 
 .ticket-people {
   margin-top: auto;
-  align-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 10%;
 }

@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import {
   Grid,
   Card,
-  CardHeader,
+  Box,
   CardMedia,
   CardContent,
   Typography,
@@ -122,7 +122,7 @@ function Events() {
               <Grid item key={event.id} xs={12} md={4} lg={3}>
                 <Card elevation={9} sx={{ maxWidth: 345, maxHeight: 485 }}>
                   <CardMedia
-                    sx={{ maxHeight: 200 }}
+                    sx={{ maxHeight: 200, minHeight: 200 }}
                     component="img"
                     id={event.id}
                     image={event.image}
@@ -137,7 +137,17 @@ function Events() {
                       <CalendarTodayIcon sx={{ verticalAlign: 'middle' }} />
                       {formattedDate}
                       <br />
-                      <div className="ticket-people">
+                      <Box
+                        display="flex"
+                        justifyContent="space-evenly"
+                        className="ticket-people"
+                        sx={{
+                          display: 'flex',
+                          alignItems: 'flex-end',
+                          // marginTop: 'flex-start',
+                          marginBottom: '10px',
+                        }}
+                      >
                         <ConfirmationNumberIcon
                           sx={{ verticalAlign: 'middle' }}
                         />{' '}
@@ -150,7 +160,7 @@ function Events() {
                           }}
                         />{' '}
                         Going
-                      </div>
+                      </Box>
                     </Typography>
                   </CardContent>{' '}
                 </Card>
