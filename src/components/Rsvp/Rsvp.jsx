@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Button, Snackbar, SnackbarContent } from '@mui/material';
+import { Button, Snackbar, Alert } from '@mui/material';
 import '../App/App.css';
 
 function Rsvp() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
     first_name: '',
     last_name: '',
@@ -18,15 +19,29 @@ function Rsvp() {
   const rsvpResponse = useSelector((store) => store.rsvp);
   const details = eventDetails[0] || 'No details available';
 
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'RSVP' });
   }, []);
 
-  useEffect(() => {
-    if (rsvpResponse) {
-      alert(`Successfully RSVP for, ${details.name}`);
-    }
-  }, [rsvpResponse]);
+  const clearForm = () => {
+    setFormData(() => ({
+      first_name: '',
+      last_name: '',
+      email: '',
+      phone: '',
+    }));
+  };
 
   const goBack = () => {
     history.push('/events');
@@ -40,11 +55,6 @@ function Rsvp() {
     }));
   };
 
-  const nextAction = () => {
-    // alert('Thank you, your RSVP has been received!');
-    history.push('/events');
-  };
-
   const handleSubmit = (event) => {
     const id = details.id;
     event.preventDefault();
@@ -55,7 +65,9 @@ function Rsvp() {
         formData,
       },
     });
+    handleClick();
     // nextAction();
+    clearForm();
   };
 
   return (
@@ -99,12 +111,20 @@ function Rsvp() {
         />{' '}
         <br />
         <center>
-          {/* <Button className="btn" onClick={handleClick} variant="outlined">
-            RSVP
-          </Button> */}
-          <Button type="submit" variant="outlined">
+          <Button className="btn" variant="outlined" onClick={handleSubmit}>
             RSVP
           </Button>
+          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+            <Alert
+              onClose={handleClose}
+              severity="success"
+              variant="filled"
+              sx={{ width: '100%' }}
+            >
+              Successfully RSVP'd for {details.name}. You may now return to
+              Events Page.
+            </Alert>
+          </Snackbar>
         </center>
       </form>
     </div>
