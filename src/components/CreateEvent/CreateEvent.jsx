@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
+import { Button, Snackbar, Alert, Box } from '@mui/material';
 
 function CreateEvent() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
     name: '',
     date: '',
@@ -20,14 +21,39 @@ function CreateEvent() {
     details: '',
   });
 
+  const goBack = () => {
+    history.push('/events');
+  };
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setOpen(false);
+  };
+
+  const clearForm = () => {
+    setFormData(() => ({
+      name: '',
+      date: '',
+      location: '',
+      street: '',
+      city: '',
+      state: '',
+      zip: '',
+      cost: '',
+      image: '',
+      details: '',
+    }));
+  };
+
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'CREATE AN EVENT' });
   }, []);
-
-  const nextAction = () => {
-    alert('Your event has been created!');
-    history.push('/events');
-  };
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -46,11 +72,21 @@ function CreateEvent() {
         formData,
       },
     });
-    nextAction();
+    handleClick();
+    clearForm();
   };
   return (
     <div className="wheat">
-      <p>TEST TEST TEST TEST</p>
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        marginTop={2}
+        marginRight={2}
+      >
+        <Button className="btn_goBack" onClick={goBack} variant="contained">
+          X
+        </Button>
+      </Box>
       <div className="big-rect">
         <h1>Add your event here:</h1>
         <form onSubmit={handleSubmit}>
@@ -138,6 +174,17 @@ function CreateEvent() {
             <Button type="submit" variant="contained">
               Create Event
             </Button>
+            <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+              <Alert
+                onClose={handleClose}
+                severity="success"
+                variant="filled"
+                sx={{ width: '100%' }}
+              >
+                Congrats! Your event has been created. You may return to the
+                Events Page to view it.
+              </Alert>
+            </Snackbar>
           </center>
         </form>
       </div>

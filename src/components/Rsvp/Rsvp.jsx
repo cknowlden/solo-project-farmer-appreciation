@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { Button, Snackbar, Alert } from '@mui/material';
+import { Button, Snackbar, Alert, Box } from '@mui/material';
 import '../App/App.css';
 
 function Rsvp() {
@@ -16,7 +16,6 @@ function Rsvp() {
   });
 
   const eventDetails = useSelector((store) => store.details);
-  const rsvpResponse = useSelector((store) => store.rsvp);
   const details = eventDetails[0] || 'No details available';
 
   const handleClick = () => {
@@ -66,15 +65,21 @@ function Rsvp() {
       },
     });
     handleClick();
-    // nextAction();
     clearForm();
   };
 
   return (
     <div className="container">
-      <Button onClick={goBack} variant="outlined">
-        X
-      </Button>
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        marginTop={2}
+        marginRight={2}
+      >
+        <Button className="btn_goBack" onClick={goBack} variant="contained">
+          X
+        </Button>
+      </Box>
       <p>RSVP for:</p>
       <p>{details.name}</p>
       <form onSubmit={handleSubmit}>

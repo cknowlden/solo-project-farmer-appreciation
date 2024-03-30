@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
+import { Button, Box, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
 
@@ -43,9 +42,16 @@ function EventDetails() {
   };
   return (
     <>
-      <Button alignItems="right" onClick={goBack} variant="outlined">
-        X
-      </Button>
+      <Box
+        display="flex"
+        justifyContent="flex-end"
+        marginTop={2}
+        marginRight={2}
+      >
+        <Button className="btn_goBack" onClick={goBack} variant="contained">
+          X
+        </Button>
+      </Box>
       <br />
       <div className="details">
         {/* <h3>{JSON.stringify(details)}</h3> */}
