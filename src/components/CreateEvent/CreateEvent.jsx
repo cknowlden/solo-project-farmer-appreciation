@@ -196,26 +196,30 @@ function CreateEvent() {
                 label="Image upload (optional)"
               />{' '}
               <br />
-              <TextField
-                required
-                onChange={handleInputChange}
-                value={formData.date}
-                name="date"
-                label="Event Date & Time"
-                variant="outlined"
-                type="datetime-local"
-              />
-              {''}
-              $
-              <input
-                className="cost"
-                required
-                onChange={handleInputChange}
-                value={formData.cost}
-                name="cost"
-                type="number"
-                placeholder="Cost (required)"
-              />
+              <div className="date-cost">
+                <TextField
+                  required
+                  onChange={handleInputChange}
+                  value={formData.date}
+                  name="date"
+                  label="Event Date & Time"
+                  variant="outlined"
+                  type="datetime-local"
+                />
+                {''}
+                <div className="cost">
+                  $
+                  <input
+                    className="cost"
+                    required
+                    onChange={handleInputChange}
+                    value={formData.cost}
+                    name="cost"
+                    type="number"
+                    placeholder="Cost (required)"
+                  />
+                </div>
+              </div>
               <center>
                 <br />
                 <Button type="submit" variant="contained" size="large">

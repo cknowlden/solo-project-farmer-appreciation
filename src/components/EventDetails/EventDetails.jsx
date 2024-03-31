@@ -68,46 +68,56 @@ function EventDetails() {
           X
         </Button>
       </Box>
-      <br />
-      <div className="details">
-        {/* <h3>{JSON.stringify(details)}</h3> */}
-        <img id={details.id} src={details.image} alt={details.name} />
-        <h3>{details.name}</h3>
-        <p>{details.details}</p>
-        <p>{details.date}</p>
-        <p>{details.location}</p>
-        <p>{details.street} </p>
-        <p>
-          {details.city},{details.state} {''}
-          {details.zip}
-        </p>
-        <p> ${details.cost}</p>
-        <Button className="goRsvp" onClick={goRsvp} variant="outlined">
-          RSVP NOW!
-        </Button>
-      </div>
-      {((details && user.id === details.userid) || (user.type = 'admin')) && (
-        <div className="control-panel">
-          {' '}
-          <IconButton
-            alignItems="right"
-            aria-label="delete"
-            color="primary"
-            size="large"
-            onClick={handleDelete}
-          >
-            <DeleteIcon />
-          </IconButton>
-          <IconButton
-            aria-label="edit"
-            color="primary"
-            size="large"
-            onClick={goEdit}
-          >
-            <EditIcon />
-          </IconButton>
+      <Box
+        sx={{
+          backgroundImage: "url('images/woods.jpg')",
+          height: '100vh',
+          width: '100%',
+          marginTop: '-53px',
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '100% 100%',
+        }}
+      >
+        <div className="details">
+          {/* <h3>{JSON.stringify(details)}</h3> */}
+          <img id={details.id} src={details.image} alt={details.name} />
+          <h3>{details.name}</h3>
+          <p>{details.details}</p>
+          <p>{details.date}</p>
+          <p>{details.location}</p>
+          <p>{details.street} </p>
+          <p>
+            {details.city},{details.state} {''}
+            {details.zip}
+          </p>
+          <p> ${details.cost}</p>
+          <Button className="goRsvp" onClick={goRsvp} variant="outlined">
+            RSVP NOW!
+          </Button>
         </div>
-      )}
+        {((details && user.id === details.userid) || (user.type = 'admin')) && (
+          <div className="control-panel">
+            {' '}
+            <IconButton
+              alignItems="right"
+              aria-label="delete"
+              color="primary"
+              size="large"
+              onClick={handleDelete}
+            >
+              <DeleteIcon />
+            </IconButton>
+            <IconButton
+              aria-label="edit"
+              color="primary"
+              size="large"
+              onClick={goEdit}
+            >
+              <EditIcon />
+            </IconButton>
+          </div>
+        )}
+      </Box>
     </>
   );
 }

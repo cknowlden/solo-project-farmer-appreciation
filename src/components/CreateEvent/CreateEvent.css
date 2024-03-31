@@ -74,6 +74,20 @@
 }
 
 .cost {
-  width: 21%;
-  display: inline-block;
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+  margin-right: 50px;
+}
+
+.date-cost {
+  width: 100%;
+  min-height: 45px;
+  font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  text-wrap: pretty;
+  vertical-align: middle;
+  justify-content: space-between;
 }
