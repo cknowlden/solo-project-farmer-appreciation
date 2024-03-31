@@ -59,16 +59,6 @@ function EventDetails() {
     goBack();
   };
 
-  // const handleEdit = (event) => {
-  //   const id = details.id;
-  //   event.preventDefault();
-  //   dispatch({
-  //     type: 'EDIT_EVENT',
-  //     payload: {
-  //       id: id,
-  //     },
-  //   });
-  // };
   return (
     <>
       <Box
