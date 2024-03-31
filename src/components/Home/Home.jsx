@@ -24,8 +24,6 @@ function Home() {
           margin: '50px',
           padding: '80px',
           minHeight: '60vh',
-          // borderColor: 'honeydew',
-          // borderWidth: '75px',
           backgroundColor: 'honeydew',
         }}
       >
