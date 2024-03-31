@@ -1,15 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import {
-  Grid,
-  Card,
-  Box,
-  CardMedia,
-  CardContent,
-  Typography,
-  Button,
-} from '@mui/material';
+import { Grid, Card, Box, CardContent, Typography } from '@mui/material';
+import './InfoPage.css';
 
 function InfoPage() {
   const info = useSelector((store) => store.info);
@@ -37,12 +30,13 @@ function InfoPage() {
             return (
               // <div className="information" key={information.id}>
 
-              <Grid
+              <Box
                 item
                 key={information.id}
                 xs={12}
                 md={4}
                 lg={4}
+                container
                 spacing={3}
                 justifyContent={'space-between'}
               >
@@ -65,7 +59,7 @@ function InfoPage() {
                     </Typography>
                   </CardContent>{' '}
                 </Card>
-              </Grid>
+              </Box>
             );
           })}
       </Grid>

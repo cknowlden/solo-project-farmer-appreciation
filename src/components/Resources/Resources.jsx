@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { Box, Grid, Typography } from '@mui/material';
+import './Resources.css';
 
 function Resources() {
   const resources = useSelector((store) => store.resources);
@@ -15,19 +16,52 @@ function Resources() {
   }, []);
 
   return (
-    <div className="container">
-      <p>A list of resources here from database</p>
-      {/* {JSON.stringify(resources)} */}
-      {resources &&
-        resources.map((resource) => {
-          return (
-            <div className="resources" key={resource.id}>
-              <a href={resource.link} target="_blank">
-                {resource.title}
-              </a>
-            </div>
-          );
-        })}
+    <div className="wheat">
+      <Box
+        sx={{
+          display: 'left',
+          border: 1,
+          borderRadius: '16px',
+          borderColor: 'honeydew',
+          margin: '50px',
+          padding: '60px',
+          minHeight: '60vh',
+          backgroundColor: 'honeydew',
+        }}
+      >
+        {resources &&
+          resources.map((resource) => {
+            return (
+              <>
+                <Box
+                  sx={{
+                    display: 'left',
+                    border: 1,
+                    borderRadius: '16px',
+                    borderColor: 'honeydew',
+                    // margin: '50px',
+                    padding: '20px',
+                    // maxWidth: '57vh',
+                    maxWidth: '700px',
+                    backgroundColor: 'honeydew',
+                  }}
+                >
+                  <div className="resources" key={resource.id}>
+                    <Typography variant="h5" fontWeight={600}>
+                      <a href={resource.link} target="_blank">
+                        {resource.title}
+                      </a>
+                    </Typography>
+                    <Typography variant="body1">
+                      {resource.description}
+                    </Typography>
+                  </div>
+                </Box>
+              </>
+            );
+          })}
+        <img className="support" src="images/support.jpg"></img>
+      </Box>
     </div>
   );
 }
