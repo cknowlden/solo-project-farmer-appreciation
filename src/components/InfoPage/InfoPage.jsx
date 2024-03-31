@@ -17,13 +17,16 @@ function InfoPage() {
   }, []);
 
   return (
-    <div className="card-section">
+    <div className="background">
       <Grid
-        paddingLeft={5}
-        paddingRight={5}
-        paddingBottom={5}
+        // paddingLeft={5}
+        // paddingRight={5}
+        // paddingBottom={5}
+        padding="20px"
+        marginTop="2px"
         container
         spacing={3}
+        justifyContent={'center'}
       >
         {info &&
           info.map((information) => {
@@ -36,8 +39,6 @@ function InfoPage() {
                 xs={12}
                 md={4}
                 lg={4}
-                container
-                spacing={3}
                 justifyContent={'space-between'}
               >
                 <Card
