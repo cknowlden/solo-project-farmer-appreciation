@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import { Button, Snackbar, Alert, Box } from '@mui/material';
 import '../App/App.css';
 
 function Rsvp() {
   const history = useHistory();
   const dispatch = useDispatch();
+  const { id } = useParams();
   const [open, setOpen] = React.useState(false);
   const [formData, setFormData] = useState({
     first_name: '',
@@ -55,13 +56,12 @@ function Rsvp() {
   };
 
   const handleSubmit = (event) => {
-    const id = details.id;
     event.preventDefault();
     dispatch({
       type: 'RSVP_EVENT',
       payload: {
-        id: id,
         formData,
+        id: id,
       },
     });
     handleClick();
@@ -84,6 +84,7 @@ function Rsvp() {
       <p>{details.name}</p>
       <form onSubmit={handleSubmit}>
         <input
+          required
           onChange={handleInputChange}
           value={formData.first_name}
           name="first_name"
@@ -92,6 +93,7 @@ function Rsvp() {
         />{' '}
         <br />
         <input
+          required
           onChange={handleInputChange}
           value={formData.last_name}
           name="last_name"
@@ -108,6 +110,7 @@ function Rsvp() {
         />{' '}
         <br />
         <input
+          required
           onChange={handleInputChange}
           value={formData.email}
           name="email"
@@ -116,7 +119,7 @@ function Rsvp() {
         />{' '}
         <br />
         <center>
-          <Button className="btn" variant="outlined" onClick={handleSubmit}>
+          <Button type="submit" className="btn" variant="outlined">
             RSVP
           </Button>
           <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>

@@ -1,10 +1,10 @@
-const rsvpReducer = (state = [], action) => {
+const editReducer = (state = [], action) => {
   switch (action.type) {
-    case 'SET_RSVP':
+    case 'SET_EDIT':
       return action.payload;
     default:
       return state;
   }
 };
 
-export default rsvpReducer;
+export default editReducer;

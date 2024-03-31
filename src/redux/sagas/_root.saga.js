@@ -9,6 +9,7 @@ import createSaga from './create.saga';
 import detailsSaga from './details.saga';
 import rsvpSaga from './rsvp.saga';
 import deleteSaga from './delete.saga';
+import editSaga from './edit.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -29,5 +30,6 @@ export default function* rootSaga() {
     detailsSaga(),
     rsvpSaga(),
     deleteSaga(),
+    editSaga(),
   ]);
 }

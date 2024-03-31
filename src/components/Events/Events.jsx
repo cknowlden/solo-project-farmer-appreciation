@@ -127,7 +127,10 @@ function Events() {
             });
             return (
               <Grid item key={event.id} xs={12} md={4} lg={3}>
-                <Card elevation={15} sx={{ minWidth: 290, maxHeight: 485 }}>
+                <Card
+                  elevation={15}
+                  sx={{ minWidth: 290, maxHeight: 485, borderRadius: '15px' }}
+                >
                   <CardMedia
                     sx={{ maxHeight: 200, minHeight: 200 }}
                     component="img"

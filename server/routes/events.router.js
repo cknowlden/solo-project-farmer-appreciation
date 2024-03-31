@@ -51,11 +51,10 @@ router.post('/create', rejectUnauthenticated, (req, res) => {
 });
 
 router.put('/:id', rejectUnauthenticated, (req, res) => {
-  const userId = req.user.id;
+  // const userId = req.user.id;
+  const id = req.params.id;
   const sqlText = `UPDATE "events"
-  ("name", "date", "location", "street", "city", "state", "zip", "cost", "image", "details", "userid")
-  VALUES
-    ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11);
+  SET "name" = $1, "date" = $2, "location" = $3, "street" = $4, "city" = $5, "state" = $6, "zip" = $7, "cost" = $8, "image" = $9, "details" = $10 WHERE "id" = $11;
     `;
   const sqlValues = [
     req.body.name,
@@ -68,7 +67,8 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     req.body.cost,
     req.body.image,
     req.body.details,
-    userId,
+    id,
+    // userId,
   ];
   pool
     .query(sqlText, sqlValues)

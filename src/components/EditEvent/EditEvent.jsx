@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useHistory } from 'react-router-dom';
+import React, { useState, useEffect, useMemo } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Snackbar, Alert, Box, Typography } from '@mui/material';
@@ -11,20 +11,35 @@ function EditEvent() {
   const dispatch = useDispatch();
   const user = useSelector((store) => store.user);
   const eventDetails = useSelector((store) => store.details);
-  const details = eventDetails[0] || 'No details available';
+  const { id } = useParams();
   const [open, setOpen] = React.useState(false);
-  const [formData, setFormData] = useState({
-    name: '',
-    date: '',
-    location: '',
-    street: '',
-    city: '',
-    state: '',
-    zip: '',
-    cost: '',
-    image: '',
-    details: '',
+
+  const date = new Date(eventDetails.date);
+  const formattedDate = date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    hour12: true,
   });
+
+  const [formData, setFormData] = useState({
+    name: eventDetails[0] ? eventDetails[0].name : '',
+    date: formattedDate ? formattedDate : '',
+    location: eventDetails[0] ? eventDetails[0].location : '',
+    street: eventDetails[0] ? eventDetails[0].street : '',
+    city: eventDetails[0] ? eventDetails[0].city : '',
+    state: eventDetails[0] ? eventDetails[0].state : '',
+    zip: eventDetails[0] ? eventDetails[0].zip : '',
+    cost: eventDetails[0] ? eventDetails[0].cost : '',
+    image: '',
+    details: eventDetails[0] ? eventDetails[0].details : '',
+  });
+
+  const details = useMemo(() => {
+    return eventDetails[0] || 'No details available';
+  }, [eventDetails]);
 
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'EDIT EVENT' });
@@ -72,9 +87,10 @@ function EditEvent() {
     event.preventDefault();
     console.log('form data', formData);
     dispatch({
-      type: 'CREATE_EVENT',
+      type: 'EDIT_EVENT',
       payload: {
         formData,
+        id: id,
       },
     });
     handleClick();
@@ -135,6 +151,7 @@ function EditEvent() {
                 name="name"
                 type="text"
                 placeholder="Event title (required)"
+                defaultValue={details.name}
               />{' '}
               <br />
               <textarea

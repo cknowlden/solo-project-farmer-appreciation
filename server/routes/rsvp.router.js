@@ -13,7 +13,7 @@ router.post('/:id', (req, res) => {
     req.body.first_name,
     req.body.last_name,
     req.body.email,
-    req.body.phone,
+    req.body.phone === '' ? null : req.body.phone,
     event_id,
   ];
 
@@ -22,6 +22,7 @@ router.post('/:id', (req, res) => {
     .then(() => res.sendStatus(201))
     .catch((err) => {
       console.log('rsvp failed:', err);
+      res.sendStatus(500);
     });
 });
 

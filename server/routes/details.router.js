@@ -6,7 +6,7 @@ router.get('/:id', (req, res) => {
   let id = req.params.id;
   const queryText = `
     SELECT * FROM "events"
-      WHERE "events".id = ($1);
+      WHERE "events".id = $1;
     `;
   const queryValues = [id];
   pool
