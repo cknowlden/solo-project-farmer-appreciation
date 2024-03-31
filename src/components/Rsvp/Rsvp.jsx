@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Snackbar, Alert, Box } from '@mui/material';
+import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
 import '../App/App.css';
 
 function Rsvp() {
@@ -69,7 +69,7 @@ function Rsvp() {
   };
 
   return (
-    <div className="container">
+    <div className="wheat">
       <Box
         display="flex"
         justifyContent="flex-end"
@@ -80,61 +80,99 @@ function Rsvp() {
           X
         </Button>
       </Box>
-      <p>RSVP for:</p>
-      <p>{details.name}</p>
-      <form onSubmit={handleSubmit}>
-        <input
-          required
-          onChange={handleInputChange}
-          value={formData.first_name}
-          name="first_name"
-          type="text"
-          placeholder="First Name (required)"
-        />{' '}
-        <br />
-        <input
-          required
-          onChange={handleInputChange}
-          value={formData.last_name}
-          name="last_name"
-          type="text"
-          placeholder="Last Name (required)"
-        />{' '}
-        <br />
-        <input
-          onChange={handleInputChange}
-          value={formData.phone}
-          name="phone"
-          type="number"
-          placeholder="Phone (123)456-7890"
-        />{' '}
-        <br />
-        <input
-          required
-          onChange={handleInputChange}
-          value={formData.email}
-          name="email"
-          type="text"
-          placeholder="Email (required)"
-        />{' '}
-        <br />
-        <center>
-          <Button type="submit" className="btn" variant="outlined">
-            RSVP
-          </Button>
-          <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
-            <Alert
-              onClose={handleClose}
-              severity="success"
-              variant="filled"
-              sx={{ width: '100%' }}
-            >
-              Successfully RSVP'd for {details.name}. You may now return to
-              Events Page.
-            </Alert>
-          </Snackbar>
-        </center>
-      </form>
+      <div className="big-rect">
+        <Box
+          sx={{
+            backgroundImage: "url('images/creek.jpg')",
+            height: '700px',
+            width: '100%',
+            marginLeft: '100px',
+            marginRight: '300px',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100% 100%',
+            borderRadius: '10px',
+          }}
+        >
+          <Box
+            alignItems="center"
+            justifyContent={'center'}
+            sx={{
+              bgcolor: 'honeydew',
+              height: '78vh',
+              width: '600px',
+              marginLeft: '100px',
+              marginRight: '300px',
+              backgroundRepeat: 'no-repeat',
+              display: 'flex',
+              flexDirection: 'column',
+              borderRadius: '10px',
+            }}
+          >
+            <Typography variant="h3" fontWeight={600}>
+              RSVP for:
+            </Typography>
+            <p>{details.name}</p>
+            <br />
+            <form onSubmit={handleSubmit}>
+              <input
+                required
+                onChange={handleInputChange}
+                value={formData.first_name}
+                name="first_name"
+                type="text"
+                placeholder="First Name (required)"
+              />{' '}
+              <br />
+              <input
+                required
+                onChange={handleInputChange}
+                value={formData.last_name}
+                name="last_name"
+                type="text"
+                placeholder="Last Name (required)"
+              />{' '}
+              <br />
+              <input
+                onChange={handleInputChange}
+                value={formData.phone}
+                name="phone"
+                type="number"
+                placeholder="Phone (123) 456-7890"
+              />{' '}
+              <br />
+              <input
+                required
+                onChange={handleInputChange}
+                value={formData.email}
+                name="email"
+                type="text"
+                placeholder="Email (required)"
+              />{' '}
+              <br />
+              <center>
+                <Button type="submit" className="btn" variant="outlined">
+                  RSVP
+                </Button>
+                <Snackbar
+                  open={open}
+                  autoHideDuration={6000}
+                  onClose={handleClose}
+                >
+                  <Alert
+                    onClose={handleClose}
+                    severity="success"
+                    variant="filled"
+                    sx={{ width: '100%' }}
+                  >
+                    Successfully RSVP'd for {details.name}. You may now return
+                    to Events Page.
+                  </Alert>
+                </Snackbar>
+              </center>
+            </form>
+          </Box>
+        </Box>
+      </div>
     </div>
   );
 }
