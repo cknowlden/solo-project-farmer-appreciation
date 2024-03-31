@@ -107,7 +107,13 @@ function Events() {
       </div>
       <div className="card-section">
         <h2 className="title">Upcoming Events</h2>
-        <Grid paddingLeft={5} paddingRight={5} container spacing={3}>
+        <Grid
+          paddingLeft={5}
+          paddingRight={5}
+          paddingBottom={5}
+          container
+          spacing={3}
+        >
           {events.map((event) => {
             const date = new Date(event.date);
             const formattedDate = date.toLocaleDateString('en-US', {

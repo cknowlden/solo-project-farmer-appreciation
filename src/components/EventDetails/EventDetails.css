@@ -1,3 +1,21 @@
 .control-panel {
   text-align: right;
+  /* margin-top: 800px; */
+  vertical-align: bottom;
+}
+
+.img {
+  max-width: 800px;
+  min-height: 300px;
+  max-height: 700px;
+}
+
+.details {
+  min-height: 800px;
+  /* padding-right: 50px;
+  justify-content: space-evenly; */
+}
+
+.description {
+  word-wrap: break-word;
 }
