@@ -14,10 +14,11 @@
 }
 
 .search {
-  background-color: rgb(190, 183, 183);
+  background-color: rgb(218, 204, 204);
   display: inline-block;
   text-align: center;
   min-width: 300px;
+  border-radius: 5px;
 }
 
 .input-field {

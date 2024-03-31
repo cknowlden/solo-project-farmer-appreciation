@@ -94,6 +94,7 @@ function Events() {
             <Button
               type="submit"
               variant="contained"
+              size="large"
               sx={{
                 verticalAlign: 'middle',
                 marginRight: '-150px',

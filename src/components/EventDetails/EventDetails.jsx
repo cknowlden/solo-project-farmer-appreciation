@@ -127,12 +127,11 @@ function EventDetails() {
                 <Typography variant="h4" fontWeight={600}>
                   {details.name}
                 </Typography>
-
                 <p className="description">{details.details}</p>
-
                 <CalendarTodayIcon
                   sx={{ verticalAlign: 'middle', marginRight: '5px' }}
-                />
+                />{' '}
+                {''}
                 {formattedDate}
                 <br />
                 <p>{details.location}</p>
@@ -141,38 +140,42 @@ function EventDetails() {
                   {details.city},{details.state} {''}
                   {details.zip}
                 </p>
-                <Box
-                  display="flex"
-                  justifyContent="space-evenly"
-                  className="ticket-people"
-                  sx={{
-                    display: 'flex',
-                    alignItems: 'flex-end',
-                    // marginTop: 'flex-start',
-                    marginTop: '50px',
-                    marginBottom: '50px',
-                  }}
-                >
-                  <ConfirmationNumberIcon sx={{ verticalAlign: 'middle' }} /> $
-                  {details.cost}
-                  <PeopleAltOutlinedIcon
+                <center>
+                  <Box
+                    display="flex"
+                    justifyContent="space-evenly"
+                    className="ticket-people"
                     sx={{
-                      verticalAlign: 'middle',
-                      display: 'inline-block',
-                      marginLeft: '95px',
+                      display: 'flex',
+                      alignItems: 'flex-end',
+                      // marginTop: 'flex-start',
+                      marginTop: '50px',
+                      marginBottom: '50px',
                     }}
-                  />{' '}
-                  Going
-                </Box>
+                  >
+                    <ConfirmationNumberIcon sx={{ verticalAlign: 'middle' }} />{' '}
+                    ${details.cost}
+                    <PeopleAltOutlinedIcon
+                      sx={{
+                        verticalAlign: 'middle',
+                        display: 'inline-block',
+                        marginLeft: '95px',
+                      }}
+                    />{' '}
+                    Going
+                  </Box>
+                </center>
                 <br />
-                <Button
-                  className="goRsvp"
-                  onClick={goRsvp}
-                  variant="contained"
-                  size="large"
-                >
-                  RSVP NOW!
-                </Button>
+                <center>
+                  <Button
+                    className="goRsvp"
+                    onClick={goRsvp}
+                    variant="contained"
+                    size="large"
+                  >
+                    RSVP NOW!
+                  </Button>
+                </center>
                 <div className="control-panel">
                   {((details && user.id === details.userid) ||
                     (user.type = 'admin')) && (

@@ -16,4 +16,5 @@
   width: 500px;
   float: right;
   shape-outside: element(50%);
+  border-radius: 10px;
 }
