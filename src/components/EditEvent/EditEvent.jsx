@@ -110,7 +110,7 @@ function EditEvent() {
             justifyContent={'center'}
             sx={{
               bgcolor: 'honeydew',
-              height: '78vh',
+              height: '100%',
               width: '600px',
               marginLeft: '100px',
               marginRight: '300px',
