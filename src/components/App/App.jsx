@@ -37,6 +37,7 @@ function App() {
   useEffect(() => {
     dispatch({ type: 'FETCH_USER' });
   }, [dispatch]);
+  console.log('User', user);
 
   return (
     <Router>
@@ -109,16 +110,20 @@ function App() {
           >
             <InfoPage />
           </ProtectedRoute> */}
-          {/* 
+
           <Route exact path="/login">
             {user.id ? (
               // If the user is already logged in,
               // redirect to the /user page
-              <Redirect to="/home" />
+              <Redirect to="/" />
             ) : (
               // Otherwise, show the login page
               <LoginPage />
             )}
+          </Route>
+
+          {/* <Route exact path="/admin">
+            {user.id === 'admin'(<Admin />)}
           </Route> */}
 
           {/* <Route exact path="/registration">

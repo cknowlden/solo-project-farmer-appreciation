@@ -8,6 +8,7 @@ import './Home.css';
 function Home() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
+  console.log('Home user', user);
 
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'HOME' });

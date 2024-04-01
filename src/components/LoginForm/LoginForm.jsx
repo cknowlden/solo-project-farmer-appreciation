@@ -9,7 +9,7 @@ function LoginForm() {
   const errors = useSelector((store) => store.errors);
   const dispatch = useDispatch();
   const history = useHistory();
-
+  const [triedUser, setTriedUser] = useState(false);
   const navHome = () => {
     history.push('/');
   };
@@ -19,7 +19,6 @@ function LoginForm() {
   }, []);
 
   const login = (event) => {
-    navHome();
     event.preventDefault();
 
     if (username && password) {
@@ -30,8 +29,11 @@ function LoginForm() {
           password: password,
         },
       });
+      // navHome();
     } else {
-      dispatch({ type: 'LOGIN_INPUT_ERROR' });
+      setTriedUser(true);
+      console.log('potato');
+      // dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
 
@@ -44,9 +46,9 @@ function LoginForm() {
           borderRadius: '16px',
           borderColor: 'honeydew',
           margin: '50px',
-          // padding: '80px',
           minHeight: '60vh',
           backgroundColor: 'honeydew',
+          verticalAlign: 'middle',
         }}
       >
         <Box
@@ -56,16 +58,19 @@ function LoginForm() {
             backgroundImage: "url('images/old-farm.jpg')",
             // height: '89vh',
             justifyContent: 'space-around',
-            width: '100%',
-            maxWidth: '900px',
-            padding: '80px',
-            marginLeft: '100px',
-            marginRight: '100px',
+            // verticalAlign: 'middle',
+            borderRadius: '15px',
+            // maxWidth: '900px',
+            // padding: '80px',
+            // marginLeft: '100px',
+            // marginRight: '100px',
             marginTop: '100px',
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% 100%',
           }}
         >
+          {triedUser && <button>Click me!</button>}
+
           <form className="formPanel" onSubmit={login}>
             {errors.loginMessage && (
               <h3 className="alert" role="alert">
