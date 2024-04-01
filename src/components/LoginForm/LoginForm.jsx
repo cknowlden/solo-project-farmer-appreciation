@@ -50,10 +50,8 @@ function LoginForm() {
           margin: '50px',
           marginLeft: '18%',
           marginRight: '18%',
-
           minHeight: '60vh',
           backgroundColor: 'honeydew',
-          verticalAlign: 'middle',
         }}
       >
         <div className="insert-bg">

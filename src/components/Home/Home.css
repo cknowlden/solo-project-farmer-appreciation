@@ -1,7 +1,9 @@
 .body {
   inline-size: 30%;
-  /* color: blueviolet; */
+  font-weight: 300;
   font-size: larger;
+  margin-left: 80px;
+  width: 35%;
 }
 
 .link {
@@ -9,12 +11,13 @@
 }
 
 .link-box {
-  margin-top: 200px;
+  width: 45%;
 }
 
 .field-image {
-  width: 500px;
+  width: 450px;
   float: right;
-  shape-outside: element(50%);
+  margin-right: 50px;
+  margin-top: -102px;
   border-radius: 10px;
 }

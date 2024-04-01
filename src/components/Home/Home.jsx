@@ -19,16 +19,17 @@ function Home() {
       <Box
         sx={{
           display: 'left',
-          border: 1,
           borderRadius: '16px',
           borderColor: 'honeydew',
           margin: '50px',
-          padding: '80px',
+          marginLeft: '18%',
+          marginRight: '18%',
+          marginTop: '50px',
           minHeight: '60vh',
           backgroundColor: 'honeydew',
         }}
       >
-        <Typography variant="h3" fontWeight={600}>
+        <Typography variant="h3" fontWeight={600} marginLeft={10}>
           Rural Wisconsin Events
         </Typography>
 
