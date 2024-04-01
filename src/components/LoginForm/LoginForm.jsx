@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import { Button, Box, Grid, IconButton, Typography } from '@mui/material';
+import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import './LoginForm.css';
 
 function LoginForm() {
   const [username, setUsername] = useState('');
@@ -32,13 +34,13 @@ function LoginForm() {
       // navHome();
     } else {
       setTriedUser(true);
-      console.log('potato');
-      // dispatch({ type: 'LOGIN_INPUT_ERROR' });
+
+      dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
   }; // end login
 
   return (
-    <div className="wheat">
+    <div className="wheat-login">
       <Box
         sx={{
           display: 'left',
@@ -46,85 +48,108 @@ function LoginForm() {
           borderRadius: '16px',
           borderColor: 'honeydew',
           margin: '50px',
+          marginLeft: '18%',
+          marginRight: '18%',
+
           minHeight: '60vh',
           backgroundColor: 'honeydew',
           verticalAlign: 'middle',
         }}
       >
-        <Box
-          display={'flex'}
-          flexDirection={'column'}
-          sx={{
-            backgroundImage: "url('images/old-farm.jpg')",
-            // height: '89vh',
-            justifyContent: 'space-around',
-            // verticalAlign: 'middle',
-            borderRadius: '15px',
-            // maxWidth: '900px',
-            // padding: '80px',
-            // marginLeft: '100px',
-            // marginRight: '100px',
-            marginTop: '100px',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% 100%',
-          }}
-        >
-          {triedUser && <button>Click me!</button>}
-
+        <div className="insert-bg">
           <form className="formPanel" onSubmit={login}>
             {errors.loginMessage && (
-              <h3 className="alert" role="alert">
-                {errors.loginMessage}
-              </h3>
+              <div className="alert" role="alert">
+                <h3>{`${errors.loginMessage} `}</h3>
+                <center>
+                  <button onClick={navHome}>Continue as Guest</button>
+                </center>
+              </div>
             )}
-            <div>
-              <label htmlFor="username">
-                Email:
-                <p>
-                  <input
-                    placeholder="Email address"
-                    type="text"
-                    name="username"
-                    required
-                    value={username}
-                    onChange={(event) => setUsername(event.target.value)}
-                  />
-                </p>
-              </label>
-            </div>
-            <div>
-              <label htmlFor="password">
-                Password:
-                <p>
-                  <input
-                    placeholder="Password"
-                    type="password"
-                    name="password"
-                    required
-                    value={password}
-                    onChange={(event) => setPassword(event.target.value)}
-                  />
-                </p>
-              </label>
-            </div>
-            <center>
-              <button type="button">Forgot password?</button>
-            </center>
-            <div>
-              <br />
+            <div className="input-section">
+              <div className="input-login">
+                <label htmlFor="username">
+                  Email:
+                  <p>
+                    <input
+                      className="inputField"
+                      placeholder="Email address"
+                      type="text"
+                      name="username"
+                      required
+                      value={username}
+                      onChange={(event) => setUsername(event.target.value)}
+                    />
+                  </p>
+                </label>
+              </div>
+              <div className="input-login">
+                <label htmlFor="password">
+                  Password:
+                  <p>
+                    <input
+                      className="inputField"
+                      placeholder="Password"
+                      type="password"
+                      name="password"
+                      required
+                      value={password}
+                      onChange={(event) => setPassword(event.target.value)}
+                    />
+                  </p>
+                </label>
+              </div>
               <center>
-                <Button
-                  type="submit"
-                  value="Log In"
-                  variant="contained"
-                  size="large"
+                <button
+                  type="button"
+                  className="btn btn_asLink"
+                  // onClick={() => {
+                  //   history.push('/');
+                  // }}
                 >
-                  Log In
-                </Button>
+                  Forgot password?
+                </button>
               </center>
+              <div>
+                <br />
+                <center>
+                  <Button
+                    type="submit"
+                    value="Log In"
+                    variant="contained"
+                    size="large"
+                  >
+                    Log In
+                  </Button>
+                </center>
+              </div>
+              <div className="link">
+                <Link to="/register">
+                  Don't have an account? Register HERE
+                  <TrendingFlatIcon
+                    sx={{
+                      verticalAlign: 'middle',
+                      color: 'black',
+                      marginLeft: '10px',
+                    }}
+                  />
+                </Link>
+                <br />
+                <br />
+                <Link to="/">
+                  Continue as GUEST
+                  <TrendingFlatIcon
+                    sx={{
+                      verticalAlign: 'middle',
+                      color: 'black',
+                      marginLeft: '10px',
+                    }}
+                  />
+                </Link>
+              </div>
             </div>
           </form>
-        </Box>
+        </div>
       </Box>
     </div>
   );

@@ -34,6 +34,7 @@ Background
 
 .wheat {
   min-height: 85vh;
+  height: 100%;
   background-image: url(/images/wheat.jpg);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -121,16 +122,15 @@ Form Treatment
 
 .formPanel {
   box-sizing: border-box;
-  width: 400px;
+  width: 500px;
   max-width: 100%;
   padding: 25px;
-  margin: 0 auto 20px;
-  background-color: #efefef;
-  border-radius: 3px;
-  box-shadow: 0 1px 2px rgb(0, 0, 0, 0.4);
+  margin: 0 auto 0px;
+  background-color: honeydew;
+  height: 100%;
 }
 
 input {
-  margin: 5px;
+  margin: 1px;
   margin-bottom: 10px;
 }
