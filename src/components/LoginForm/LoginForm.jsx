@@ -6,6 +6,7 @@ import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
 import './LoginForm.css';
 
 function LoginForm() {
+  const user = useSelector((store) => store.user);
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const errors = useSelector((store) => store.errors);
@@ -19,6 +20,12 @@ function LoginForm() {
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'LOG IN' });
   }, []);
+
+  useEffect(() => {
+    if (user && user.id && user.role) {
+      history.push('/');
+    }
+  }, [user]);
 
   const login = (event) => {
     event.preventDefault();

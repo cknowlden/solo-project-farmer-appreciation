@@ -11,8 +11,8 @@ function LogOutButton(props) {
   };
 
   const logout = () => {
-    navLogin();
     dispatch({ type: 'LOGOUT' });
+    navLogin();
   };
 
   return (

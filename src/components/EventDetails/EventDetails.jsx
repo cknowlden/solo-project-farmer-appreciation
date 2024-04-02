@@ -168,7 +168,7 @@ function EventDetails() {
                 </center>
                 <div className="control-panel">
                   {((details && user.id === details.userid) ||
-                    (user.type = 'admin')) && (
+                    user.type === 'admin') && (
                     <div>
                       {' '}
                       <IconButton

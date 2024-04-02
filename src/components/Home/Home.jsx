@@ -12,6 +12,7 @@ function Home() {
 
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'HOME' });
+    dispatch({ type: 'CLEAR_LOGIN_ERROR' });
   }, []);
 
   return (

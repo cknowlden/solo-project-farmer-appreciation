@@ -51,10 +51,6 @@ function App() {
             <Home />
           </Route>
 
-          <Route exact path="/login">
-            <LoginPage />
-          </Route>
-
           <Route exact path="/register">
             <RegisterPage />
           </Route>
@@ -88,7 +84,14 @@ function App() {
           </Route>
 
           <Route exact path="/admin">
-            <Admin />
+            {user.id && user.type === 'admin' ? (
+              // If the user is already logged in,
+              // redirect to the /user page
+              <Admin />
+            ) : (
+              // Otherwise, show the login page
+              <Redirect to="/" />
+            )}
           </Route>
 
           {/* For protected routes, the view could show one of several things on the same route.

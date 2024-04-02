@@ -13,6 +13,8 @@ function Nav() {
       <h2 className="nav-title">{title}</h2>
 
       <div>
+        {/* {!user.id && <p>nothing to see here</p>} */}
+
         {/* If no user is logged in, show these links */}
         {!user.id && (
           <>
