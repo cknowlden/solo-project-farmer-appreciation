@@ -40,6 +40,21 @@ Background
   background-repeat: no-repeat;
 }
 
+.woods {
+  min-height: 85vh;
+  height: 100%;
+  background-image: url(/images/woods.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.water {
+  min-height: 85vh;
+  height: 100%;
+  background-image: url(/images/water.jpg);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
 /* --------------------------------------------------------------------------------
 Container
 -------------------------------------------------------------------------------- */

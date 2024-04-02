@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { Grid, Card, Box, CardContent, Typography } from '@mui/material';
-import './InfoPage.css';
 
 function InfoPage() {
   const info = useSelector((store) => store.info);
@@ -17,11 +16,8 @@ function InfoPage() {
   }, []);
 
   return (
-    <div className="background">
+    <div className="water">
       <Grid
-        // paddingLeft={5}
-        // paddingRight={5}
-        // paddingBottom={5}
         padding="20px"
         marginTop="2px"
         container

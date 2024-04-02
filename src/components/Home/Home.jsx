@@ -25,7 +25,7 @@ function Home() {
           margin: '50px',
           marginLeft: '18%',
           marginRight: '18%',
-          marginTop: '50px',
+          marginTop: '75px',
           minHeight: '60vh',
           backgroundColor: 'honeydew',
         }}
@@ -58,7 +58,7 @@ function Home() {
             <>
               {/* If there's no user, show these links */}
               <p>
-                <Link className="link" to="/events">
+                <Link className="home-link" to="/events">
                   Find an appreciation event near you{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}
@@ -66,7 +66,7 @@ function Home() {
                 </Link>
               </p>
               <p>
-                <Link className="link" to="/info">
+                <Link className="home-link" to="/info">
                   Explore mental health information{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}
@@ -74,7 +74,7 @@ function Home() {
                 </Link>
               </p>
               <p>
-                <Link className="link" to="/resources">
+                <Link className="home-link" to="/resources">
                   Resources{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}
@@ -88,7 +88,7 @@ function Home() {
           {user.id && (
             <>
               <p>
-                <Link className="link" to="/events">
+                <Link className="home-link" to="/events">
                   Find an appreciation event near you{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}
@@ -96,7 +96,7 @@ function Home() {
                 </Link>
               </p>
               <p>
-                <Link className="link" to="/create">
+                <Link className="home-link" to="/create">
                   Create a meetup or event{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}
@@ -104,7 +104,7 @@ function Home() {
                 </Link>
               </p>
               <p>
-                <Link className="link" to="/info">
+                <Link className="home-link" to="/info">
                   Explore mental health information{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}
@@ -112,7 +112,7 @@ function Home() {
                 </Link>
               </p>
               <p>
-                <Link className="link" to="/resources">
+                <Link className="home-link" to="/resources">
                   Resources{' '}
                   <TrendingFlatIcon
                     sx={{ verticalAlign: 'middle', color: 'black' }}

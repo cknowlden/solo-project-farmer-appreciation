@@ -60,7 +60,7 @@ function EventDetails() {
   };
 
   return (
-    <>
+    <div className="woods">
       <Box
         display="flex"
         justifyContent="flex-end"
@@ -71,132 +71,114 @@ function EventDetails() {
           X
         </Button>
       </Box>
+
       <Box
         sx={{
-          backgroundImage: "url('images/woods.jpg')",
-          height: '89vh',
-          width: '100%',
-          marginTop: '-53px',
-          backgroundRepeat: 'no-repeat',
-          backgroundSize: '100% 100%',
+          bgcolor: 'honeydew',
+          height: '700px',
+          marginLeft: '75px',
+          marginRight: '75px',
+          marginTop: '75px',
+          justifyContent: 'center',
+          verticalAlign: 'middle',
+          borderRadius: '10px',
         }}
       >
-        <Box
-          sx={{
-            bgcolor: 'honeydew',
-            height: '700px',
-            marginLeft: '75px',
-            marginRight: '75px',
-            marginTop: '75px',
-            justifyContent: 'center',
-            verticalAlign: 'middle',
-            borderRadius: '10px',
-          }}
-        >
-          <Grid
-            // paddingLeft={5}
-            // paddingRight={5}
-            // paddingTop={5}
-            // container
-            // spacing={3}
-            container
-            spacing={2}
-          >
-            <Grid item xs={7}>
-              <item>
-                <img
-                  className="img"
-                  id={details.id}
-                  src={details.image}
-                  alt={details.name}
-                />
-              </item>
-            </Grid>
-            <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
-              <item className="details">
-                <Typography variant="h4" fontWeight={600}>
-                  {details.name}
-                </Typography>
-                <p className="description">{details.details}</p>
-                <CalendarTodayIcon
-                  sx={{ verticalAlign: 'middle', marginRight: '5px' }}
-                />{' '}
-                {''}
-                {formattedDate}
-                <br />
-                <p>{details.location}</p>
-                <p>{details.street} </p>
-                <p>
-                  {details.city},{details.state} {''}
-                  {details.zip}
-                </p>
-                <center>
-                  <Box
-                    display="flex"
-                    justifyContent="space-evenly"
-                    className="ticket-people"
-                    sx={{
-                      display: 'flex',
-                      alignItems: 'flex-end',
-                      // marginTop: 'flex-start',
-                      marginTop: '50px',
-                      marginBottom: '50px',
-                    }}
-                  >
-                    <ConfirmationNumberIcon sx={{ verticalAlign: 'middle' }} />{' '}
-                    ${details.cost}
-                    <PeopleAltOutlinedIcon
-                      sx={{
-                        verticalAlign: 'middle',
-                        display: 'inline-block',
-                        marginLeft: '95px',
-                      }}
-                    />{' '}
-                    Going
-                  </Box>
-                </center>
-                <br />
-                <center>
-                  <Button
-                    className="goRsvp"
-                    onClick={goRsvp}
-                    variant="contained"
-                    size="large"
-                  >
-                    RSVP NOW!
-                  </Button>
-                </center>
-                <div className="control-panel">
-                  {((details && user.id === details.userid) ||
-                    user.type === 'admin') && (
-                    <div>
-                      {' '}
-                      <IconButton
-                        alignItems="right"
-                        aria-label="delete"
-                        color="primary"
-                        size="large"
-                        onClick={handleDelete}
-                      >
-                        <DeleteIcon />
-                      </IconButton>
-                      <IconButton
-                        aria-label="edit"
-                        color="primary"
-                        size="large"
-                        onClick={goEdit}
-                      >
-                        <EditIcon />
-                      </IconButton>
-                    </div>
-                  )}
-                </div>
-              </item>
-            </Grid>
+        <Grid container spacing={2}>
+          <Grid item xs={7}>
+            <item>
+              <img
+                className="img"
+                id={details.id}
+                src={details.image}
+                alt={details.name}
+              />
+            </item>
           </Grid>
-        </Box>
+          <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
+            <item className="details">
+              <Typography variant="h4" fontWeight={600}>
+                {details.name}
+              </Typography>
+              <p className="description">{details.details}</p>
+              <CalendarTodayIcon
+                sx={{ verticalAlign: 'middle', marginRight: '5px' }}
+              />{' '}
+              {''}
+              {formattedDate}
+              <br />
+              <p>{details.location}</p>
+              <p>{details.street} </p>
+              <p>
+                {details.city},{details.state} {''}
+                {details.zip}
+              </p>
+              <center>
+                <Box
+                  display="flex"
+                  justifyContent="space-evenly"
+                  className="ticket-people"
+                  sx={{
+                    display: 'flex',
+                    alignItems: 'flex-end',
+                    // marginTop: 'flex-start',
+                    marginTop: '50px',
+                    marginBottom: '50px',
+                  }}
+                >
+                  <ConfirmationNumberIcon sx={{ verticalAlign: 'middle' }} /> $
+                  {details.cost}
+                  <PeopleAltOutlinedIcon
+                    sx={{
+                      verticalAlign: 'middle',
+                      display: 'inline-block',
+                      marginLeft: '95px',
+                    }}
+                  />{' '}
+                  Going
+                </Box>
+              </center>
+              <br />
+              <center>
+                <Button
+                  className="goRsvp"
+                  onClick={goRsvp}
+                  variant="contained"
+                  size="large"
+                >
+                  RSVP NOW!
+                </Button>
+              </center>
+              <div className="control-panel">
+                {((details && user.id === details.userid) ||
+                  user.type === 'admin') && (
+                  <div>
+                    {' '}
+                    <IconButton
+                      alignItems="right"
+                      aria-label="delete"
+                      color="primary"
+                      size="large"
+                      onClick={handleDelete}
+                    >
+                      <DeleteIcon />
+                    </IconButton>
+                    <IconButton
+                      aria-label="edit"
+                      color="primary"
+                      size="large"
+                      onClick={goEdit}
+                    >
+                      <EditIcon />
+                    </IconButton>
+                  </div>
+                )}
+              </div>
+            </item>
+          </Grid>
+        </Grid>
       </Box>
-    </>
+    </div>
   );
 }
 

@@ -6,12 +6,14 @@
   width: 35%;
 }
 
-.link {
+.home-link {
   color: black;
+  padding-left: 50px;
 }
 
 .link-box {
-  width: 45%;
+  align-content: start;
+  padding-top: 115px;
 }
 
 .field-image {
