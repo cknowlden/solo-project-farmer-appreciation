@@ -71,6 +71,9 @@ function LoginForm() {
                 </center>
               </div>
             )}
+            <center>
+              <h1>Please Log In</h1>
+            </center>
             <div className="input-section">
               <div className="input-login">
                 <label htmlFor="username">
