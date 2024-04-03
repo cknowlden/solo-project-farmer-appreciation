@@ -10,16 +10,17 @@
   min-height: 650px;
   max-height: 650px;
   margin-left: 20px;
+  margin-bottom: 15px;
   border-radius: 10px;
   justify-content: space-around;
 }
 
 .details {
   min-height: 80px;
-  /* padding-right: 50px;
-  justify-content: space-evenly; */
 }
 
 .description {
   word-wrap: break-word;
+  margin-left: 10px;
+  margin-right: 25px;
 }

@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 
 function LogOutButton(props) {
@@ -7,6 +7,7 @@ function LogOutButton(props) {
   const history = useHistory();
 
   const navLogin = () => {
+    console.log('Testing login');
     history.push('/login');
   };
 

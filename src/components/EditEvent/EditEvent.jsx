@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,15 +15,25 @@ function EditEvent() {
   const { id } = useParams();
   const [open, setOpen] = React.useState(false);
 
-  const date = new Date(eventDetails.date);
-  const formattedDate = date.toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-    hour: 'numeric',
-    minute: 'numeric',
-    hour12: true,
-  });
+  const formattedDate = useMemo(() => {
+    if (eventDetails[0]) {
+      return DateTime.fromISO(eventDetails[0].date).toISO();
+    }
+    return '';
+  }, [eventDetails]);
+
+  // const date = DateTime.fromISO(eventDetails[0].date);
+  // const formattedDate = date.toLocaleString('yyyy-MM-ddThh:mm');
+  // .toLocaleDateString('en-US', {
+  //   year: 'numeric',
+  //   month: 'long',
+  //   day: 'numeric',
+  //   hour: 'numeric',
+  //   minute: 'numeric',
+  //   hour12: true,
+  // });
+  // date.toISOString();
+  // yyyy-MM-ddThh:mm
 
   const [formData, setFormData] = useState({
     name: eventDetails[0] ? eventDetails[0].name : '',
@@ -221,10 +232,14 @@ function EditEvent() {
               </div>{' '}
               <br />
               <div className="date-cost">
+                {formData.date}
                 <TextField
                   required
                   onChange={handleInputChange}
                   value={formData.date}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   name="date"
                   label="Event Date & Time"
                   variant="outlined"

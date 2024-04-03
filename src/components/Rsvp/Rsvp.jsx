@@ -80,34 +80,32 @@ function Rsvp() {
           X
         </Button>
       </Box>
-      <div className="big-rect">
-        <Box
-          sx={{
-            backgroundImage: "url('images/creek.jpg')",
-            height: '700px',
-            width: '100%',
-            marginLeft: '100px',
-            marginRight: '300px',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% 100%',
-            borderRadius: '10px',
-          }}
-        >
-          <Box
-            alignItems="center"
-            justifyContent={'center'}
-            sx={{
-              bgcolor: 'honeydew',
-              height: '78vh',
-              width: '600px',
-              marginLeft: '100px',
-              marginRight: '300px',
-              backgroundRepeat: 'no-repeat',
-              display: 'flex',
-              flexDirection: 'column',
-              borderRadius: '10px',
-            }}
-          >
+
+      <Box
+        sx={{
+          display: 'left',
+          borderRadius: '16px',
+          borderColor: 'honeydew',
+          margin: '50px',
+          marginLeft: '18%',
+          marginRight: '18%',
+          marginTop: '75px',
+          minHeight: '60vh',
+          backgroundColor: 'honeydew',
+        }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={7}>
+            <item>
+              <img
+                className="img"
+                id={details.id}
+                src={details.image}
+                alt={details.name}
+              />
+            </item>
+          </Grid>
+          <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
             <Typography variant="h3" fontWeight={600}>
               RSVP for:
             </Typography>
@@ -170,9 +168,10 @@ function Rsvp() {
                 </Snackbar>
               </center>
             </form>
-          </Box>
-        </Box>
-      </div>
+          </Grid>
+        </Grid>
+      </Box>
+      {/* </Box> */}
     </div>
   );
 }

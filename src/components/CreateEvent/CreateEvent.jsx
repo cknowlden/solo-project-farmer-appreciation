@@ -200,6 +200,9 @@ function CreateEvent() {
                 <TextField
                   required
                   onChange={handleInputChange}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
                   value={formData.date}
                   name="date"
                   label="Event Date & Time"

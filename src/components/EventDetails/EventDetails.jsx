@@ -74,14 +74,15 @@ function EventDetails() {
 
       <Box
         sx={{
-          bgcolor: 'honeydew',
-          height: '700px',
-          marginLeft: '75px',
-          marginRight: '75px',
+          display: 'left',
+          borderRadius: '16px',
+          borderColor: 'honeydew',
+          margin: '50px',
+          marginLeft: '18%',
+          marginRight: '18%',
           marginTop: '75px',
-          justifyContent: 'center',
-          verticalAlign: 'middle',
-          borderRadius: '10px',
+          minHeight: '60vh',
+          backgroundColor: 'honeydew',
         }}
       >
         <Grid container spacing={2}>
@@ -97,7 +98,7 @@ function EventDetails() {
           </Grid>
           <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
             <item className="details">
-              <Typography variant="h4" fontWeight={600}>
+              <Typography variant="h4" fontWeight={600} sx>
                 {details.name}
               </Typography>
               <p className="description">{details.details}</p>
@@ -121,7 +122,6 @@ function EventDetails() {
                   sx={{
                     display: 'flex',
                     alignItems: 'flex-end',
-                    // marginTop: 'flex-start',
                     marginTop: '50px',
                     marginBottom: '50px',
                   }}
@@ -150,29 +150,29 @@ function EventDetails() {
                 </Button>
               </center>
               <div className="control-panel">
-                {((details && user.id === details.userid) ||
-                  user.type === 'admin') && (
-                  <div>
-                    {' '}
-                    <IconButton
-                      alignItems="right"
-                      aria-label="delete"
-                      color="primary"
-                      size="large"
-                      onClick={handleDelete}
-                    >
-                      <DeleteIcon />
-                    </IconButton>
-                    <IconButton
-                      aria-label="edit"
-                      color="primary"
-                      size="large"
-                      onClick={goEdit}
-                    >
-                      <EditIcon />
-                    </IconButton>
-                  </div>
-                )}
+                {details &&
+                  (user.id == details.userid || user.role_type === 'admin') && (
+                    <div>
+                      {' '}
+                      <IconButton
+                        alignItems="right"
+                        aria-label="delete"
+                        color="primary"
+                        size="large"
+                        onClick={handleDelete}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                      <IconButton
+                        aria-label="edit"
+                        color="primary"
+                        size="large"
+                        onClick={goEdit}
+                      >
+                        <EditIcon />
+                      </IconButton>
+                    </div>
+                  )}
               </div>
             </item>
           </Grid>

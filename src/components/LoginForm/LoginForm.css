@@ -5,22 +5,6 @@
   margin: 50px;
 }
 
-.insert-bg {
-  background-image: url('images/old-farm.jpg');
-  background-size: 100% 100%;
-  height: 650px;
-  margin: 50px;
-  border-radius: 15px;
-}
-
-.insert-bg-reg {
-  background-image: url('images/autumn.jpg');
-  background-size: 100% 100%;
-  height: 650px;
-  margin: 50px;
-  border-radius: 15px;
-}
-
 .wheat-login {
   min-height: 85vh;
   height: 100%;
