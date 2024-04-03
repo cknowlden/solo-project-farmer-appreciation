@@ -5,22 +5,22 @@
 }
 
 .img {
-  min-width: 600px;
-  max-width: 600px;
+  /* min-width: 600px;
+  max-width: 600px; */
+  width: 100%;
   min-height: 650px;
-  max-height: 650px;
   margin-left: 20px;
   margin-bottom: 15px;
   border-radius: 10px;
   justify-content: space-around;
 }
 
-.details {
-  min-height: 80px;
-}
-
 .description {
   word-wrap: break-word;
-  margin-left: 10px;
-  margin-right: 25px;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.date {
+  margin-top: 50px;
 }

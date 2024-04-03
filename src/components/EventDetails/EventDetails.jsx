@@ -7,7 +7,7 @@ import EditIcon from '@mui/icons-material/Edit';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
-
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import '../App/App.css';
 import './EventDetails.css';
 
@@ -97,23 +97,37 @@ function EventDetails() {
             </item>
           </Grid>
           <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
-            <item className="details">
-              <Typography variant="h4" fontWeight={600} sx>
+            <item className="description">
+              <Typography
+                variant="h4"
+                fontWeight={600}
+                sx={{ paddingLeft: '20px' }}
+              >
                 {details.name}
               </Typography>
               <p className="description">{details.details}</p>
-              <CalendarTodayIcon
-                sx={{ verticalAlign: 'middle', marginRight: '5px' }}
-              />{' '}
-              {''}
-              {formattedDate}
+
+              <center className="date">
+                <CalendarTodayIcon
+                  sx={{ verticalAlign: 'middle', marginRight: '5px' }}
+                />{' '}
+                {formattedDate}
+              </center>
               <br />
-              <p>{details.location}</p>
-              <p>{details.street} </p>
-              <p>
-                {details.city},{details.state} {''}
+              <center>
+                <LocationOnOutlinedIcon
+                  sx={{
+                    verticalAlign: 'middle',
+                    marginRight: '10px',
+                    marginLeft: '10px',
+                  }}
+                />
+                {details.location} <br />
+                {details.street}, {''}
+                {details.city},{''}
+                {details.state} {''}
                 {details.zip}
-              </p>
+              </center>
               <center>
                 <Box
                   display="flex"
