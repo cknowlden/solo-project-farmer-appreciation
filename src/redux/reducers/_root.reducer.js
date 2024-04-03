@@ -9,6 +9,7 @@ import details from './details.reducer';
 import title from './nav.reducer';
 import rsvp from './rsvp.reducer';
 import edit from './edit.reducer';
+import rsvpCount from './rsvpCount.reducer';
 
 // rootReducer is the primary reducer for our entire project
 // It bundles up all of the other reducers so our project can use them.
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
   title, //displays the current page title in nav bar
   rsvp, //ingests user information for rsvp
   edit, //edits details of event
+  rsvpCount, //counts number of rsvp for that event
 });
 
 export default rootReducer;

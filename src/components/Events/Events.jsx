@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import {
   Grid,
   Card,
@@ -18,9 +18,11 @@ import './Events.css';
 
 function Events() {
   const events = useSelector((store) => store.events);
+  const rsvp = useSelector((store) => store.rsvpCount);
   const dispatch = useDispatch();
   const history = useHistory();
   const [zip, setZip] = useState('');
+  const { id } = useParams();
 
   const eventDetails = () => {
     const id = event.target.id;
@@ -29,7 +31,6 @@ function Events() {
 
   // const postgresDateTime = event.date;
   const date = new Date();
-
   // console.log(formattedDate);
 
   //NEEDS TO BE COMPLETED
@@ -143,7 +144,7 @@ function Events() {
                     <Typography>
                       {' '}
                       <h3 className="event-name">{event.name}</h3>
-                      <p className="event-loc">{event.location}</p>
+                      <div className="event-loc">{event.location}</div>
                       <CalendarTodayIcon
                         sx={{ verticalAlign: 'middle', marginRight: '5px' }}
                       />
@@ -156,7 +157,7 @@ function Events() {
                         sx={{
                           display: 'flex',
                           alignItems: 'flex-end',
-                          // marginTop: 'flex-start',
+
                           marginBottom: '10px',
                         }}
                       >
@@ -171,6 +172,7 @@ function Events() {
                             marginLeft: '95px',
                           }}
                         />{' '}
+                        {/* {JSON.stringify({ rsvpCount })} */}
                         Going
                       </Box>
                     </Typography>

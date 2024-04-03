@@ -77,10 +77,10 @@ function EventDetails() {
           display: 'left',
           borderRadius: '16px',
           borderColor: 'honeydew',
-          margin: '50px',
+          marginBottom: '35px',
           marginLeft: '18%',
           marginRight: '18%',
-          marginTop: '75px',
+          marginTop: '5px',
           minHeight: '60vh',
           backgroundColor: 'honeydew',
         }}
