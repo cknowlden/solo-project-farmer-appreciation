@@ -45,7 +45,7 @@ function InfoPage() {
                     maxHeight: 485,
                     borderRadius: '15px',
                     textAlign: 'center',
-                    marginTop: '55px',
+                    marginTop: '15px',
                     marginLeft: '40px',
                   }}
                 >

@@ -13,7 +13,38 @@ function Nav() {
       <h2 className="nav-title">{title}</h2>
 
       <div>
-        {/* {!user.id && <p>nothing to see here</p>} */}
+        {/* If an admin is logged in, show these links */}
+        {user.role_type === 'admin' && (
+          <>
+            <p className="userLog">Logged in as: {user.username}</p>
+
+            <Link className="navLink" to="/">
+              Home
+            </Link>
+
+            <Link className="navLink" to="/events">
+              Events
+            </Link>
+
+            <Link className="navLink" to="/create">
+              Create Event
+            </Link>
+
+            <Link className="navLink" to="/info">
+              Information
+            </Link>
+
+            <Link className="navLink" to="/resources">
+              Resources
+            </Link>
+
+            <Link className="navLink" to="/admin">
+              Admin
+            </Link>
+
+            <LogOutButton className="navLink" />
+          </>
+        )}
 
         {/* If no user is logged in, show these links */}
         {!user.id && (

@@ -22,9 +22,7 @@ router.get('/:id', (req, res) => {
 
 router.get('/count/:id', (req, res) => {
   let id = req.params.id;
-  const queryText =
-    // `SELECT COUNT(id) FROM "rsvp" WHERE "event_id" = $1;`;
-    `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
+  const queryText = `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
   const queryValues = [id];
   pool
     .query(queryText, queryValues)

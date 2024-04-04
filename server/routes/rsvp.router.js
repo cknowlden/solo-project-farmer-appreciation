@@ -5,8 +5,8 @@ const router = express.Router();
 // router.get('/:id', (req, res) => {
 //   let id = req.params.id;
 //   const queryText =
-//     // `SELECT COUNT(id) FROM "rsvp" WHERE "event_id" = $1;`;
-//     `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
+//     // `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
+//     `SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
 //   const queryValues = [id];
 //   pool
 //     .query(queryText, queryValues)
@@ -18,6 +18,21 @@ const router = express.Router();
 //       res.sendStatus(500);
 //     });
 // });
+
+router.get('/', (req, res) => {
+  const sqlText = `
+  SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id;
+    `;
+  pool
+    .query(sqlText)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log('error getting events', dbErr);
+      res.sendStatus(500);
+    });
+});
 
 router.post('/:id', (req, res) => {
   let event_id = req.params.id;

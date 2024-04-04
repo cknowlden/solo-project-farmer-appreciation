@@ -84,35 +84,17 @@ function App() {
           </Route>
 
           <Route exact path="/admin">
-            {user.id && user.type === 'admin' ? (
-              // If the user is already logged in,
-              // redirect to the /user page
+            <Admin />
+          </Route>
+          {/* <Route exact path="/admin">
+            {user.id && user.role_type === 'admin' ? (
+              // If the user is logged in as admin,
               <Admin />
             ) : (
               // Otherwise, show the login page
               <Redirect to="/" />
             )}
-          </Route>
-
-          {/* For protected routes, the view could show one of several things on the same route.
-            Visiting localhost:5173/user will show the UserPage if the user is logged in.
-            If the user is not logged in, the ProtectedRoute will show the LoginPage (component).
-            Even though it seems like they are different pages, the user is always on localhost:5173/user */}
-          {/* <ProtectedRoute
-            // logged in shows UserPage else shows LoginPage
-            exact
-            path="/user"
-          >
-            <UserPage />
-          </ProtectedRoute> */}
-
-          {/* <ProtectedRoute
-            // logged in shows InfoPage else shows LoginPage
-            exact
-            path="/info"
-          >
-            <InfoPage />
-          </ProtectedRoute> */}
+          </Route> */}
 
           <Route exact path="/login">
             {user.id ? (
@@ -124,32 +106,6 @@ function App() {
               <LoginPage />
             )}
           </Route>
-
-          {/* <Route exact path="/admin">
-            {user.id === 'admin'(<Admin />)}
-          </Route> */}
-
-          {/* <Route exact path="/registration">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/user" />
-            ) : (
-              // Otherwise, show the registration page
-              <RegisterPage />
-            )}
-          </Route> */}
-          {/* 
-          <Route exact path="/home">
-            {user.id ? (
-              // If the user is already logged in,
-              // redirect them to the /user page
-              <Redirect to="/home" />
-            ) : (
-              // Otherwise, show the Landing page
-              <LandingPage />
-            )}
-          </Route> */}
 
           {/* If none of the other routes matched, we will show a 404. */}
           <Route>

@@ -11,6 +11,7 @@ import rsvpSaga from './rsvp.saga';
 import deleteSaga from './delete.saga';
 import editSaga from './edit.saga';
 import rsvpCountSaga from './rsvpCount.saga';
+import fetchRSVPSaga from './fetchRSVP.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -33,5 +34,6 @@ export default function* rootSaga() {
     deleteSaga(),
     editSaga(),
     rsvpCountSaga(),
+    fetchRSVPSaga(),
   ]);
 }
