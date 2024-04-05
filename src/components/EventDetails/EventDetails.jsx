@@ -8,6 +8,7 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import Swal from 'sweetalert2';
 import '../App/App.css';
 import './EventDetails.css';
 
@@ -37,6 +38,29 @@ function EventDetails() {
     history.push('/events');
   };
 
+  const showConfirmationDelete = () => {
+    Swal.fire({
+      text: 'Are you sure you want to delete this event?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('The event has been deleted').then(() => handleDelete());
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
+  };
+
+  const showConfirmationEdit = () => {
+    Swal.fire({
+      text: 'Congratulations, you successfully created your event!',
+      icon: 'success',
+      confirmButtonText: 'Great!, take me back to Events',
+    }).then(() => goBack());
+  };
+
   const goRsvp = () => {
     const id = details.id;
     history.push(`/rsvp/${id}`);
@@ -49,7 +73,6 @@ function EventDetails() {
 
   const handleDelete = (event) => {
     const id = details.id;
-    event.preventDefault();
     dispatch({
       type: 'DELETE_EVENT',
       payload: {
@@ -173,7 +196,8 @@ function EventDetails() {
                         aria-label="delete"
                         color="primary"
                         size="large"
-                        onClick={handleDelete}
+                        // onClick={handleDelete}
+                        onClick={showConfirmationDelete}
                       >
                         <DeleteIcon />
                       </IconButton>

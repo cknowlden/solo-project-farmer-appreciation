@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Swal from 'sweetalert2';
 import './CreateEvent.css';
 import '../App/App.css';
 
@@ -28,15 +29,12 @@ function CreateEvent() {
     history.push('/events');
   };
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
+  const showConfirmation = () => {
+    Swal.fire({
+      text: 'Congratulations, you successfully created your event!',
+      icon: 'success',
+      confirmButtonText: 'Great! Take me back to Events',
+    }).then(() => goBack());
   };
 
   const clearForm = () => {
@@ -75,8 +73,8 @@ function CreateEvent() {
         formData,
       },
     });
-    handleClick();
     clearForm();
+    showConfirmation();
   };
   return (
     <div className="wheat">
@@ -222,21 +220,6 @@ function CreateEvent() {
               <Button type="submit" variant="contained" size="large">
                 Create Event
               </Button>
-              <Snackbar
-                open={open}
-                autoHideDuration={6000}
-                onClose={handleClose}
-              >
-                <Alert
-                  onClose={handleClose}
-                  severity="success"
-                  variant="filled"
-                  sx={{ width: '100%' }}
-                >
-                  Congrats! Your event has been created. You may return to the
-                  Events Page to view it.
-                </Alert>
-              </Snackbar>
             </center>
           </form>
         </div>
