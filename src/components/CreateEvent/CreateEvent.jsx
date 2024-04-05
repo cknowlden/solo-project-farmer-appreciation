@@ -107,44 +107,46 @@ function CreateEvent() {
               </Typography>
             </center>
             <br />
-            <input
-              // className="name"
-              required
-              onChange={handleInputChange}
-              value={formData.name}
-              name="name"
-              type="text"
-              placeholder="Event title (required)"
-            />{' '}
-            <br />
-            <textarea
-              className="details"
-              required
-              onChange={handleInputChange}
-              value={formData.details}
-              name="details"
-              type="text"
-              placeholder="Event description (required)"
-            />
-            <br />
-            <input
-              className="location"
-              onChange={handleInputChange}
-              value={formData.location}
-              name="location"
-              type="text"
-              placeholder="Event location title (optional)"
-            />{' '}
-            <br />
-            <input
-              className="street"
-              required
-              onChange={handleInputChange}
-              value={formData.street}
-              name="street"
-              type="text"
-              placeholder="Location street address (required)"
-            />{' '}
+            <center>
+              <input
+                className="name"
+                required
+                onChange={handleInputChange}
+                value={formData.name}
+                name="name"
+                type="text"
+                placeholder="Event title (required)"
+              />{' '}
+              <br />
+              <textarea
+                className="details"
+                required
+                onChange={handleInputChange}
+                value={formData.details}
+                name="details"
+                type="text"
+                placeholder="Event description (required)"
+              />
+              <br />
+              <input
+                className="location"
+                onChange={handleInputChange}
+                value={formData.location}
+                name="location"
+                type="text"
+                placeholder="Event location title (optional)"
+              />{' '}
+              <br />
+              <input
+                className="street"
+                required
+                onChange={handleInputChange}
+                value={formData.street}
+                name="street"
+                type="text"
+                placeholder="Location street address (required)"
+              />{' '}
+            </center>
             <br />
             <div className="address">
               <input
@@ -206,7 +208,7 @@ function CreateEvent() {
                   type="number"
                   placeholder="Cost (required)"
                 />
-              </div>
+              </div>{' '}
             </div>
             <center>
               <br />
