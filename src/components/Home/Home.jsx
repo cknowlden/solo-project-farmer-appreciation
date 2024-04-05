@@ -9,7 +9,7 @@ import { green } from '@mui/material/colors';
 function Home() {
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
-  console.log('Home user', user);
+  console.log('Home user', user.role_type);
 
   useEffect(() => {
     dispatch({ type: 'SET_TITLE', payload: 'HOME' });
