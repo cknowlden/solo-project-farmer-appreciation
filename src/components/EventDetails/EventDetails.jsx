@@ -55,10 +55,17 @@ function EventDetails() {
 
   const showConfirmationEdit = () => {
     Swal.fire({
-      text: 'Congratulations, you successfully created your event!',
-      icon: 'success',
-      confirmButtonText: 'Great!, take me back to Events',
-    }).then(() => goBack());
+      text: 'Are you sure you want to edit this event?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, continue to edit',
+      cancelButtonText: 'Nevermind',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        goEdit();
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
   };
 
   const goRsvp = () => {
@@ -205,7 +212,7 @@ function EventDetails() {
                         aria-label="edit"
                         color="primary"
                         size="large"
-                        onClick={goEdit}
+                        onClick={showConfirmationEdit}
                       >
                         <EditIcon />
                       </IconButton>
