@@ -17,51 +17,58 @@ function Resources() {
 
   return (
     <div className="wheat">
-      <Box
+      <Grid
         sx={{
-          display: 'left',
-          border: 1,
+          display: 'flex',
           borderRadius: '16px',
           borderColor: 'honeydew',
-          margin: '50px',
-          padding: '60px',
-          minHeight: '60vh',
+          margin: '75px',
+          marginRight: '75px',
           backgroundColor: 'honeydew',
+          height: '70vh',
         }}
       >
-        {resources &&
-          resources.map((resource) => {
-            return (
-              <>
-                <Box
-                  sx={{
-                    display: 'left',
-                    border: 1,
-                    borderRadius: '16px',
-                    borderColor: 'honeydew',
-                    // margin: '50px',
-                    padding: '20px',
-                    // maxWidth: '57vh',
-                    maxWidth: '700px',
-                    backgroundColor: 'honeydew',
-                  }}
-                >
-                  <div className="resources" key={resource.id}>
-                    <Typography variant="h5" fontWeight={600}>
-                      <a href={resource.link} target="_blank">
-                        {resource.title}
-                      </a>
-                    </Typography>
-                    <Typography variant="body1">
-                      {resource.description}
-                    </Typography>
-                  </div>
-                </Box>
-              </>
-            );
-          })}
-        <img className="support" src="images/support.jpg"></img>
-      </Box>
+        <Grid item sx={{ margin: '15px', marginTop: '40px', width: '55%' }}>
+          <item>
+            {resources &&
+              resources.map((resource) => {
+                return (
+                  <>
+                    <Box
+                      sx={{
+                        margin: '15px',
+                        marginTop: '35px',
+                      }}
+                    >
+                      <div className="resources" key={resource.id}>
+                        <Typography variant="h5" fontWeight={600}>
+                          <a href={resource.link} target="_blank">
+                            {resource.title}
+                          </a>
+                        </Typography>
+                        <Typography variant="body1">
+                          {resource.description}
+                        </Typography>
+                      </div>
+                    </Box>
+                  </>
+                );
+              })}
+          </item>
+        </Grid>
+
+        <Grid
+          item
+          sx={{
+            marginTop: '20px',
+            marginLeft: '50px',
+          }}
+        >
+          <item>
+            <img className="support" src="images/support.jpg"></img>
+          </item>
+        </Grid>
+      </Grid>
     </div>
   );
 }

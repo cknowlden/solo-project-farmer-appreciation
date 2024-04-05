@@ -34,7 +34,6 @@ function RegisterForm() {
           border: 1,
           borderRadius: '16px',
           borderColor: 'honeydew',
-
           marginLeft: '18%',
           marginRight: '18%',
           minHeight: '60vh',
