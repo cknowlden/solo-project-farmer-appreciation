@@ -209,3 +209,22 @@ Form Treatment
 .upload {
   margin-left: 20px;
 }
+.cost {
+  display: flex;
+  flex-direction: row;
+  height: 20px;
+  margin-top: 8px;
+  margin-left: '25px';
+}
+
+.date-cost {
+  width: 100%;
+  min-height: 45px;
+  font-size: x-large;
+  display: flex;
+  flex-direction: row;
+  font-size: large;
+  text-wrap: pretty;
+  vertical-align: middle;
+  justify-content: space-between;
+}

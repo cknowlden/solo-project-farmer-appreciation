@@ -35,25 +35,6 @@
   margin-bottom: 10px;
 }
 
-.cost {
-  display: flex;
-  flex-direction: row;
-  vertical-align: middle;
-  margin-left: '25px';
-}
-
-.date-cost {
-  width: 100%;
-  min-height: 45px;
-  font-size: x-large;
-  display: flex;
-  flex-direction: row;
-  font-size: large;
-  text-wrap: pretty;
-  vertical-align: middle;
-  justify-content: space-between;
-}
-
 .btn_goBack {
   float: inline-end;
 }

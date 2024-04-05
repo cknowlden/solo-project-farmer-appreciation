@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import './CreateEvent.css';
 import '../App/App.css';
 
@@ -204,7 +205,7 @@ function CreateEvent() {
               />
               {''}
               <div className="cost">
-                $
+                <AttachMoneyIcon sx={{ marginTop: '8px' }} />
                 <input
                   className="cost"
                   required
