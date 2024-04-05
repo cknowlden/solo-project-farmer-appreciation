@@ -1,6 +1,7 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React from 'react';
+import { useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
+import Swal from 'sweetalert2';
 
 function LogOutButton(props) {
   const dispatch = useDispatch();
@@ -16,15 +17,16 @@ function LogOutButton(props) {
     navLogin();
   };
 
+  const showConfirmationLogout = () => {
+    Swal.fire({
+      text: 'You are now logged out',
+      icon: 'success',
+      confirmButtonText: 'OKAY',
+    }).then(() => logout());
+  };
+
   return (
-    <button
-      // This button shows up in multiple locations and is styled differently
-      // because it's styled differently depending on where it is used, the className
-      // is passed to it from it's parents through React props
-      className={props.className}
-      // onClick={() => dispatch({ type: 'LOGOUT' })}
-      onClick={logout}
-    >
+    <button className={props.className} onClick={showConfirmationLogout}>
       Logout
     </button>
   );
