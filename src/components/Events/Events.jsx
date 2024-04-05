@@ -145,10 +145,13 @@ function Events() {
                       {' '}
                       <h3 className="event-name">{event.name}</h3>
                       <div className="event-loc">{event.location}</div>
-                      <CalendarTodayIcon
-                        sx={{ verticalAlign: 'middle', marginRight: '5px' }}
-                      />
-                      {formattedDate}
+                      <center className="calendar">
+                        {' '}
+                        <CalendarTodayIcon
+                          sx={{ verticalAlign: 'middle', marginRight: '5px' }}
+                        />
+                        {formattedDate}
+                      </center>
                       <br />
                       <Box
                         display="flex"
