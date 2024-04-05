@@ -110,16 +110,14 @@ function EditEvent() {
   };
   return (
     <div className="wheat">
-      <Box
-        display="flex"
-        justifyContent="flex-end"
+      <Button
+        className="btn_goBack"
+        onClick={goBack}
+        variant="contained"
         marginTop={2}
-        marginRight={2}
       >
-        <Button className="btn_goBack" onClick={goBack} variant="contained">
-          X
-        </Button>
-      </Box>
+        X
+      </Button>
       <div className="big-rect">
         <Box
           sx={{
