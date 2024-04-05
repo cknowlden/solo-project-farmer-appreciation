@@ -1,52 +1,38 @@
-.name {
+.n-ame {
   width: 100%;
   height: 25px;
   font-size: large;
-  height: fit-content;
-  font-size: large;
-  height: 25px;
   text-wrap: pretty;
+  margin-bottom: 20px;
 }
 
-.details {
+.de-tails {
   width: 100%;
   min-height: 100px;
   font-size: large;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+  margin-bottom: 20px;
 }
 
-.location {
+.l-ocation {
   width: 100%;
   height: 25px;
   font-size: large;
   height: fit-content;
-  font-size: large;
-  height: 25px;
   text-wrap: pretty;
+  margin-bottom: 10px;
 }
 
 .street {
   width: 100%;
   height: 25px;
   font-size: large;
-  /* justify-content: center; */
   height: fit-content;
   font-size: large;
   height: 25px;
   text-wrap: pretty;
-}
-
-.address {
-  width: 100%;
-  min-height: 45px;
-  font-size: x-large;
-  display: flex;
-  flex-direction: row;
-  font-size: large;
-  height: 25px;
-  text-wrap: pretty;
-  /* margin-right: -18px; */
+  margin-bottom: 10px;
 }
 
 .cost {

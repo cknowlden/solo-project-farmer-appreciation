@@ -50,17 +50,6 @@
   text-wrap: pretty;
 }
 
-.address {
-  width: 100%;
-  min-height: 45px;
-  font-size: x-large;
-  display: flex;
-  flex-direction: row;
-  font-size: large;
-  text-wrap: pretty;
-  margin-right: -18px;
-}
-
 .cost {
   display: flex;
   flex-direction: row;
