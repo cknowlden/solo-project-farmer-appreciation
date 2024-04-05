@@ -80,6 +80,14 @@ Container
   border-radius: 15px;
 }
 
+.insert-bg-create {
+  background-image: url('images/sunset-lake.jpg');
+  background-size: 100% 100%;
+  height: 650px;
+  margin: 50px;
+  border-radius: 15px;
+}
+
 /* --------------------------------------------------------------------------------
 Button
 -------------------------------------------------------------------------------- */
