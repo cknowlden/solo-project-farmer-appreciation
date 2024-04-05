@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
 import { Button, Snackbar, Alert, Box, Typography } from '@mui/material';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import './EditEvent.css';
 import '../App/App.css';
 
@@ -247,7 +248,7 @@ function EditEvent() {
                 />
                 {''}
                 <div className="cost">
-                  $
+                  <AttachMoneyIcon sx={{ marginTop: '8px' }} />
                   <input
                     required
                     onChange={handleInputChange}
