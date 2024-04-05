@@ -79,17 +79,14 @@ function CreateEvent() {
   };
   return (
     <div className="wheat">
-      <Box
-        display="flex"
-        justifyContent="flex-end"
+      <Button
+        className="btn_goBack"
+        onClick={goBack}
+        variant="contained"
         marginTop={2}
-        marginRight={2}
       >
-        <Button className="btn_goBack" onClick={goBack} variant="contained">
-          X
-        </Button>
-      </Box>
-
+        X
+      </Button>
       <Box
         sx={{
           display: 'left',
@@ -103,15 +100,15 @@ function CreateEvent() {
         }}
       >
         <div className="insert-bg-create">
-          <center>
-            <Typography variant="h3" fontWeight={600}>
-              Add your event here:
-            </Typography>
-          </center>
-          <br />
-          <form onSubmit={handleSubmit}>
+          <form className="formPanel" onSubmit={handleSubmit}>
+            <center>
+              <Typography variant="h4" fontWeight={600}>
+                Add your event here:
+              </Typography>
+            </center>
+            <br />
             <input
-              className="name"
+              // className="name"
               required
               onChange={handleInputChange}
               value={formData.name}
@@ -235,8 +232,6 @@ function CreateEvent() {
           </form>
         </div>
       </Box>
-
-      {/* </div> */}
     </div>
   );
 }
