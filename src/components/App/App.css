@@ -177,7 +177,7 @@ Form Treatment
 
 .address {
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
 }
 
 .city {
@@ -200,4 +200,12 @@ Form Treatment
   height: 25px;
   width: 30%;
   align-content: space-between;
+}
+
+.img-upload {
+  margin-bottom: 30px;
+}
+
+.upload {
+  margin-left: 20px;
 }

@@ -175,14 +175,19 @@ function CreateEvent() {
                 placeholder="Zip"
               />{' '}
             </div>
-            Image upload:
-            <input
-              onChange={handleInputChange}
-              value={formData.image}
-              name="image"
-              type="file"
-              label="Image upload (optional)"
-            />{' '}
+            <center>
+              <div className="img-upload">
+                Image upload:
+                <input
+                  className="upload"
+                  onChange={handleInputChange}
+                  value={formData.image}
+                  name="image"
+                  type="file"
+                  label="Image upload (optional)"
+                />
+              </div>
+            </center>
             <br />
             <div className="date-cost">
               <TextField
