@@ -12,7 +12,6 @@ import {
 } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import EventCount from './EventCount';
 import './Events.css';

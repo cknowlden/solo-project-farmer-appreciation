@@ -9,6 +9,7 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import Swal from 'sweetalert2';
+import EventCount from '../Events/EventCount';
 import '../App/App.css';
 import './EventDetails.css';
 
@@ -172,14 +173,7 @@ function EventDetails() {
                 >
                   <ConfirmationNumberIcon sx={{ verticalAlign: 'middle' }} /> $
                   {details.cost}
-                  <PeopleAltOutlinedIcon
-                    sx={{
-                      verticalAlign: 'middle',
-                      display: 'inline-block',
-                      marginLeft: '95px',
-                    }}
-                  />{' '}
-                  Going
+                  <EventCount eventId={id} />
                 </Box>
               </center>
               <br />

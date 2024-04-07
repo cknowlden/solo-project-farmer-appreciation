@@ -16,9 +16,10 @@ const EventCount = ({ eventId }) => {
           verticalAlign: 'middle',
           display: 'inline-block',
           marginLeft: '95px',
+          // marginRight: '5px',
         }}
       />{' '}
-      {eventCount[eventId] ? eventCount[eventId].count : 0}
+      {eventCount[eventId] ? eventCount[eventId].count : 0} {''}
       Going
     </span>
   );
