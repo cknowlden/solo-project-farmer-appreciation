@@ -17,7 +17,7 @@
   background-color: rgb(218, 204, 204);
   display: inline-block;
   text-align: center;
-  min-width: 300px;
+  min-width: 280px;
   border-radius: 5px;
 }
 
@@ -25,8 +25,7 @@
   background-color: rgb(245, 237, 237);
   min-width: 200px;
   display: inline-block;
-  min-height: 25px;
-
+  height: 30px;
   text-align: left;
 }
 

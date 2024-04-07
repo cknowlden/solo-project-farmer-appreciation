@@ -87,7 +87,7 @@ function Events() {
             <LocationOnOutlinedIcon
               sx={{
                 verticalAlign: 'middle',
-                marginRight: '30px',
+                marginRight: '10px',
                 marginLeft: '10px',
               }}
             />{' '}
