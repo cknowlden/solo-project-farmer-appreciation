@@ -131,7 +131,7 @@ function EditEvent() {
         <div className="insert-bg-edit">
           <form className="formPanel" onSubmit={handleSubmit}>
             <center>
-              <Typography variant="h3" fontWeight={600}>
+              <Typography variant="h4" fontWeight={600}>
                 You are now editing:
               </Typography>{' '}
               <h1>{details.name}</h1>
