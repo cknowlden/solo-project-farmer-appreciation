@@ -36,6 +36,14 @@ function EditEvent() {
   // date.toISOString();
   // yyyy-MM-ddThh:mm
 
+  const showConfirmation = () => {
+    Swal.fire({
+      text: 'Congratulations, you successfully created your event!',
+      icon: 'success',
+      confirmButtonText: 'Great! Take me back to Events',
+    }).then(() => goBack());
+  };
+
   const [formData, setFormData] = useState({
     name: eventDetails[0] ? eventDetails[0].name : '',
     date: formattedDate ? formattedDate : '',
@@ -118,171 +126,158 @@ function EditEvent() {
       >
         X
       </Button>
-      <div className="big-rect">
-        <Box
-          sx={{
-            backgroundImage: "url('images/lighthouse.jpg')",
-            height: '700px',
-            width: '100%',
-            marginLeft: '100px',
-            marginRight: '300px',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% 100%',
-            borderRadius: '10px',
-          }}
-        >
-          <Box
-            alignItems="center"
-            justifyContent={'center'}
-            sx={{
-              bgcolor: 'honeydew',
-              height: '100%',
-              width: '600px',
-              marginLeft: '100px',
-              marginRight: '300px',
-              backgroundRepeat: 'no-repeat',
-              display: 'flex',
-              flexDirection: 'column',
-              borderRadius: '10px',
-            }}
-          >
-            <Typography variant="h3" fontWeight={600}>
-              You are now editing:
-            </Typography>
-
-            <h1>{details.name}</h1>
+      <Box
+        sx={{
+          display: 'left',
+          border: 1,
+          borderRadius: '16px',
+          borderColor: 'honeydew',
+          marginLeft: '18%',
+          marginRight: '18%',
+          minHeight: '60vh',
+          backgroundColor: 'honeydew',
+        }}
+      >
+        <div className="insert-bg-edit">
+          <form className="formPanel" onSubmit={handleSubmit}>
+            <center>
+              <Typography variant="h3" fontWeight={600}>
+                You are now editing:
+              </Typography>{' '}
+              <h1>{details.name}</h1>
+            </center>
             <br />
-            <form onSubmit={handleSubmit}>
+            <input
+              className="n-ame"
+              required
+              onChange={handleInputChange}
+              value={formData.name}
+              name="name"
+              type="text"
+              placeholder="Event title (required)"
+              defaultValue={details.name}
+            />{' '}
+            <br />
+            <textarea
+              className="de-tails"
+              required
+              onChange={handleInputChange}
+              value={formData.details}
+              name="details"
+              type="text"
+              placeholder="Event description (required)"
+            />
+            <br />
+            <input
+              className="l-ocation"
+              onChange={handleInputChange}
+              value={formData.location}
+              name="location"
+              type="text"
+              placeholder="Event location title (optional)"
+            />{' '}
+            <br />
+            <input
+              className="street"
+              required
+              onChange={handleInputChange}
+              value={formData.street}
+              name="street"
+              type="text"
+              placeholder="Location street address (required)"
+            />{' '}
+            <br />
+            <div className="address">
               <input
-                className="name"
+                className="city"
                 required
                 onChange={handleInputChange}
-                value={formData.name}
-                name="name"
+                value={formData.city}
+                name="city"
                 type="text"
-                placeholder="Event title (required)"
-                defaultValue={details.name}
-              />{' '}
-              <br />
-              <textarea
-                className="details"
-                required
-                onChange={handleInputChange}
-                value={formData.details}
-                name="details"
-                type="text"
-                placeholder="Event description (required)"
+                placeholder="City (required)"
               />
-              <br />
               <input
-                className="location"
-                onChange={handleInputChange}
-                value={formData.location}
-                name="location"
-                type="text"
-                placeholder="Event location title (optional)"
-              />{' '}
-              <br />
-              <input
-                className="street"
+                className="state"
                 required
                 onChange={handleInputChange}
-                value={formData.street}
-                name="street"
+                value={formData.state}
+                name="state"
                 type="text"
-                placeholder="Location street address (required)"
+                placeholder="State (required)"
+              />
+              <input
+                className="zip"
+                required
+                onChange={handleInputChange}
+                value={formData.zip}
+                name="zip"
+                type="text"
+                placeholder="Zip (required)"
               />{' '}
-              <br />
-              <div className="address">
+            </div>
+            <div className="upload">
+              Image upload:
+              <input
+                onChange={handleInputChange}
+                value={formData.image}
+                name="image"
+                type="file"
+                label="Image upload (optional)"
+              />
+            </div>{' '}
+            <br />
+            <div className="date-cost">
+              {formData.date}
+              <TextField
+                required
+                onChange={handleInputChange}
+                value={formData.date}
+                InputLabelProps={{
+                  shrink: true,
+                }}
+                name="date"
+                label="Event Date & Time"
+                variant="outlined"
+                type="datetime-local"
+              />
+              {''}
+              <div className="cost">
+                <AttachMoneyIcon sx={{ marginTop: '8px' }} />
                 <input
                   required
                   onChange={handleInputChange}
-                  value={formData.city}
-                  name="city"
-                  type="text"
-                  placeholder="City (required)"
+                  value={formData.cost}
+                  name="cost"
+                  type="number"
+                  placeholder="Cost (required)"
                 />
-                <input
-                  required
-                  onChange={handleInputChange}
-                  value={formData.state}
-                  name="state"
-                  type="text"
-                  placeholder="State (required)"
-                />
-                <input
-                  required
-                  onChange={handleInputChange}
-                  value={formData.zip}
-                  name="zip"
-                  type="text"
-                  placeholder="Zip (required)"
-                />{' '}
               </div>
-              <div className="upload">
-                Image upload:
-                <input
-                  onChange={handleInputChange}
-                  value={formData.image}
-                  name="image"
-                  type="file"
-                  label="Image upload (optional)"
-                />
-              </div>{' '}
+            </div>
+            <center>
               <br />
-              <div className="date-cost">
-                {formData.date}
-                <TextField
-                  required
-                  onChange={handleInputChange}
-                  value={formData.date}
-                  InputLabelProps={{
-                    shrink: true,
-                  }}
-                  name="date"
-                  label="Event Date & Time"
-                  variant="outlined"
-                  type="datetime-local"
-                />
-                {''}
-                <div className="cost">
-                  <AttachMoneyIcon sx={{ marginTop: '8px' }} />
-                  <input
-                    required
-                    onChange={handleInputChange}
-                    value={formData.cost}
-                    name="cost"
-                    type="number"
-                    placeholder="Cost (required)"
-                  />
-                </div>
-              </div>
-              <center>
-                <br />
-                <Button type="submit" variant="contained" size="large">
-                  Submit Edits
-                </Button>
-                <Snackbar
-                  open={open}
-                  autoHideDuration={6000}
+              <Button type="submit" variant="contained" size="large">
+                Submit Edits
+              </Button>
+              <Snackbar
+                open={open}
+                autoHideDuration={6000}
+                onClose={handleClose}
+              >
+                <Alert
                   onClose={handleClose}
+                  severity="success"
+                  variant="filled"
+                  sx={{ width: '100%' }}
                 >
-                  <Alert
-                    onClose={handleClose}
-                    severity="success"
-                    variant="filled"
-                    sx={{ width: '100%' }}
-                  >
-                    Congrats! Your event has been updated. Return to the Events
-                    Page to view it.
-                  </Alert>
-                </Snackbar>
-              </center>
-            </form>
-          </Box>
-        </Box>
-        {/* </div> */}
-      </div>
+                  Congrats! Your event has been updated. Return to the Events
+                  Page to view it.
+                </Alert>
+              </Snackbar>
+            </center>
+          </form>
+        </div>
+      </Box>
     </div>
   );
 }

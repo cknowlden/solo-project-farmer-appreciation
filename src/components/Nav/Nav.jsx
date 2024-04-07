@@ -17,32 +17,33 @@ function Nav() {
         {user.role_type === 'admin' && (
           <>
             <p className="userLog">Logged in as: {user.username}</p>
+            <div>
+              <Link className="navLink" to="/">
+                Home
+              </Link>
 
-            <Link className="navLink" to="/">
-              Home
-            </Link>
+              <Link className="navLink" to="/events">
+                Events
+              </Link>
 
-            <Link className="navLink" to="/events">
-              Events
-            </Link>
+              <Link className="navLink" to="/create">
+                Create Event
+              </Link>
 
-            <Link className="navLink" to="/create">
-              Create Event
-            </Link>
+              <Link className="navLink" to="/info">
+                Information
+              </Link>
 
-            <Link className="navLink" to="/info">
-              Information
-            </Link>
+              <Link className="navLink" to="/resources">
+                Resources
+              </Link>
 
-            <Link className="navLink" to="/resources">
-              Resources
-            </Link>
+              <Link className="navLink" to="/admin">
+                Admin
+              </Link>
 
-            <Link className="navLink" to="/admin">
-              Admin
-            </Link>
-
-            <LogOutButton className="navLink" />
+              <LogOutButton className="navLink" />
+            </div>
           </>
         )}
 
@@ -51,50 +52,54 @@ function Nav() {
           <>
             {/* If there's no user, show login/registration links */}
             <p className="userLog">Welcome, Guest</p>
-            <Link className="navLink" to="/login">
-              Log In
-            </Link>
-            <Link className="navLink" to="/">
-              Home
-            </Link>
-            <Link className="navLink" to="/events">
-              Events
-            </Link>
-            <Link className="navLink" to="/info">
-              Information
-            </Link>
-            <Link className="navLink" to="/resources">
-              Resources
-            </Link>
+            <div>
+              <Link className="navLink" to="/login">
+                Log In
+              </Link>
+              <Link className="navLink" to="/">
+                Home
+              </Link>
+              <Link className="navLink" to="/events">
+                Events
+              </Link>
+              <Link className="navLink" to="/info">
+                Information
+              </Link>
+              <Link className="navLink" to="/resources">
+                Resources
+              </Link>
+            </div>
           </>
         )}
 
         {/* If a user is logged in, show these links */}
-        {user.id && (
+        {user.id && user.role_type !== 'admin' && (
           <>
             <p className="userLog">Logged in as: {user.username}</p>
 
-            <Link className="navLink" to="/">
-              Home
-            </Link>
+            <div>
+              <Link className="navLink" to="/">
+                Home
+              </Link>
 
-            <Link className="navLink" to="/events">
-              Events
-            </Link>
+              <Link className="navLink" to="/events">
+                Events
+              </Link>
 
-            <Link className="navLink" to="/create">
-              Create Event
-            </Link>
+              <Link className="navLink" to="/create">
+                Create Event
+              </Link>
 
-            <Link className="navLink" to="/info">
-              Information
-            </Link>
+              <Link className="navLink" to="/info">
+                Information
+              </Link>
 
-            <Link className="navLink" to="/resources">
-              Resources
-            </Link>
+              <Link className="navLink" to="/resources">
+                Resources
+              </Link>
 
-            <LogOutButton className="navLink" />
+              <LogOutButton className="navLink" />
+            </div>
           </>
         )}
       </div>
