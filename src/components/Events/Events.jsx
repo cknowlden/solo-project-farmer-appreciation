@@ -99,31 +99,29 @@ function Events() {
               placeholder="Enter your zip code"
               className="input-field"
             />{' '}
-            <Button
-              onClick={handleSearch}
-              variant="contained"
-              size="large"
-              sx={{
-                verticalAlign: 'middle',
-                marginRight: '-150px',
-                marginLeft: '120px',
-              }}
-            >
-              Search
-            </Button>
-            <Button
-              onClick={handleSearchClear}
-              variant="contained"
-              size="large"
-              sx={{
-                verticalAlign: 'middle',
-                marginRight: '-150px',
-                marginLeft: '120px',
-              }}
-            >
-              Clear
-            </Button>
           </div>
+          <Button
+            onClick={handleSearch}
+            variant="contained"
+            size="large"
+            sx={{
+              verticalAlign: 'middle',
+              marginLeft: '10px',
+            }}
+          >
+            Search
+          </Button>
+          <Button
+            onClick={handleSearchClear}
+            variant="contained"
+            size="large"
+            sx={{
+              verticalAlign: 'middle',
+              marginLeft: '10px',
+            }}
+          >
+            Clear
+          </Button>
         </div>
       </div>
       <div className="card-section">
