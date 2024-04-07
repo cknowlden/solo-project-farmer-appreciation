@@ -23,11 +23,11 @@ function Home() {
           display: 'left',
           borderRadius: '16px',
           borderColor: 'honeydew',
-          marginBottom: '5px',
+          marginBottom: '70px',
           marginLeft: '18%',
           marginRight: '18%',
           marginTop: '75px',
-          minHeight: '60vh',
+          minHeight: '70vh',
           backgroundColor: 'honeydew',
         }}
       >
@@ -55,7 +55,7 @@ function Home() {
                   marginLeft: '285px',
                   backgroundColor: 'darkgoldenrod',
                   display: 'inline-block',
-                  // marginTop: '50px',
+                  marginTop: '100px',
                 }}
               >
                 <Typography variant="h5" fontWeight={600} margin={2}>

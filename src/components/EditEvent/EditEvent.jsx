@@ -42,7 +42,7 @@ function EditEvent() {
       text: 'Your event has been updated!',
       icon: 'success',
       confirmButtonText: 'Great! Take me back to Events',
-    }).then(() => goBack());
+    }).then(() => goBackEvents());
   };
 
   const [formData, setFormData] = useState({
@@ -68,6 +68,10 @@ function EditEvent() {
 
   const goBack = () => {
     history.push('/details/:id');
+  };
+
+  const goBackEvents = () => {
+    history.push('/events');
   };
 
   const clearForm = () => {

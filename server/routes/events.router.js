@@ -68,7 +68,7 @@ router.put('/:id', rejectUnauthenticated, (req, res) => {
     req.body.zip,
     req.body.cost,
     // req.body.image,
-    '/images/breathe.jpg',
+    '/images/lighthouse.jpg',
     req.body.details,
     id,
     // userId,
