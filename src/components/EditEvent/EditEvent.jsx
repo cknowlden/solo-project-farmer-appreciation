@@ -3,8 +3,9 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import TextField from '@mui/material/TextField';
-import { Button, Snackbar, Alert, Box, Typography } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import Swal from 'sweetalert2';
 import './EditEvent.css';
 import '../App/App.css';
 
@@ -38,7 +39,7 @@ function EditEvent() {
 
   const showConfirmation = () => {
     Swal.fire({
-      text: 'Congratulations, you successfully created your event!',
+      text: 'Your event has been updated!',
       icon: 'success',
       confirmButtonText: 'Great! Take me back to Events',
     }).then(() => goBack());
@@ -67,17 +68,6 @@ function EditEvent() {
 
   const goBack = () => {
     history.push('/details/:id');
-  };
-
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
   };
 
   const clearForm = () => {
@@ -113,8 +103,8 @@ function EditEvent() {
         id: id,
       },
     });
-    handleClick();
     clearForm();
+    showConfirmation();
   };
   return (
     <div className="wheat">
@@ -195,7 +185,7 @@ function EditEvent() {
                 value={formData.city}
                 name="city"
                 type="text"
-                placeholder="City (required)"
+                placeholder="City"
               />
               <input
                 className="state"
@@ -204,7 +194,7 @@ function EditEvent() {
                 value={formData.state}
                 name="state"
                 type="text"
-                placeholder="State (required)"
+                placeholder="State"
               />
               <input
                 className="zip"
@@ -213,10 +203,10 @@ function EditEvent() {
                 value={formData.zip}
                 name="zip"
                 type="text"
-                placeholder="Zip (required)"
+                placeholder="Zip"
               />{' '}
             </div>
-            <div className="upload">
+            <div className="img-upload">
               Image upload:
               <input
                 onChange={handleInputChange}
@@ -228,7 +218,7 @@ function EditEvent() {
             </div>{' '}
             <br />
             <div className="date-cost">
-              {formData.date}
+              {/* {formData.date} */}
               <TextField
                 required
                 onChange={handleInputChange}
@@ -245,6 +235,7 @@ function EditEvent() {
               <div className="cost">
                 <AttachMoneyIcon sx={{ marginTop: '8px' }} />
                 <input
+                  className="cost"
                   required
                   onChange={handleInputChange}
                   value={formData.cost}
@@ -253,13 +244,14 @@ function EditEvent() {
                   placeholder="Cost (required)"
                 />
               </div>
+              {''}
             </div>
             <center>
               <br />
               <Button type="submit" variant="contained" size="large">
                 Submit Edits
               </Button>
-              <Snackbar
+              {/* <Snackbar
                 open={open}
                 autoHideDuration={6000}
                 onClose={handleClose}
@@ -273,7 +265,7 @@ function EditEvent() {
                   Congrats! Your event has been updated. Return to the Events
                   Page to view it.
                 </Alert>
-              </Snackbar>
+              </Snackbar> */}
             </center>
           </form>
         </div>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import TextField from '@mui/material/TextField';
-import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
+import { Button, Box, Typography } from '@mui/material';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import Swal from 'sweetalert2';
 import './CreateEvent.css';
