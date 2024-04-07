@@ -20,7 +20,7 @@ router.get('/:id', (req, res) => {
 
 router.get('/', (req, res) => {
   const sqlText = `
-  SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id ;
+  SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id ORDER BY "name" ASC;
     `;
   pool
     .query(sqlText)
