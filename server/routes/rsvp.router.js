@@ -5,7 +5,6 @@ const router = express.Router();
 router.get('/:id', (req, res) => {
   let id = req.params.id;
   const queryText = `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
-  // `SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
   const queryValues = [id];
   pool
     .query(queryText, queryValues)

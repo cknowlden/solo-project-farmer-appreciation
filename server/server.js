@@ -14,6 +14,7 @@ const eventsRouter = require('./routes/events.router');
 const infoRouter = require('./routes/info.router');
 const detailsRouter = require('./routes/details.router');
 const rsvpRouter = require('./routes/rsvp.router');
+const searchRouter = require('./routes/search.router');
 
 // Express Middleware
 app.use(express.json());
@@ -34,6 +35,7 @@ app.use('/api/events', eventsRouter);
 app.use('/api/info', infoRouter);
 app.use('/api/details', detailsRouter);
 app.use('/api/rsvp', rsvpRouter);
+app.use('/api/search', searchRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {

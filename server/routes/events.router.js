@@ -39,7 +39,8 @@ router.post('/create', rejectUnauthenticated, (req, res) => {
     req.body.state,
     req.body.zip,
     req.body.cost,
-    req.body.image,
+    // req.body.image,
+    '/images/lighthouse.jpg',
     req.body.details,
     userId,
   ];

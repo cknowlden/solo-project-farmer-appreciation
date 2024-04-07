@@ -18,7 +18,7 @@ import './Events.css';
 
 function Events() {
   const events = useSelector((store) => store.events);
-  const rsvp = useSelector((store) => store.rsvpCount);
+  // const rsvp = useSelector((store) => store.rsvpCount);
   const dispatch = useDispatch();
   const history = useHistory();
   const [zip, setZip] = useState('');
@@ -29,11 +29,9 @@ function Events() {
     history.push(`/details/${id}`);
   };
 
-  // const postgresDateTime = event.date;
   const date = new Date();
   // console.log(formattedDate);
 
-  //NEEDS TO BE COMPLETED
   const handleClick = (event) => {
     const id = event.target.id;
     eventDetails();
@@ -49,11 +47,20 @@ function Events() {
   const handleSearch = (event) => {
     event.preventDefault();
     dispatch({
-      type: 'SET_CUSTOMER_INFO',
+      type: 'FETCH_EVENTS_SEARCH',
       payload: {
         zip: zip,
       },
     });
+  };
+
+  const handleSearchChange = (event) => {
+    setZip(event.target.value);
+  };
+
+  const handleSearchClear = (event) => {
+    setZip('');
+    dispatch({ type: 'FETCH_EVENTS' });
   };
 
   useEffect(() => {
@@ -85,7 +92,7 @@ function Events() {
               }}
             />{' '}
             <input
-              onChange={handleSearch}
+              onChange={handleSearchChange}
               value={zip}
               name="zip"
               type="text"
@@ -93,7 +100,7 @@ function Events() {
               className="input-field"
             />{' '}
             <Button
-              type="submit"
+              onClick={handleSearch}
               variant="contained"
               size="large"
               sx={{
@@ -103,6 +110,18 @@ function Events() {
               }}
             >
               Search
+            </Button>
+            <Button
+              onClick={handleSearchClear}
+              variant="contained"
+              size="large"
+              sx={{
+                verticalAlign: 'middle',
+                marginRight: '-150px',
+                marginLeft: '120px',
+              }}
+            >
+              Clear
             </Button>
           </div>
         </div>
