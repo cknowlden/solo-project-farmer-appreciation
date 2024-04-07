@@ -12,8 +12,9 @@ import {
 } from '@mui/material';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
-import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import EventCount from './EventCount';
 import './Events.css';
 
 function Events() {
@@ -168,15 +169,7 @@ function Events() {
                           sx={{ verticalAlign: 'middle' }}
                         />{' '}
                         ${event.cost}
-                        <PeopleAltOutlinedIcon
-                          sx={{
-                            verticalAlign: 'middle',
-                            display: 'inline-block',
-                            marginLeft: '95px',
-                          }}
-                        />{' '}
-                        {/* {JSON.stringify({ rsvpCount })} */}
-                        Going
+                        <EventCount eventId={event.id} />
                       </Box>
                     </Typography>
                   </CardContent>{' '}

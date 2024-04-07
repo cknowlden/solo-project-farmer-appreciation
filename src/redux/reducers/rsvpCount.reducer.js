@@ -1,7 +1,7 @@
-const rsvpCountReducer = (state = [], action) => {
+const rsvpCountReducer = (state = {}, action) => {
   switch (action.type) {
     case 'SET_RSVP_COUNT':
-      return action.payload;
+      return { ...state, [action.payload.id]: action.payload.data };
     default:
       return state;
   }

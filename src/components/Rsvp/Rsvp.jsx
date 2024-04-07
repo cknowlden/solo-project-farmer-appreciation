@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
+import Swal from 'sweetalert2';
 import '../App/App.css';
 
 function Rsvp() {
@@ -86,32 +87,33 @@ function Rsvp() {
           display: 'left',
           borderRadius: '16px',
           borderColor: 'honeydew',
-          margin: '50px',
+          marginBottom: '35px',
           marginLeft: '18%',
           marginRight: '18%',
-          marginTop: '75px',
+          marginTop: '5px',
           minHeight: '60vh',
           backgroundColor: 'honeydew',
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={7}>
-            <item>
-              <img
-                className="img"
-                id={details.id}
-                src={details.image}
-                alt={details.name}
-              />
-            </item>
-          </Grid>
           <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
-            <Typography variant="h3" fontWeight={600}>
+            <Typography
+              variant="h4"
+              fontWeight={600}
+              sx={{ paddingLeft: '20px' }}
+            >
               RSVP for:
             </Typography>
-            <p>{details.name}</p>
+            <Typography
+              variant="h5"
+              fontWeight={600}
+              sx={{ paddingLeft: '20px' }}
+            >
+              {details.name}
+            </Typography>
+
             <br />
-            <form onSubmit={handleSubmit}>
+            <form className="rsvpForm" onSubmit={handleSubmit}>
               <input
                 required
                 onChange={handleInputChange}
@@ -169,9 +171,19 @@ function Rsvp() {
               </center>
             </form>
           </Grid>
+
+          <Grid item xs={7}>
+            <item>
+              <img
+                className="img"
+                id={details.id}
+                src={details.image}
+                alt={details.name}
+              />
+            </item>
+          </Grid>
         </Grid>
       </Box>
-      {/* </Box> */}
     </div>
   );
 }

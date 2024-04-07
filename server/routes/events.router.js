@@ -10,6 +10,7 @@ router.get('/', (req, res) => {
     SELECT * FROM "events"
       ORDER BY "date";
     `;
+  // `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`
   pool
     .query(sqlText)
     .then((dbRes) => {

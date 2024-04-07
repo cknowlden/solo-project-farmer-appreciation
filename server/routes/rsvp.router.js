@@ -2,26 +2,25 @@ const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
 
-// router.get('/:id', (req, res) => {
-//   let id = req.params.id;
-//   const queryText =
-//     // `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
-//     `SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
-//   const queryValues = [id];
-//   pool
-//     .query(queryText, queryValues)
-//     .then((dbRes) => {
-//       res.send(dbRes.rows);
-//     })
-//     .catch((dbErr) => {
-//       console.log('error getting details', dbErr);
-//       res.sendStatus(500);
-//     });
-// });
+router.get('/:id', (req, res) => {
+  let id = req.params.id;
+  const queryText = `SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
+  // `SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".id = $1;`;
+  const queryValues = [id];
+  pool
+    .query(queryText, queryValues)
+    .then((dbRes) => {
+      res.send(dbRes.rows);
+    })
+    .catch((dbErr) => {
+      console.log('error getting details', dbErr);
+      res.sendStatus(500);
+    });
+});
 
 router.get('/', (req, res) => {
   const sqlText = `
-  SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id;
+  SELECT * FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id ;
     `;
   pool
     .query(sqlText)
