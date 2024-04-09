@@ -21,15 +21,12 @@ function Rsvp() {
   const eventDetails = useSelector((store) => store.details);
   const details = eventDetails[0] || 'No details available';
 
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
+  const showConfirmation = () => {
+    Swal.fire({
+      text: `You have successfully RSVP'd!  See you there!`,
+      icon: 'success',
+      confirmButtonText: 'OKAY',
+    }).then(() => goBack());
   };
 
   useEffect(() => {
@@ -66,8 +63,8 @@ function Rsvp() {
         id: id,
       },
     });
-    handleClick();
     clearForm();
+    showConfirmation();
   };
 
   return (
@@ -164,21 +161,6 @@ function Rsvp() {
                   <Button type="submit" className="btn" variant="contained">
                     RSVP
                   </Button>
-                  <Snackbar
-                    open={open}
-                    autoHideDuration={6000}
-                    onClose={handleClose}
-                  >
-                    <Alert
-                      onClose={handleClose}
-                      severity="success"
-                      variant="filled"
-                      sx={{ width: '100%' }}
-                    >
-                      Successfully RSVP'd for {details.name}. You may now return
-                      to Events Page.
-                    </Alert>
-                  </Snackbar>
                 </center>
               </form>
             </center>

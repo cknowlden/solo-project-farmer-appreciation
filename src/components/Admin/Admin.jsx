@@ -28,41 +28,43 @@ function Admin() {
   }, []);
   return (
     <div>
-      <div>
-        <p>RSVPs:</p>
-        {/* {JSON.stringify({ fetchRSVP })} */}
-        <center>
-          <TableContainer component={Paper} sx={{ margin: '50px' }}>
-            <Table sx={{ minWidth: 650 }} aria-label="simple table">
-              <TableHead>
-                <TableRow>
-                  <TableCell>Event</TableCell>
-                  <TableCell>First Name</TableCell>
-                  <TableCell>Last Name</TableCell>
-                  <TableCell>Email</TableCell>
-                  <TableCell>Phone</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {fetchRSVP.map((row) => (
-                  <TableRow
-                    key={row.name}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                  >
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
-                    <TableCell>{row.first_name}</TableCell>
-                    <TableCell>{row.last_name}</TableCell>
-                    <TableCell>{row.email}</TableCell>
-                    <TableCell>{row.phone}</TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
-          </TableContainer>
-        </center>
-      </div>
+      <Typography
+        variant="h5"
+        fontWeight={600}
+        sx={{ paddingLeft: '50px', color: 'lightblue' }}
+      >
+        Event RSVPs:
+      </Typography>
+      {/* {JSON.stringify({ fetchRSVP })} */}
+      <TableContainer component={Paper} sx={{ margin: '50px', width: '90%' }}>
+        <Table sx={{ width: '100%' }} aria-label="simple table">
+          <TableHead>
+            <TableRow>
+              <TableCell sx={{ width: '30%' }}>Event</TableCell>
+              <TableCell sx={{ width: '15%' }}>First Name</TableCell>
+              <TableCell sx={{ width: '15%' }}>Last Name</TableCell>
+              <TableCell sx={{ width: '20%' }}>Email</TableCell>
+              <TableCell sx={{ width: '20%' }}>Phone</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {fetchRSVP.map((row) => (
+              <TableRow
+                key={row.name}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {row.name}
+                </TableCell>
+                <TableCell>{row.first_name}</TableCell>
+                <TableCell>{row.last_name}</TableCell>
+                <TableCell>{row.email}</TableCell>
+                <TableCell>{row.phone}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </div>
   );
 }
