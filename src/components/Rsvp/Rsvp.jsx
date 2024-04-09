@@ -4,6 +4,7 @@ import { useHistory, useParams } from 'react-router-dom';
 import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
 import Swal from 'sweetalert2';
 import '../App/App.css';
+import '../Rsvp/Rsvp.css';
 
 function Rsvp() {
   const history = useHistory();
@@ -96,7 +97,12 @@ function Rsvp() {
         }}
       >
         <Grid container spacing={2}>
-          <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
+          <Grid
+            item
+            xs={5}
+            marginTop={4}
+            sx={{ display: 'flex', flexDirection: 'column', width: '100px' }}
+          >
             <Typography
               variant="h4"
               fontWeight={600}
@@ -113,69 +119,81 @@ function Rsvp() {
             </Typography>
 
             <br />
-            <form className="rsvpForm" onSubmit={handleSubmit}>
-              <input
-                required
-                onChange={handleInputChange}
-                value={formData.first_name}
-                name="first_name"
-                type="text"
-                placeholder="First Name (required)"
-              />{' '}
-              <br />
-              <input
-                required
-                onChange={handleInputChange}
-                value={formData.last_name}
-                name="last_name"
-                type="text"
-                placeholder="Last Name (required)"
-              />{' '}
-              <br />
-              <input
-                onChange={handleInputChange}
-                value={formData.phone}
-                name="phone"
-                type="number"
-                placeholder="Phone (123) 456-7890"
-              />{' '}
-              <br />
-              <input
-                required
-                onChange={handleInputChange}
-                value={formData.email}
-                name="email"
-                type="text"
-                placeholder="Email (required)"
-              />{' '}
-              <br />
-              <center>
-                <Button type="submit" className="btn" variant="outlined">
-                  RSVP
-                </Button>
-                <Snackbar
-                  open={open}
-                  autoHideDuration={6000}
-                  onClose={handleClose}
-                >
-                  <Alert
+            <center>
+              <form onSubmit={handleSubmit}>
+                <input
+                  required
+                  className="first"
+                  onChange={handleInputChange}
+                  value={formData.first_name}
+                  name="first_name"
+                  type="text"
+                  placeholder="First Name (required)"
+                />{' '}
+                <br />
+                <input
+                  required
+                  className="last"
+                  onChange={handleInputChange}
+                  value={formData.last_name}
+                  name="last_name"
+                  type="text"
+                  placeholder="Last Name (required)"
+                />{' '}
+                <br />
+                <input
+                  className="phone"
+                  onChange={handleInputChange}
+                  value={formData.phone}
+                  name="phone"
+                  type="number"
+                  placeholder="Phone (123) 456-7890"
+                />{' '}
+                <br />
+                <input
+                  required
+                  className="email"
+                  onChange={handleInputChange}
+                  value={formData.email}
+                  name="email"
+                  type="text"
+                  placeholder="Email (required)"
+                />{' '}
+                <br />
+                <center>
+                  <Button type="submit" className="btn" variant="contained">
+                    RSVP
+                  </Button>
+                  <Snackbar
+                    open={open}
+                    autoHideDuration={6000}
                     onClose={handleClose}
-                    severity="success"
-                    variant="filled"
-                    sx={{ width: '100%' }}
                   >
-                    Successfully RSVP'd for {details.name}. You may now return
-                    to Events Page.
-                  </Alert>
-                </Snackbar>
-              </center>
-            </form>
+                    <Alert
+                      onClose={handleClose}
+                      severity="success"
+                      variant="filled"
+                      sx={{ width: '100%' }}
+                    >
+                      Successfully RSVP'd for {details.name}. You may now return
+                      to Events Page.
+                    </Alert>
+                  </Snackbar>
+                </center>
+              </form>
+            </center>
           </Grid>
 
-          <Grid item xs={7}>
+          <Grid
+            item
+            xs={7}
+            sx={{
+              marginLeft: '-15px',
+            }}
+          >
             <item>
               <img
-                className="img"
+                className="img-event"
                 id={details.id}
                 src={details.image}
                 alt={details.name}

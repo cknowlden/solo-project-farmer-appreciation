@@ -23,10 +23,10 @@ function Home() {
           display: 'left',
           borderRadius: '16px',
           borderColor: 'honeydew',
-          marginBottom: '70px',
+          marginBottom: '50px',
           marginLeft: '18%',
           marginRight: '18%',
-          marginTop: '75px',
+          marginTop: '50px',
           minHeight: '70vh',
           backgroundColor: 'honeydew',
         }}

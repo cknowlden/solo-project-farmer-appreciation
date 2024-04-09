@@ -1,3 +1,31 @@
-.rsvpForm {
-  /* margin-left: 500px; */
+.img-event {
+  width: 100%;
+  min-height: 650px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.first {
+  height: 25px;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  width: 80%;
+}
+
+.last {
+  height: 25px;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.phone {
+  height: 25px;
+  margin-bottom: 20px;
+  width: 80%;
+}
+
+.email {
+  height: 25px;
+  margin-bottom: 30px;
+  width: 80%;
 }
