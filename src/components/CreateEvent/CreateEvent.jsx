@@ -99,8 +99,8 @@ function CreateEvent() {
     const formData = new FormData();
     formData.append('image', selectedFile);
     axios
-      // .post(`/api/image?imageName=${fileName}`, formData)
-      .post(`/events/image?imageName=${fileName}`, formData)
+      // .post(`image?imageName=${fileName}`, formData)
+      .post(`events/image?imageName=${fileName}`, formData)
       .then((response) => {
         console.log('Success!');
       })
