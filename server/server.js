@@ -15,11 +15,14 @@ const infoRouter = require('./routes/info.router');
 const detailsRouter = require('./routes/details.router');
 const rsvpRouter = require('./routes/rsvp.router');
 const searchRouter = require('./routes/search.router');
+const imageRouter = require('./routes/image.router');
+const fileUpload = require('express-fileupload');
 
 // Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
+app.use(fileUpload()); //accepts file uploads
 
 // Passport Session Configuration
 app.use(sessionMiddleware);
@@ -36,6 +39,7 @@ app.use('/api/info', infoRouter);
 app.use('/api/details', detailsRouter);
 app.use('/api/rsvp', rsvpRouter);
 app.use('/api/search', searchRouter);
+// app.use('/api/image', imageRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {
