@@ -13,6 +13,7 @@ import editSaga from './edit.saga';
 import rsvpCountSaga from './rsvpCount.saga';
 import fetchRSVPSaga from './fetchRSVP.saga';
 import searchSaga from './search.saga';
+import uploadSaga from './upload.saga';
 
 // rootSaga is the primary saga.
 // It bundles up all of the other sagas so our project can use them.
@@ -37,5 +38,6 @@ export default function* rootSaga() {
     rsvpCountSaga(),
     fetchRSVPSaga(),
     searchSaga(),
+    uploadSaga(),
   ]);
 }
