@@ -1,12 +1,15 @@
 CREATE TABLE "user" (
     "id" SERIAL PRIMARY KEY,
-    "username" VARCHAR (80) UNIQUE NOT NULL,
+    "username" VARCHAR (100) UNIQUE NOT NULL,
     "password" VARCHAR (1000) NOT NULL,
     "role_id" INT DEFAULT 2
 );
 
 INSERT INTO "user" ("username", "password")
-    VALUES ('user', 'password') RETURNING id;
+    VALUES ('admin', 'p@ssw0rd!!') RETURNING id;
+    
+INSERT INTO "user" ("username", "password", "role_id")
+	VALUES ('admin', 'password!!', 3);
     
 DROP TABLE "user";
 
@@ -25,7 +28,8 @@ CREATE TABLE "rsvp" (
 	"last_name" VARCHAR(50) NOT NULL,
 	"email" VARCHAR(75) NOT NULL,
 	"phone" BIGINT,
-	"event_id" INT
+	"event_id" INT,
+	"event_name" VARCHAR (255),
 );
 
 INSERT INTO "rsvp" ("first_name", "last_name", "email", "phone", "event_id")
@@ -38,6 +42,12 @@ CREATE TABLE "rsvp_events" (
 	"event_id" INT,
 	"rsvp_id" INT
 );
+
+SELECT COUNT(id) FROM "rsvp" WHERE "event_id" = 1;
+
+SELECT COUNT("rsvp".id) FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id WHERE "events".name = 'Farmer Appreciation Dinner';
+
+  SELECT "rsvp".first_name, "rsvp".last_name, "rsvp".email, "rsvp".phone, "rsvp".event_id, "events".name FROM "rsvp" JOIN "events" ON "rsvp".event_id = "events".id ORDER BY "name" ASC;
 
 DROP TABLE "rsvp_events";
 
@@ -64,8 +74,13 @@ VALUES ('Farmer Appreciation Chicken Dinner', '2024-05-20T19:26', 'Miltrim Farms
 	
 SELECT * FROM "events"
 	ORDER BY "date";
+	
+SELECT * FROM "events" WHERE "events".zip = '54401';
 
 DROP TABLE "events";
+
+   SELECT *, (SELECT COUNT(*) FROM "rsvp") FROM "events"
+      ORDER BY "date";
 
 CREATE TABLE "resources" (
 	"id" SERIAL PRIMARY KEY,
