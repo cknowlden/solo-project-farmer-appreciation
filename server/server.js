@@ -16,7 +16,7 @@ const infoRouter = require('./routes/info.router');
 const detailsRouter = require('./routes/details.router');
 const rsvpRouter = require('./routes/rsvp.router');
 const searchRouter = require('./routes/search.router');
-const imageRouter = require('./routes/image.router');
+const imageRouter = require('./routes/images.router');
 const fileUpload = require('express-fileupload');
 
 // Express Middleware
@@ -40,7 +40,7 @@ app.use('/api/info', infoRouter);
 app.use('/api/details', detailsRouter);
 app.use('/api/rsvp', rsvpRouter);
 app.use('/api/search', searchRouter);
-// app.use('/api/image', imageRouter);
+// app.use('/api/images', imageRouter);
 
 // Listen Server & Port
 app.listen(PORT, () => {
