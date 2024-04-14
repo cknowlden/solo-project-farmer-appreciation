@@ -92,16 +92,22 @@ const s3Client = new aws.S3({
 router.post('/image', async (req, res) => {
   try {
     const { imageName } = req.query;
+    // const { id } = req.user.id;
     const imageData = req.files.image.data;
+    console.log(imageName);
+    console.log(req.files);
 
-    const uploadedFile = await s3Client.upload({
-      Bucket: 'farmer-appreciation-app',
-      Key: `images/${imageName}`, //folder/file
-      Body: imageData, //image data to upload
-      // ACL: 'public-read',
-    });
+    const uploadedFile = await s3Client
+      .upload({
+        Bucket: 'farmer-appreciation-app',
+        // Key: `images/${imageName}_timestamp`, //folder/file
+        Key: `images/${imageName}`, //folder/file
+        Body: imageData, //image data to upload
+        // ACL: 'public-read',
+      })
+      .promise();
     //This is the URL the file can be accessed at
-    console.log(uploadedFile.Location);
+    console.log(uploadedFile);
 
     //TODO: insert the URL into the database
     //Send OK back to client

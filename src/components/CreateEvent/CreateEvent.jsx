@@ -88,6 +88,7 @@ function CreateEvent() {
     if (acceptedImageTypes.includes(fileToUpload.type)) {
       console.log(fileToUpload);
       setSelectedFile(fileToUpload);
+      console.log('selected file', selectedFile);
     } else {
       alert('Please select an image');
     }
@@ -99,7 +100,6 @@ function CreateEvent() {
     const formData = new FormData();
     formData.append('image', selectedFile);
     axios
-      // .post(`image?imageName=${fileName}`, formData)
       .post(`/api/events/image?imageName=${fileName}`, formData)
       .then((response) => {
         console.log('Success!');
