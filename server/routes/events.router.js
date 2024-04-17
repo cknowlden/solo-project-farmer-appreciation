@@ -33,14 +33,8 @@ const s3Client = new S3Client({
   region: process.env.AWS_REGION,
 });
 
+//----------------------------AWS S3 Bucket Upload------------------//
 router.post('/create', rejectUnauthenticated, async (req, res) => {
-  //----------------------------AWS S3 Bucket Upload------------------//
-  // const s3Client = new aws.S3({
-  //   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-  //   secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-  //   region: process.env.AWS_REGION,
-  // });
-
   try {
     const { imageName } = req.query;
     const imageData = req.files.image.data;

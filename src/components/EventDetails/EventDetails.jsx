@@ -166,7 +166,7 @@ function EventDetails() {
                   className="ticket-people"
                   sx={{
                     display: 'flex',
-                    alignItems: 'flex-end',
+                    // alignItems: 'flex-end',
                     marginTop: '50px',
                     marginBottom: '50px',
                   }}
@@ -195,7 +195,7 @@ function EventDetails() {
                     <div>
                       {' '}
                       <IconButton
-                        alignItems="right"
+                        // alignItems="right"
                         aria-label="delete"
                         color="primary"
                         size="large"
