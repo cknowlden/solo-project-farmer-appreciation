@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const app = express();
 require('dotenv').config();
@@ -15,11 +16,13 @@ const infoRouter = require('./routes/info.router');
 const detailsRouter = require('./routes/details.router');
 const rsvpRouter = require('./routes/rsvp.router');
 const searchRouter = require('./routes/search.router');
+const fileUpload = require('express-fileupload');
 
 // Express Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('build'));
+app.use(fileUpload()); //accepts file uploads
 
 // Passport Session Configuration
 app.use(sessionMiddleware);

@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -11,7 +12,7 @@ import '../App/App.css';
 function CreateEvent() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const [open, setOpen] = React.useState(false);
+  const [selectedFile, setSelectedFile] = useState();
   const [formData, setFormData] = useState({
     name: '',
     date: '',
@@ -71,11 +72,34 @@ function CreateEvent() {
       type: 'CREATE_EVENT',
       payload: {
         formData,
+        files: selectedFile,
       },
     });
     clearForm();
     showConfirmation();
   };
+
+  //----------------AWS S3 Bucket Image Upload------------//
+
+  const onFileChange = async (event) => {
+    //TODO: Resize the image
+
+    const fileToUpload = event.target.files[0];
+    const acceptedImageTypes = [
+      'image/gif',
+      'image/jpeg',
+      'image/jpg',
+      'image/png',
+    ];
+    if (acceptedImageTypes.includes(fileToUpload.type)) {
+      console.log(fileToUpload);
+      setSelectedFile(fileToUpload);
+      console.log('selected file', selectedFile);
+    } else {
+      alert('Please select an image');
+    }
+  };
+
   return (
     <div className="wheat">
       <Button
@@ -179,7 +203,7 @@ function CreateEvent() {
                 Image upload:
                 <input
                   className="upload"
-                  onChange={handleInputChange}
+                  onChange={onFileChange}
                   value={formData.image}
                   name="image"
                   type="file"
@@ -225,6 +249,12 @@ function CreateEvent() {
         </div>
       </Box>
     </div>
+    // <div>
+    //   <form onSubmit={sendPhotoToServer}>
+    //     <input type="file" accept="image/*" onChange={onFileChange} />
+    //     <button type="submit">Submit</button>
+    //   </form>
+    // </div>
   );
 }
 

@@ -35,6 +35,22 @@ router.get('/count/:id', (req, res) => {
     });
 });
 
+//------GET IMAGES FROM AWS S3-----
+// router.get('/:imageName', async (req, res) => {
+//   try {
+//     const { imageName } = req.params;
+//     const command = new GetObjectCommand({
+//       Bucket: process.env.AWS_BUCKET,
+//       Key: `images/${imageName}`, // folder/file
+//     });
+//     const data = await s3Client.send(command);
+//     data.Body.pipe(res);
+//   } catch (error) {
+//     console.log(error);
+//     res.sendStatus(500);
+//   }
+// });
+
 router.delete('/:id', (req, res) => {
   pool
     .query('DELETE FROM "events" WHERE id=$1', [req.params.id])
