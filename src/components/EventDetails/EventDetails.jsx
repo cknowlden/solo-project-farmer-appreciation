@@ -122,7 +122,8 @@ function EventDetails() {
               <img
                 className="img"
                 id={details.id}
-                src={details.image}
+                // src={details.image}
+                src={`api/events/${details.image}`}
                 alt={details.name}
               />
             </item>
