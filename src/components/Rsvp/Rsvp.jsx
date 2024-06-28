@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Snackbar, Alert, Box, Grid, Typography } from '@mui/material';
+import { Button, Box, Grid, Typography } from '@mui/material';
 import Swal from 'sweetalert2';
 import '../App/App.css';
 import '../Rsvp/Rsvp.css';
