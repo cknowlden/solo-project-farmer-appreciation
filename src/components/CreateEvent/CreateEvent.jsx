@@ -234,7 +234,7 @@ function CreateEvent() {
                   onChange={handleInputChange}
                   value={formData.cost}
                   name="cost"
-                  type="number"
+                  type="text"
                   placeholder="Cost (required)"
                 />
               </div>{' '}

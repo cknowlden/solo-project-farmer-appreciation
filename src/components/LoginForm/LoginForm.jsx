@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory, Link } from 'react-router-dom';
 import { Button, Box, Grid, IconButton, Typography } from '@mui/material';
 import TrendingFlatIcon from '@mui/icons-material/TrendingFlat';
+import Swal from 'sweetalert2';
 import './LoginForm.css';
 
 function LoginForm() {
@@ -44,6 +45,15 @@ function LoginForm() {
 
       dispatch({ type: 'LOGIN_INPUT_ERROR' });
     }
+
+    const showConfirmationLogin = () => {
+      Swal.fire({
+        text: `You are now logged on as ${username}`,
+        icon: 'success',
+        showCancelButton: false,
+        confirmButtonText: 'OKAY',
+      }).then(() => login());
+    };
   }; // end login
 
   return (
@@ -120,8 +130,9 @@ function LoginForm() {
               <div>
                 <br />
                 <center>
+                  {/* TO DO: Add sweet alert for successful login */}
                   <Button
-                    type="submit"
+                    // type="submit"
                     value="Log In"
                     variant="contained"
                     size="large"
