@@ -132,7 +132,7 @@ function LoginForm() {
                 <center>
                   {/* TO DO: Add sweet alert for successful login */}
                   <Button
-                    // type="submit"
+                    type="submit"
                     value="Log In"
                     variant="contained"
                     size="large"
