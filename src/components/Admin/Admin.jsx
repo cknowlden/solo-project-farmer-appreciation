@@ -11,6 +11,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import EventCount from '../Events/EventCount';
 import '../App/App.css';
 
 function Admin() {
@@ -65,6 +66,7 @@ function Admin() {
           </TableBody>
         </Table>
       </TableContainer>
+      <EventCount eventId={event.id} />
     </div>
   );
 }

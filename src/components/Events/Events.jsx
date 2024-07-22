@@ -153,8 +153,8 @@ function Events() {
                     sx={{ maxHeight: 200, minHeight: 200 }}
                     component="img"
                     id={event.id}
-                    // image={event.image}
-                    src={`api/events/${event.image}`}
+                    image={event.image}
+                    // src={`api/events/${event.image}`}
                     alt={event.name}
                     onClick={handleClick}
                   />
