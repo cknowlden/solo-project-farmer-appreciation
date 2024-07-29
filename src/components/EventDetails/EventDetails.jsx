@@ -122,8 +122,9 @@ function EventDetails() {
               <img
                 className="img"
                 id={details.id}
-                // src={details.image}
-                src={`api/events/${details.image}`}
+                src={details.image}
+                //S3 bucket image:
+                // src={`api/events/${details.image}`}
                 alt={details.name}
               />
             </item>
