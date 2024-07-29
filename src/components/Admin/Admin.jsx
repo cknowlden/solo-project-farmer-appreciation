@@ -27,6 +27,14 @@ function Admin() {
   useEffect(() => {
     dispatch({ type: 'FETCH_RSVP' });
   }, []);
+
+  const groupedRSVPs = fetchRSVP.reduce((acc, rsvp) => {
+    if (!acc[rsvp.name]) {
+      acc[rsvp.name] = [];
+    }
+    acc[rsvp.name].push(rsvp);
+    return acc;
+  }, {});
   return (
     <div>
       <Typography
@@ -36,8 +44,8 @@ function Admin() {
       >
         Event RSVPs:
       </Typography>
-      {/* {JSON.stringify({ fetchRSVP })} */}
-      <TableContainer component={Paper} sx={{ margin: '50px', width: '90%' }}>
+      {/* All events together in one table */}
+      {/* <TableContainer component={Paper} sx={{ margin: '50px', width: '90%' }}>
         <Table sx={{ width: '100%' }} aria-label="simple table">
           <TableHead>
             <TableRow>
@@ -65,10 +73,56 @@ function Admin() {
             ))}
           </TableBody>
         </Table>
-      </TableContainer>
-      <EventCount eventId={event.id} />
+      </TableContainer> */}
+      {/* group rsvps by event */}
+      {Object.keys(groupedRSVPs).map((eventName) => (
+        <div key={eventName}>
+          <Typography
+            variant="h6"
+            fontWeight={500}
+            sx={{ paddingLeft: '50px', color: 'gray' }}
+          >
+            {eventName}
+          </Typography>
+          <TableContainer
+            component={Paper}
+            sx={{ margin: '20px', width: '90%' }}
+          >
+            <Table sx={{ width: '100%' }} aria-label="simple table">
+              <TableHead>
+                <TableRow>
+                  <TableCell sx={{ width: '30%' }}>Event</TableCell>
+                  <TableCell sx={{ width: '15%' }}>First Name</TableCell>
+                  <TableCell sx={{ width: '15%' }}>Last Name</TableCell>
+                  <TableCell sx={{ width: '20%' }}>Email</TableCell>
+                  <TableCell sx={{ width: '20%' }}>Phone</TableCell>
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {groupedRSVPs[eventName].map((row, index) => (
+                  <TableRow
+                    key={index}
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {row.name}
+                    </TableCell>
+                    <TableCell>{row.first_name}</TableCell>
+                    <TableCell>{row.last_name}</TableCell>
+                    <TableCell>{row.email}</TableCell>
+                    <TableCell>{row.phone}</TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </TableContainer>
+        </div>
+      ))}
     </div>
   );
+  {
+    /* <EventCount eventId={event.id} /> */
+  }
 }
 
 export default Admin;
