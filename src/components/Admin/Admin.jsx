@@ -28,11 +28,21 @@ function Admin() {
     dispatch({ type: 'FETCH_RSVP' });
   }, []);
 
+  //group rsvps to their respective event
   const groupedRSVPs = fetchRSVP.reduce((acc, rsvp) => {
     if (!acc[rsvp.name]) {
       acc[rsvp.name] = [];
     }
     acc[rsvp.name].push(rsvp);
+    return acc;
+  }, {});
+
+  // Group RSVPs by event ID and count them
+  const rsvpCounts = fetchRSVP.reduce((acc, rsvp) => {
+    if (!acc[rsvp.event_id]) {
+      acc[rsvp.event_id] = 0;
+    }
+    acc[rsvp.event_id] += 1;
     return acc;
   }, {});
   return (
@@ -91,7 +101,6 @@ function Admin() {
             <Table sx={{ width: '100%' }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ width: '30%' }}>Event</TableCell>
                   <TableCell sx={{ width: '15%' }}>First Name</TableCell>
                   <TableCell sx={{ width: '15%' }}>Last Name</TableCell>
                   <TableCell sx={{ width: '20%' }}>Email</TableCell>
@@ -104,9 +113,6 @@ function Admin() {
                     key={index}
                     sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
                   >
-                    <TableCell component="th" scope="row">
-                      {row.name}
-                    </TableCell>
                     <TableCell>{row.first_name}</TableCell>
                     <TableCell>{row.last_name}</TableCell>
                     <TableCell>{row.email}</TableCell>
