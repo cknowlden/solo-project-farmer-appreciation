@@ -122,13 +122,11 @@ function Admin() {
               </TableBody>
             </Table>
           </TableContainer>
+          RSVP Count: {rsvpCounts[groupedRSVPs[eventName][0].event_id]}
         </div>
       ))}
     </div>
   );
-  {
-    /* <EventCount eventId={event.id} /> */
-  }
 }
 
 export default Admin;
