@@ -58,6 +58,7 @@ Background
 }
 
 .adminDiv {
+  padding-top: 20px;
   background-color: #b6b9b6;
   height: 88vh;
 }

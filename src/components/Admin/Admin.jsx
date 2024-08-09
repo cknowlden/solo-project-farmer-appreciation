@@ -50,15 +50,18 @@ function Admin() {
       {Object.keys(groupedRSVPs).map((eventName) => (
         <div key={eventName}>
           <Typography
-            variant="h6"
+            variant="h2"
             fontWeight={800}
             fontSize={25}
-            sx={{ paddingLeft: '50px', color: 'black' }}
+            sx={{ alignItems: 'center', color: 'black' }}
           >
-            {eventName}
+            {eventName} RSVPs
           </Typography>
           <TableContainer
             component={Paper}
+            direction="column"
+            alignItems="center"
+            justify="center"
             sx={{ margin: '20px', width: '90%' }}
           >
             <Table sx={{ width: '100%' }} aria-label="simple table">
