@@ -53,16 +53,18 @@ function Admin() {
             variant="h2"
             fontWeight={800}
             fontSize={25}
-            sx={{ textAlign: 'center', color: 'black' }}
+            sx={{ textAlign: 'center', color: 'black', marginTop: '40px' }}
           >
             {eventName} RSVPs
           </Typography>
           <TableContainer
             component={Paper}
-            direction="column"
-            alignItems="center"
-            justify="center"
-            sx={{ margin: '20px', width: '90%' }}
+            sx={{
+              margin: 'auto',
+              marginTop: '20px',
+              marginBottom: '20px',
+              width: '90%',
+            }}
           >
             <Table sx={{ width: '100%' }} aria-label="simple table">
               <TableHead>
