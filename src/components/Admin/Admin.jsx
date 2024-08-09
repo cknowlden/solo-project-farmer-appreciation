@@ -46,7 +46,7 @@ function Admin() {
     return acc;
   }, {});
   return (
-    <div>
+    <div className="adminDiv">
       {Object.keys(groupedRSVPs).map((eventName) => (
         <div key={eventName}>
           <Typography
