@@ -47,19 +47,13 @@ function Admin() {
   }, {});
   return (
     <div>
-      <Typography
-        variant="h5"
-        fontWeight={600}
-        sx={{ paddingLeft: '50px', color: 'lightblue' }}
-      >
-        Event RSVPs:
-      </Typography>
       {Object.keys(groupedRSVPs).map((eventName) => (
         <div key={eventName}>
           <Typography
             variant="h6"
-            fontWeight={500}
-            sx={{ paddingLeft: '50px', color: 'gray' }}
+            fontWeight={800}
+            fontSize={25}
+            sx={{ paddingLeft: '50px', color: 'black' }}
           >
             {eventName}
           </Typography>
