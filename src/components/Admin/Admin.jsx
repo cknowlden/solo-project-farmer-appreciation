@@ -53,7 +53,7 @@ function Admin() {
             variant="h2"
             fontWeight={800}
             fontSize={25}
-            sx={{ alignItems: 'center', color: 'black' }}
+            sx={{ textAlign: 'center', color: 'black' }}
           >
             {eventName} RSVPs
           </Typography>
