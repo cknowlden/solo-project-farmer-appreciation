@@ -122,7 +122,9 @@ function Admin() {
               </TableBody>
             </Table>
           </TableContainer>
-          RSVP Count: {rsvpCounts[groupedRSVPs[eventName][0].event_id]}
+          <div className="rsvpCount">
+            RSVP Count: {rsvpCounts[groupedRSVPs[eventName][0].event_id]}
+          </div>
         </div>
       ))}
     </div>
