@@ -13,6 +13,7 @@ import editSaga from './edit.saga';
 import rsvpCountSaga from './rsvpCount.saga';
 import fetchRSVPSaga from './fetchRSVP.saga';
 import searchSaga from './search.saga';
+import deleteRSVPSaga from './deleteRSVP.saga';
 // import uploadSaga from './upload.saga';
 
 // rootSaga is the primary saga.
@@ -39,5 +40,6 @@ export default function* rootSaga() {
     fetchRSVPSaga(),
     searchSaga(),
     // uploadSaga(),
+    deleteRSVPSaga(),
   ]);
 }
