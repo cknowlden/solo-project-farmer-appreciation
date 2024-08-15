@@ -168,7 +168,6 @@ function EventDetails() {
                   className="ticket-people"
                   sx={{
                     display: 'flex',
-                    // alignItems: 'flex-end',
                     marginTop: '50px',
                     marginBottom: '50px',
                   }}

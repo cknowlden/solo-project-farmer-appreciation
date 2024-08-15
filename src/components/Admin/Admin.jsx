@@ -45,6 +45,35 @@ function Admin() {
     acc[rsvp.event_id] += 1;
     return acc;
   }, {});
+
+  //////////////////NEED TO FIX BELOW CODE BY ADDING DELETE ROUTE AND SAGA////////////
+  const showConfirmationDelete = () => {
+    Swal.fire({
+      text: 'Are you sure you want to delete this RSVP?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Yes, delete it!',
+      cancelButtonText: 'No, keep it',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire('The RSVP has been deleted').then(() => handleDelete());
+      } else if (result.dismiss === Swal.DismissReason.cancel) {
+      }
+    });
+
+    const handleDelete = (event) => {
+      const id = details.id;
+      dispatch({
+        type: 'DELETE_RSVP',
+        payload: {
+          id: id,
+        },
+      });
+      goBack();
+    };
+  };
+
+  ///////////////////////ADD SAGA FOR DELETE ROUTES/////////////////////
   return (
     <div className="adminDiv">
       {Object.keys(groupedRSVPs).map((eventName) => (
@@ -69,10 +98,19 @@ function Admin() {
             <Table sx={{ width: '100%' }} aria-label="simple table">
               <TableHead>
                 <TableRow>
-                  <TableCell sx={{ width: '15%' }}>First Name</TableCell>
-                  <TableCell sx={{ width: '15%' }}>Last Name</TableCell>
-                  <TableCell sx={{ width: '20%' }}>Email</TableCell>
-                  <TableCell sx={{ width: '20%' }}>Phone</TableCell>
+                  <TableCell sx={{ width: '15%', fontSize: '1em' }}>
+                    First Name
+                  </TableCell>
+                  <TableCell sx={{ width: '15%', fontSize: '1em' }}>
+                    Last Name
+                  </TableCell>
+                  <TableCell sx={{ width: '20%', fontSize: '1em' }}>
+                    Email
+                  </TableCell>
+                  <TableCell sx={{ width: '15%', fontSize: '1em' }}>
+                    Phone
+                  </TableCell>
+                  <TableCell sx={{ width: '5%' }}></TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -85,6 +123,16 @@ function Admin() {
                     <TableCell>{row.last_name}</TableCell>
                     <TableCell>{row.email}</TableCell>
                     <TableCell>{row.phone}</TableCell>
+                    <TableCell>
+                      <IconButton
+                        aria-label="delete"
+                        color="primary"
+                        size="large"
+                        onClick={showConfirmationDelete}
+                      >
+                        <DeleteIcon />
+                      </IconButton>
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
