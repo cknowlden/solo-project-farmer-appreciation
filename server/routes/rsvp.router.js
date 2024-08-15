@@ -56,4 +56,17 @@ router.post('/:id', (req, res) => {
     });
 });
 
+// verify if /:id is the correct way to delete rsvp - does user id get sent in url
+router.delete('/:id', (req, res) => {
+  pool
+    .query('DELETE FROM "rsvp" WHERE id=$1', [req.params.id])
+    .then((result) => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('Error DELETING /api/rsvp', error);
+      res.sendStatus(500);
+    });
+});
+
 module.exports = router;
