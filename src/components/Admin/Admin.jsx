@@ -12,6 +12,7 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
 import EventCount from '../Events/EventCount';
+import Swal from 'sweetalert2';
 import '../App/App.css';
 
 function Admin() {
