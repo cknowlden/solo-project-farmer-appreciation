@@ -93,7 +93,13 @@ function EventDetails() {
   return (
     <div className="woods">
       <Box
-        display="flex"
+        // display="flex"
+        // justifyContent="flex-end"
+        // marginTop={2}
+        // marginRight={2}
+
+        //new formatting to view on phone
+        display="block"
         justifyContent="flex-end"
         marginTop={2}
         marginRight={2}
@@ -104,6 +110,19 @@ function EventDetails() {
       </Box>
 
       <Box
+        // sx={{
+        //   display: 'left',
+        //   borderRadius: '16px',
+        //   borderColor: 'honeydew',
+        //   marginBottom: '35px',
+        //   marginLeft: '18%',
+        //   marginRight: '18%',
+        //   marginTop: '5px',
+        //   minHeight: '60vh',
+        //   backgroundColor: 'honeydew',
+        // }}
+
+        //new formatting for phone dimensions
         sx={{
           display: 'left',
           borderRadius: '16px',
