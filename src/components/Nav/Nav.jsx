@@ -53,23 +53,25 @@ function Nav() {
         {!user.id && (
           <>
             {/* If there's no user, show login/registration links */}
+
+            {/* Commented out temporarily for actual live event */}
             <p className="userLog">Welcome, Guest</p>
             <div>
               <Link className="navLink" to="/login">
                 Log In
               </Link>
-              <Link className="navLink" to="/">
+              {/* <Link className="navLink" to="/">
                 Home
-              </Link>
+              </Link> */}
               <Link className="navLink" to="/events">
                 Events
               </Link>
-              <Link className="navLink" to="/info">
+              {/* <Link className="navLink" to="/info">
                 Information
               </Link>
               <Link className="navLink" to="/resources">
                 Resources
-              </Link>
+              </Link> */}
             </div>
           </>
         )}
