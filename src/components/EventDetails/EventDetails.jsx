@@ -100,7 +100,6 @@ function EventDetails() {
 
         //new formatting to view on phone
         display="block"
-        justifyContent="flex-end"
         marginTop={2}
         marginRight={2}
       >
@@ -110,6 +109,7 @@ function EventDetails() {
       </Box>
 
       <Box
+        //original configuration
         // sx={{
         //   display: 'left',
         //   borderRadius: '16px',
@@ -122,20 +122,29 @@ function EventDetails() {
         //   backgroundColor: 'honeydew',
         // }}
 
-        //new formatting for phone dimensions
+        // *************************BEGIN SECTION OF NEW CONFIGURATION TO FIT A PHONE*******************
         sx={{
-          display: 'left',
           borderRadius: '16px',
-          borderColor: 'honeydew',
           marginBottom: '35px',
-          marginLeft: '18%',
-          marginRight: '18%',
-          marginTop: '5px',
-          minHeight: '60vh',
+
           backgroundColor: 'honeydew',
         }}
       >
+        <Grid item xs={7} sx={{ alignContent: 'center' }}>
+          <item>
+            <img
+              className="img"
+              id={details.id}
+              src={details.image}
+              //S3 bucket image:
+              // src={`api/events/${details.image}`}
+              alt={details.name}
+            />
+          </item>
+        </Grid>
+        {/* **********************END SECTION OF NEW CONFIGURATION TO FIT A PHONE********************* */}
         <Grid container spacing={2}>
+          {/* original webpage configuration
           <Grid item xs={7}>
             <item>
               <img
@@ -147,7 +156,7 @@ function EventDetails() {
                 alt={details.name}
               />
             </item>
-          </Grid>
+          </Grid> */}
           <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
             <item className="description">
               <Typography
