@@ -90,10 +90,10 @@ function Rsvp() {
           borderRadius: '16px',
           borderColor: 'honeydew',
           marginBottom: '35px',
-          marginLeft: '18%',
-          marginRight: '18%',
+          marginLeft: '10%',
+          marginRight: '10%',
           marginTop: '5px',
-          minHeight: '60vh',
+          minHeight: '80vh',
           backgroundColor: 'honeydew',
         }}
       >
@@ -121,7 +121,7 @@ function Rsvp() {
             <Typography
               variant="h5"
               fontWeight={600}
-              sx={{ paddingLeft: '20px' }}
+              sx={{ paddingLeft: '50px', marginTop: '10px' }}
             >
               {details.name}
             </Typography>
@@ -170,12 +170,16 @@ function Rsvp() {
                 <br />
                 {/* additional verbiage added for phone display */}
                 <Typography
-                  variant="h5"
-                  fontWeight={600}
-                  sx={{ paddingLeft: '20px' }}
+                  variant="h7"
+                  sx={{
+                    textAlign: 'center',
+                    display: 'block',
+                    marginLeft: '15px',
+                    marginBottom: '30px',
+                  }}
                 >
-                  Please note, if there are more people in your party, please be
-                  sure to submit an RSVP for each person so we can get an
+                  **If there are more people in your party than just you, please
+                  be sure to submit an RSVP for each person so we can get an
                   accurate count!
                 </Typography>
                 <center>
