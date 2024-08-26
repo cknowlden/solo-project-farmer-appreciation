@@ -15,6 +15,11 @@
   justify-content: space-around;
 }
 
+.imgPhone {
+  margin-top: 15px; */
+  border-radius: 10px;
+  justify-content: center;
+}
 .description {
   word-wrap: break-word;
   margin-left: 20px;

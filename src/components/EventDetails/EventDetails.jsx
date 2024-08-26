@@ -92,22 +92,29 @@ function EventDetails() {
 
   return (
     <div className="woods">
-      <Box
+      {/* <Box
         // display="flex"
         // justifyContent="flex-end"
         // marginTop={2}
         // marginRight={2}
 
         //new formatting to view on phone
-        display="block"
-        marginTop={2}
-        marginRight={2}
       >
         <Button className="btn_goBack" onClick={goBack} variant="contained">
           X
         </Button>
+      </Box> */}
+      {/* new formatting to view on phone */}
+      <Box
+      // display="flex"
+      // justifyContent="flex-end"
+      // marginTop={2}
+      // marginRight={2}
+      >
+        <Button className="btn_goBack" onClick={goBack} variant="uncontained">
+          X
+        </Button>
       </Box>
-
       <Box
         //original configuration
         // sx={{
@@ -125,15 +132,25 @@ function EventDetails() {
         // *************************BEGIN SECTION OF NEW CONFIGURATION TO FIT A PHONE*******************
         sx={{
           borderRadius: '16px',
-          marginBottom: '35px',
-
+          marginBottom: '25px',
           backgroundColor: 'honeydew',
+          marginLeft: '2%',
+          marginRight: '2%',
         }}
       >
-        <Grid item xs={7} sx={{ alignContent: 'center' }}>
+        <Grid
+          item
+          // xs={7}
+          sx={{
+            alignContent: 'center',
+            marginLeft: '2%',
+            marginRight: '2%',
+          }}
+        >
           <item>
             <img
-              className="img"
+              // className="img"
+              className="imgPhone"
               id={details.id}
               src={details.image}
               //S3 bucket image:
@@ -143,7 +160,8 @@ function EventDetails() {
           </item>
         </Grid>
         {/* **********************END SECTION OF NEW CONFIGURATION TO FIT A PHONE********************* */}
-        <Grid container spacing={2}>
+        <Grid>
+          {/* <Grid container spacing={2}> */}
           {/* original webpage configuration
           <Grid item xs={7}>
             <item>
