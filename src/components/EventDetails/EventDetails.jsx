@@ -136,6 +136,7 @@ function EventDetails() {
           backgroundColor: 'honeydew',
           marginLeft: '2%',
           marginRight: '2%',
+          marginTop: '2%',
         }}
       >
         <Grid
@@ -175,9 +176,11 @@ function EventDetails() {
               />
             </item>
           </Grid> */}
-          <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}>
+          <Grid sx={{ display: 'block' }}>
+            {/* <Grid item xs={5} marginTop={4} sx={{ display: 'block' }}> */}
             <item className="description">
               <Typography
+                // variant="h4"
                 variant="h4"
                 fontWeight={600}
                 sx={{ paddingLeft: '20px' }}
