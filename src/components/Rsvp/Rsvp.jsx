@@ -75,7 +75,11 @@ function Rsvp() {
         marginTop={2}
         marginRight={2}
       >
-        <Button className="btn_goBack" onClick={goBack} variant="contained">
+        {/* <Button className="btn_goBack" onClick={goBack} variant="contained">
+          X
+        </Button> */}
+        {/* altered to allow correct formatting for phone display */}
+        <Button className="btn_goBack" onClick={goBack} variant="uncontained">
           X
         </Button>
       </Box>
@@ -94,12 +98,19 @@ function Rsvp() {
         }}
       >
         <Grid container spacing={2}>
-          <Grid
+          {/* altered to allow correct formatting for phone display */}
+          {/* <Grid
             item
             xs={5}
             marginTop={4}
             sx={{ display: 'flex', flexDirection: 'column', width: '100px' }}
           >
+            <Typography
+              variant="h4"
+              fontWeight={600}
+              sx={{ paddingLeft: '20px' }}
+            > */}
+          <Grid>
             <Typography
               variant="h4"
               fontWeight={600}
@@ -157,6 +168,16 @@ function Rsvp() {
                   placeholder="Email (required)"
                 />{' '}
                 <br />
+                {/* additional verbiage added for phone display */}
+                <Typography
+                  variant="h5"
+                  fontWeight={600}
+                  sx={{ paddingLeft: '20px' }}
+                >
+                  Please note, if there are more people in your party, please be
+                  sure to submit an RSVP for each person so we can get an
+                  accurate count!
+                </Typography>
                 <center>
                   <Button type="submit" className="btn" variant="contained">
                     RSVP
@@ -166,7 +187,8 @@ function Rsvp() {
             </center>
           </Grid>
 
-          <Grid
+          {/* altered to allow correct formatting for phone display */}
+          {/* <Grid
             item
             xs={7}
             sx={{
@@ -181,7 +203,7 @@ function Rsvp() {
                 alt={details.name}
               />
             </item>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Box>
     </div>
