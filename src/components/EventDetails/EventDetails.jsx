@@ -132,7 +132,7 @@ function EventDetails() {
         // *************************BEGIN SECTION OF NEW CONFIGURATION TO FIT A PHONE*******************
         sx={{
           borderRadius: '16px',
-          marginBottom: '25px',
+          marginBottom: '2%',
           backgroundColor: 'honeydew',
           marginLeft: '2%',
           marginRight: '2%',
@@ -181,9 +181,9 @@ function EventDetails() {
             <item className="description">
               <Typography
                 // variant="h4"
-                variant="h4"
+                variant="h6"
                 fontWeight={600}
-                sx={{ paddingLeft: '20px' }}
+                sx={{ paddingLeft: '10px' }}
               >
                 {details.name}
               </Typography>
@@ -217,8 +217,10 @@ function EventDetails() {
                   className="ticket-people"
                   sx={{
                     display: 'flex',
-                    marginTop: '50px',
-                    marginBottom: '50px',
+                    marginTop: '25px',
+                    marginBottom: '20px',
+                    // marginTop: '50px',
+                    // marginBottom: '50px',
                   }}
                 >
                   <ConfirmationNumberIcon sx={{ verticalAlign: 'middle' }} /> $
