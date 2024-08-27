@@ -32,18 +32,54 @@ router.get('/', (req, res) => {
     });
 });
 
+//  ***** ORIGINAL CODE FOR FORM ********
+// router.post('/:id', (req, res) => {
+//   let event_id = req.params.id;
+//   const sqlText = `INSERT INTO "rsvp"
+//   ("first_name", "last_name", "email", "phone", "event_id")
+//   VALUES
+//     ($1, $2, $3, $4, $5);
+//     `;
+//   const sqlValues = [
+//     req.body.first_name,
+//     req.body.last_name,
+//     req.body.email,
+//     req.body.phone === '' ? null : req.body.phone,
+//     event_id,
+//   ];
+
+//   pool
+//     .query(sqlText, sqlValues)
+//     .then(() => res.sendStatus(201))
+//     .catch((err) => {
+//       console.log('rsvp failed:', err);
+//       res.sendStatus(500);
+//     });
+// });
+
 router.post('/:id', (req, res) => {
-  let event_id = req.params.id;
-  const sqlText = `INSERT INTO "rsvp"
-  ("first_name", "last_name", "email", "phone", "event_id")
-  VALUES
-    ($1, $2, $3, $4, $5);
-    `;
+  const event_id = req.params.id;
+
+  // Extract and validate email
+  const { first_name, last_name, email, phone } = req.body;
+
+  // Regular expression for basic email validation
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(email)) {
+    return res.status(400).json({ error: 'Invalid email address' });
+  }
+
+  const sqlText = `
+    INSERT INTO "rsvp" ("first_name", "last_name", "email", "phone", "event_id")
+    VALUES ($1, $2, $3, $4, $5);
+  `;
+
   const sqlValues = [
-    req.body.first_name,
-    req.body.last_name,
-    req.body.email,
-    req.body.phone === '' ? null : req.body.phone,
+    first_name,
+    last_name,
+    email,
+    phone === '' ? null : phone,
     event_id,
   ];
 
@@ -51,7 +87,7 @@ router.post('/:id', (req, res) => {
     .query(sqlText, sqlValues)
     .then(() => res.sendStatus(201))
     .catch((err) => {
-      console.log('rsvp failed:', err);
+      console.error('RSVP failed:', err);
       res.sendStatus(500);
     });
 });
