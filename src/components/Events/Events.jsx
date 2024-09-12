@@ -125,7 +125,8 @@ function Events() {
         </div>
       </div>
       <div className="card-section">
-        <h2 className="title">Upcoming Events</h2>
+        {/* <h2 className="title">Upcoming Events</h2> */}
+        <h2 className="title">Click image below for details</h2>
         <Grid
           paddingLeft={5}
           paddingRight={5}
