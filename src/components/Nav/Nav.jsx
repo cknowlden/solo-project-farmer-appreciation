@@ -82,15 +82,16 @@ function Nav() {
             <p className="userLog">Logged in as: {user.username}</p>
 
             <div>
-              <Link className="navLink" to="/">
+              {/* Commented out temporarily for actual live event */}
+              {/* <Link className="navLink" to="/">
                 Home
-              </Link>
+              </Link> */}
 
               <Link className="navLink" to="/events">
                 Events
               </Link>
 
-              <Link className="navLink" to="/create">
+              {/* <Link className="navLink" to="/create">
                 Create Event
               </Link>
 
@@ -102,7 +103,7 @@ function Nav() {
                 Resources
               </Link>
 
-              <LogOutButton className="navLink" />
+              <LogOutButton className="navLink" /> */}
             </div>
           </>
         )}
