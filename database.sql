@@ -5,8 +5,6 @@ CREATE TABLE "user" (
     "role_id" INT DEFAULT 2
 );
 
-INSERT INTO "user" ("username", "password", "role_id")
-	VALUES ('admin', 'T@1Lgunn3r?!079100', 3);
 
 CREATE TABLE "roles" (
     "id" SERIAL PRIMARY KEY,
